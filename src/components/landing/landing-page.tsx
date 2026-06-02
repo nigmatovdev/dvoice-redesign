@@ -1,0 +1,43 @@
+"use client";
+
+import { Footer } from "./footer";
+import { LangProvider } from "./lang-provider";
+import { Nav } from "./nav";
+import { Cta } from "./sections/cta";
+import { Faq } from "./sections/faq";
+import { Features } from "./sections/features";
+import { Hero } from "./sections/hero";
+import { How } from "./sections/how";
+import { Integrations } from "./sections/integrations";
+import { Pricing } from "./sections/pricing";
+import { Results } from "./sections/results";
+import { Showcase } from "./sections/showcase";
+import { Testimonials } from "./sections/testimonials";
+import { Trust } from "./sections/trust";
+
+/**
+ * Client root for the marketing landing page. Wraps everything in the language
+ * provider so the UZ/EN toggle works live. All content is still server-rendered
+ * for SEO (Next.js renders client components on the server for the initial HTML).
+ */
+export function LandingPage() {
+  return (
+    <LangProvider>
+      <Nav />
+      <main id="top">
+        <Hero />
+        <Trust />
+        <Features />
+        <How />
+        <Showcase />
+        <Results />
+        <Integrations />
+        <Pricing />
+        <Testimonials />
+        <Faq />
+        <Cta />
+      </main>
+      <Footer />
+    </LangProvider>
+  );
+}

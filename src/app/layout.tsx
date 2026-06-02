@@ -72,7 +72,7 @@ export default function RootLayout({
       <head>
         <script dangerouslySetInnerHTML={{ __html: noFlashScript }} />
       </head>
-      <body>
+      <body suppressHydrationWarning>
         {/* Site-wide structured data, rendered in SSR HTML for crawlers. */}
         <JsonLd data={organizationSchema()} />
         <JsonLd data={websiteSchema()} />
