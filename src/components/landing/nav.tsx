@@ -1,12 +1,12 @@
-import { LangSeg, ThemeSeg } from "./controls";
+import { AccessButton } from "./contact-modal";
+import { LangToggle, ThemeToggle } from "./controls";
 import { T } from "./lang-provider";
 
-const links: { href: string; k: "nav_features" | "nav_how" | "nav_showcase" | "nav_pricing" | "nav_faq" }[] = [
+// Max 3 primary links to keep the bar clean.
+const links: { href: string; k: "nav_features" | "nav_showcase" | "nav_pricing" }[] = [
   { href: "#features", k: "nav_features" },
-  { href: "#how", k: "nav_how" },
   { href: "#showcase", k: "nav_showcase" },
   { href: "#pricing", k: "nav_pricing" },
-  { href: "#faq", k: "nav_faq" },
 ];
 
 export function Nav() {
@@ -28,14 +28,9 @@ export function Nav() {
           ))}
         </nav>
         <div className="nav-actions">
-          <LangSeg />
-          <ThemeSeg />
-          <a className="btn btn-ghost btn-sm" href="#">
-            <T k="nav_login" />
-          </a>
-          <a className="btn btn-primary btn-sm" href="#cta">
-            <T k="nav_cta" />
-          </a>
+          <LangToggle />
+          <ThemeToggle />
+          <AccessButton k="cta_get_access" className="btn btn-primary btn-sm" />
         </div>
       </div>
     </header>

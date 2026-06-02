@@ -1,6 +1,6 @@
 import { type DictKey } from "@/lib/i18n";
 
-import { LangSeg, ThemeSeg } from "./controls";
+import { LangToggle, ThemeToggle } from "./controls";
 import { T } from "./lang-provider";
 
 const columns: { heading: DictKey; links: { href: string; k: DictKey }[] }[] = [
@@ -71,8 +71,8 @@ export function Footer() {
             <T k="ft_cr" />
           </span>
           <div style={{ display: "flex", gap: 10 }}>
-            <LangSeg />
-            <ThemeSeg />
+            <LangToggle />
+            <ThemeToggle />
           </div>
         </div>
       </div>

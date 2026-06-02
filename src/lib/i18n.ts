@@ -284,6 +284,30 @@ export const dict = {
     uz: "© 2026 Sales — Speech analytics. Toshkent, O‘zbekiston.",
     en: "© 2026 Sales — Speech analytics. Tashkent, Uzbekistan.",
   },
+
+  // ---- access / partner CTAs + contact modal ----
+  cta_get_access: { uz: "Ruxsat olish", en: "Get Access" },
+  cta_partner: { uz: "Hamkor bo‘lish", en: "Become a Partner" },
+  modal_title: { uz: "Ruxsat olish uchun ariza", en: "Request access" },
+  modal_sub: {
+    uz: "Ma’lumotlaringizni qoldiring — jamoamiz tez orada siz bilan bog‘lanadi.",
+    en: "Leave your details and our team will reach out to you shortly.",
+  },
+  modal_name: { uz: "To‘liq ism", en: "Full name" },
+  modal_name_ph: { uz: "Ism Familiya", en: "Jane Doe" },
+  modal_email: { uz: "Gmail manzili", en: "Gmail address" },
+  modal_email_ph: { uz: "siz@gmail.com", en: "you@gmail.com" },
+  modal_phone: { uz: "Telefon raqami", en: "Phone number" },
+  modal_phone_ph: { uz: "+998 90 123 45 67", en: "+998 90 123 45 67" },
+  modal_submit: { uz: "Yuborish", en: "Submit" },
+  modal_sending: { uz: "Yuborilmoqda…", en: "Sending…" },
+  modal_success_t: { uz: "Rahmat!", en: "Thank you!" },
+  modal_success_d: {
+    uz: "Arizangiz qabul qilindi. Tez orada bog‘lanamiz.",
+    en: "Your request was received. We’ll be in touch soon.",
+  },
+  modal_close: { uz: "Yopish", en: "Close" },
+  modal_err_email: { uz: "To‘g‘ri Gmail manzilini kiriting.", en: "Please enter a valid Gmail address." },
 } as const;
 
 export type DictKey = keyof typeof dict;

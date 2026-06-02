@@ -1,5 +1,6 @@
 import { type DictKey } from "@/lib/i18n";
 
+import { AccessButton } from "../contact-modal";
 import { T, useLang } from "../lang-provider";
 import { Reveal } from "../reveal";
 
@@ -107,9 +108,7 @@ function PlanCard({ plan }: { plan: Plan }) {
           </li>
         ))}
       </ul>
-      <a className={`btn ${plan.ctaPrimary ? "btn-primary" : "btn-ghost"}`} href="#cta">
-        <T k={plan.cta} />
-      </a>
+      <AccessButton k={plan.cta} className={`btn ${plan.ctaPrimary ? "btn-primary" : "btn-ghost"}`} />
     </>
   );
 }

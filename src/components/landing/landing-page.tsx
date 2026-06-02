@@ -1,7 +1,9 @@
 "use client";
 
+import { ContactModalProvider } from "./contact-modal";
 import { Footer } from "./footer";
 import { LangProvider } from "./lang-provider";
+import { MouseGlow } from "./mouse-glow";
 import { Nav } from "./nav";
 import { Cta } from "./sections/cta";
 import { Faq } from "./sections/faq";
@@ -23,21 +25,24 @@ import { Trust } from "./sections/trust";
 export function LandingPage() {
   return (
     <LangProvider>
-      <Nav />
-      <main id="top">
-        <Hero />
-        <Trust />
-        <Features />
-        <How />
-        <Showcase />
-        <Results />
-        <Integrations />
-        <Pricing />
-        <Testimonials />
-        <Faq />
-        <Cta />
-      </main>
-      <Footer />
+      <ContactModalProvider>
+        <MouseGlow />
+        <Nav />
+        <main id="top">
+          <Hero />
+          <Trust />
+          <Features />
+          <How />
+          <Showcase />
+          <Results />
+          <Integrations />
+          <Pricing />
+          <Testimonials />
+          <Faq />
+          <Cta />
+        </main>
+        <Footer />
+      </ContactModalProvider>
     </LangProvider>
   );
 }

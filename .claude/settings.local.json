@@ -5,7 +5,9 @@
       "PowerShell(npm -v)",
       "PowerShell(\"---NODE---\")",
       "PowerShell(\"---NPM---\")",
-      "PowerShell(npm run build)"
+      "PowerShell(npm run build)",
+      "WebFetch(domain:dvoice.uz)",
+      "WebFetch(domain:dvoice.ai)"
     ]
   }
 }
