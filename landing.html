@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="uz" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sales — AI nutq tahlili / Speech analytics</title>
+<meta name="description" content="AI-powered speech analytics for contact centers — score every sales call, find the coaching zone, lift conversion." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="landing.css" />
+<script>
+  // set theme before first paint
+  try {
+    var t = localStorage.getItem('sales-landing-theme') || 'dark';
+    document.documentElement.setAttribute('data-theme', t);
+    var l = localStorage.getItem('sales-landing-lang') || 'uz';
+    document.documentElement.setAttribute('lang', l);
+  } catch (e) {}
+</script>
+</head>
+<body>
+
+<!-- ============ NAV ============ -->
+<header class="nav">
+  <div class="wrap nav-inner">
+    <a class="brand" href="#top">
+      <div class="brand-mark">S.</div>
+      <div>
+        <div class="brand-name">Sales</div>
+        <div class="brand-tag">Speech analytics</div>
+      </div>
+    </a>
+    <nav class="nav-links">
+      <a href="#features" data-i18n="nav_features">Imkoniyatlar</a>
+      <a href="#how" data-i18n="nav_how">Qanday ishlaydi</a>
+      <a href="#showcase" data-i18n="nav_showcase">Dashboard</a>
+      <a href="#pricing" data-i18n="nav_pricing">Narxlar</a>
+      <a href="#faq" data-i18n="nav_faq">Savollar</a>
+    </nav>
+    <div class="nav-actions">
+      <div class="seg lang-seg" role="group" aria-label="Language">
+        <button data-lang="uz" aria-label="O‘zbekcha">UZ</button>
+        <button data-lang="en" aria-label="English">EN</button>
+      </div>
+      <div class="seg theme-seg" role="group" aria-label="Theme">
+        <button data-theme="light" aria-label="Light">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        </button>
+        <button data-theme="dark" aria-label="Dark">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg>
+        </button>
+      </div>
+      <a class="btn btn-ghost btn-sm" href="#" data-i18n="nav_login">Kirish</a>
+      <a class="btn btn-primary btn-sm" href="#cta" data-i18n="nav_cta">Bepul boshlash</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <span class="eyebrow"><span class="dot" style="background:var(--blue)"></span><span data-i18n="hero_eyebrow">AI NUTQ TAHLILI · amoCRM</span></span>
+      <h1 class="h-display" data-i18n="hero_title">Har bir sotuv qo‘ng‘irog‘ini ballga aylantiring.</h1>
+      <p class="lede" data-i18n="hero_sub">Sales barcha qo‘ng‘iroqlarni tinglaydi, ularni 0–100 ball bilan baholaydi va bitimlar qayerda yo‘qolayotganini hamda qaysi menejerga coaching kerakligini avtomatik ko‘rsatadi.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary btn-lg" href="#cta" data-i18n="hero_cta1">Bepul boshlash</a>
+        <a class="btn btn-ghost btn-lg" href="#showcase" data-i18n="hero_cta2">Demoni ko‘rish</a>
+      </div>
+      <div class="hero-note">
+        <span data-i18n="hero_note1">amoCRM integratsiyasi</span>
+        <span class="sep">·</span>
+        <span data-i18n="hero_note2">14 kunlik bepul sinov</span>
+        <span class="sep">·</span>
+        <span data-i18n="hero_note3">Karta shart emas</span>
+      </div>
+      <div class="hero-ticks">
+        <div class="tick"><div class="n mono">1 742</div><div class="l" data-i18n="tick1_l">tahlil qilingan qo‘ng‘iroq</div></div>
+        <div class="tick"><div class="n mono">62.4</div><div class="l" data-i18n="tick2_l">o‘rtacha call score</div></div>
+        <div class="tick"><div class="n mono" style="color:var(--green)">+18%</div><div class="l" data-i18n="tick3_l">konversiya o‘sishi</div></div>
+      </div>
+    </div>
+
+    <!-- recreated mini dashboard -->
+    <div class="hero-visual">
+      <div class="preview">
+        <div class="preview-bar">
+          <div class="dots"><i></i><i></i><i></i></div>
+          <span class="addr mono" data-i18n="pv_addr">app.sales.uz/dashboard</span>
+        </div>
+        <div class="preview-body">
+          <div class="preview-head">
+            <div>
+              <div class="t" data-i18n="pv_title">Kunlik operatsion panel</div>
+              <div class="s" data-i18n="pv_sub">1 742 qo‘ng‘iroq · Hafta</div>
+            </div>
+            <div class="mini-pills">
+              <span class="mini-pill">KUN</span>
+              <span class="mini-pill" style="background:var(--brand);color:var(--brandInk);border-color:var(--brand)">HAFTA</span>
+              <span class="mini-pill">OY</span>
+            </div>
+          </div>
+
+          <div class="mini-kpis">
+            <div class="mini-kpi">
+              <div class="lab"><span class="d" style="background:var(--amber)"></span><span data-i18n="pv_k1">CALL SCORE</span></div>
+              <div class="val">62.4<span class="u">/100</span></div>
+            </div>
+            <div class="mini-kpi">
+              <div class="lab"><span class="d" style="background:var(--blue)"></span><span data-i18n="pv_k2">PICKUP</span></div>
+              <div class="val">60<span class="u">%</span></div>
+            </div>
+            <div class="mini-kpi">
+              <div class="lab"><span class="d" style="background:var(--green)"></span><span data-i18n="pv_k3">KONVERSIYA</span></div>
+              <div class="val">8.4<span class="u">%</span></div>
+            </div>
+          </div>
+
+          <div class="histo">
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px">
+              <span class="mono" style="font-size:9px;font-weight:700;color:var(--ink3);text-transform:uppercase;letter-spacing:.5px" data-i18n="pv_hist">Call score taqsimoti · 0–100</span>
+            </div>
+            <div class="histo-legend">
+              <span><i style="background:var(--red)"></i><span data-i18n="lg_crit">Tanqidiy</span></span>
+              <span><i style="background:var(--amber)"></i><span data-i18n="lg_coach">Coaching</span></span>
+              <span><i style="background:var(--blue)"></i><span data-i18n="lg_good">Yaxshi</span></span>
+              <span><i style="background:var(--green)"></i><span data-i18n="lg_great">A’lo</span></span>
+            </div>
+            <div class="bars">
+              <div class="bar" data-h="8"  style="background:var(--red)"></div>
+              <div class="bar" data-h="14" style="background:var(--red)"></div>
+              <div class="bar" data-h="22" style="background:var(--red)"></div>
+              <div class="bar" data-h="32" style="background:var(--red)"></div>
+              <div class="bar" data-h="45" style="background:var(--red)"></div>
+              <div class="bar" data-h="54" style="background:var(--red)"></div>
+              <div class="bar" data-h="64" style="background:var(--red)"></div>
+              <div class="bar" data-h="76" style="background:var(--red)"></div>
+              <div class="bar" data-h="90" style="background:var(--amber)"></div>
+              <div class="bar" data-h="100" style="background:var(--amber)"></div>
+              <div class="bar" data-h="96" style="background:var(--amber)"></div>
+              <div class="bar" data-h="78" style="background:var(--amber)"></div>
+              <div class="bar" data-h="60" style="background:var(--blue)"></div>
+              <div class="bar" data-h="48" style="background:var(--blue)"></div>
+              <div class="bar" data-h="35" style="background:var(--blue)"></div>
+              <div class="bar" data-h="27" style="background:var(--blue)"></div>
+              <div class="bar" data-h="20" style="background:var(--green)"></div>
+              <div class="bar" data-h="15" style="background:var(--green)"></div>
+              <div class="bar" data-h="11" style="background:var(--green)"></div>
+              <div class="bar" data-h="7"  style="background:var(--green)"></div>
+            </div>
+            <div class="histo-foot"><span>0</span><span>25</span><span>50</span><span>75</span><span>100</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRUST ============ -->
+<section class="trust">
+  <div class="wrap trust-inner">
+    <span class="trust-label" data-i18n="trust_label">O‘zbekistondagi sotuv jamoalari ishonadi</span>
+    <div class="trust-logos">
+      <span>Sales.uz</span><span>EduTech</span><span>CallPro</span><span>Maktab+</span><span>VoronkaX</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FEATURES ============ -->
+<section class="section" id="features">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot" style="background:var(--violet)"></span><span data-i18n="feat_eyebrow">IMKONIYATLAR</span></span>
+      <h2 class="h2" data-i18n="feat_h2">Qo‘ng‘iroqlarni tinglashning o‘rniga — natijani o‘qing.</h2>
+      <p class="lede" data-i18n="feat_lede">Sales — qo‘ng‘iroq markazingiz uchun nutq tahlili platformasi. Transkripsiya, ballash, coaching va pipeline — bitta tizimda.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature reveal">
+        <div class="ico" style="background:var(--amberSoft);color:var(--amber)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.8 5.5L19 10l-5.2 1.5L12 17l-1.8-5.5L5 10l5.2-1.5z"/></svg></div>
+        <h3 data-i18n="f1_t">Avtomatik call scoring</h3>
+        <p data-i18n="f1_d">AI har bir qo‘ng‘iroqni sizning sotuv skriptingiz bo‘yicha 0–100 ball bilan baholaydi — qo‘lda tinglashsiz.</p>
+        <span class="tag" data-i18n="f1_g">100% QO‘NG‘IROQ</span>
+      </div>
+      <div class="feature reveal">
+        <div class="ico" style="background:var(--redSoft);color:var(--red)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg></div>
+        <h3 data-i18n="f2_t">Coaching zonasi</h3>
+        <p data-i18n="f2_d">40–60 ballik “oraliq” qo‘ng‘iroqlarni topadi — aynan shu yerda kichik coaching katta natija beradi.</p>
+        <span class="tag" data-i18n="f2_g">40–60 BALL</span>
+      </div>
+      <div class="feature reveal">
+        <div class="ico" style="background:var(--blueSoft);color:var(--blue)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18l-7 8v6l-4-2v-4z"/></svg></div>
+        <h3 data-i18n="f3_t">Pipeline konversiya</h3>
+        <p data-i18n="f3_d">Bosqichdan bosqichga o‘tish darajasini ko‘rsatadi va bitimlar aynan qayerda to‘kilayotganini belgilaydi.</p>
+        <span class="tag" data-i18n="f3_g">FUNNEL</span>
+      </div>
+      <div class="feature reveal">
+        <div class="ico" style="background:var(--greenSoft);color:var(--green)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
+        <h3 data-i18n="f4_t">Menejer × ko‘nikma heatmap</h3>
+        <p data-i18n="f4_d">Har bir menejerni sotuv qadamlari bo‘yicha baholaydi — kim salomlashishda, kim e’tirozda kuchsiz.</p>
+        <span class="tag" data-i18n="f4_g">HEATMAP</span>
+      </div>
+      <div class="feature reveal">
+        <div class="ico" style="background:var(--violetSoft);color:var(--violet)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M8 10h8M8 14h5"/><path d="M21 12a8 8 0 0 1-8 8H7l-4 3v-6a8 8 0 0 1 8-12h2a8 8 0 0 1 8 8z"/></svg></div>
+        <h3 data-i18n="f5_t">E’tirozlar tahlili</h3>
+        <p data-i18n="f5_d">Eng tez-tez uchraydigan e’tirozlarni va ularning yopilishga ta’sirini avtomatik ajratadi.</p>
+        <span class="tag" data-i18n="f5_g">NLP</span>
+      </div>
+      <div class="feature reveal">
+        <div class="ico" style="background:var(--blueSoft);color:var(--blue)"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3v6M15 3v6"/><rect x="6" y="9" width="12" height="6" rx="2"/><path d="M12 15v3a3 3 0 0 0 3 3"/></svg></div>
+        <h3 data-i18n="f6_t">amoCRM bilan jonli ulanish</h3>
+        <p data-i18n="f6_d">Qo‘ng‘iroqlar, bosqichlar va bitimlar amoCRM bilan real vaqtda sinxronlanadi — qo‘shimcha ish yo‘q.</p>
+        <span class="tag" data-i18n="f6_g">INTEGRATSIYA</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW ============ -->
+<section class="section" id="how" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot" style="background:var(--teal)"></span><span data-i18n="how_eyebrow">QANDAY ISHLAYDI</span></span>
+      <h2 class="h2" data-i18n="how_h2">Uch qadam — tinglashdan o‘sishgacha.</h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="num mono">01</div>
+        <h3 data-i18n="s1_t">Ulang</h3>
+        <p data-i18n="s1_d">amoCRM va telefoniyangizni bir necha daqiqada ulang. Tarixiy qo‘ng‘iroqlar avtomatik yuklanadi.</p>
+      </div>
+      <div class="step reveal">
+        <div class="num mono">02</div>
+        <h3 data-i18n="s2_t">Tahlil qiladi</h3>
+        <p data-i18n="s2_d">AI har bir qo‘ng‘iroqni transkripsiya qiladi, skript bo‘yicha ballaydi va zaif nuqtalarni belgilaydi.</p>
+      </div>
+      <div class="step reveal">
+        <div class="num mono">03</div>
+        <h3 data-i18n="s3_t">O‘sing</h3>
+        <p data-i18n="s3_d">Bitta ekranda coaching zonasini, pipeline’ni va menejerlar reytingini ko‘rib, konversiyani oshiring.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SHOWCASE ============ -->
+<section class="section showcase" id="showcase">
+  <div class="wrap showcase-grid">
+    <div class="reveal">
+      <span class="eyebrow"><span class="dot" style="background:var(--green)"></span><span data-i18n="sc_eyebrow">MAHSULOT</span></span>
+      <h2 class="h2" style="margin-top:14px" data-i18n="sc_h2">Butun qo‘ng‘iroq markazi — bitta ekranda.</h2>
+      <p class="lede" style="margin-top:14px" data-i18n="sc_lede">Operatsion panel sifat, ko‘nikma va pipeline holatini bir joyda jamlaydi. Aynan shu interfeysni siz uchun moslab beramiz.</p>
+      <ul class="showcase-list">
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 7"/></svg></span><span data-i18n="sc_l1">Call score histogrammasi 4 sifat zonasi bilan</span></li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 7"/></svg></span><span data-i18n="sc_l2">Pipeline funnel va bosqich konversiyasi</span></li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 7"/></svg></span><span data-i18n="sc_l3">Menejer × ko‘nikma heatmap va reyting</span></li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l4 4L19 7"/></svg></span><span data-i18n="sc_l4">Qorong‘i va yorug‘ rejim · o‘zbek tilida</span></li>
+      </ul>
+    </div>
+    <div class="frame reveal">
+      <div class="frame-bar">
+        <div class="dots"><i style="background:var(--red)"></i><i style="background:var(--amber)"></i><i style="background:var(--green)"></i></div>
+        <span class="addr">app.sales.uz/dashboard</span>
+      </div>
+      <div class="frame-shot">
+        <img src="assets/dash-dark.png" data-i18n-alt="sc_shot_alt" alt="Sales operatsion dashboard" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ RESULTS ============ -->
+<section class="section" id="results">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot" style="background:var(--amber)"></span><span data-i18n="rs_eyebrow">NATIJALAR</span></span>
+      <h2 class="h2" data-i18n="rs_h2">Tinglashga ketgan vaqt — o‘sishga.</h2>
+    </div>
+    <div class="results-grid">
+      <div class="result reveal"><div class="n" style="color:var(--blue)" data-i18n="r1_n">100%</div><div class="l" data-i18n="r1_l">qo‘ng‘iroqlar tahlil qilinadi — tanlangan namuna emas</div><div class="bar"><i style="width:100%;background:var(--blue)"></i></div></div>
+      <div class="result reveal"><div class="n" style="color:var(--violet)" data-i18n="r2_n">8 soat→5 daq</div><div class="l" data-i18n="r2_l">kunlik QA — qo‘lda tinglashdan avtomatik hisobotgacha</div><div class="bar"><i style="width:88%;background:var(--violet)"></i></div></div>
+      <div class="result reveal"><div class="n" style="color:var(--green)" data-i18n="r3_n">+18%</div><div class="l" data-i18n="r3_l">coaching’dan keyin o‘rtacha konversiya o‘sishi</div><div class="bar"><i style="width:64%;background:var(--green)"></i></div></div>
+      <div class="result reveal"><div class="n" style="color:var(--amber)" data-i18n="r4_n">&lt;24 soat</div><div class="l" data-i18n="r4_l">ulanishdan birinchi tahlilgacha</div><div class="bar"><i style="width:40%;background:var(--amber)"></i></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INTEGRATIONS ============ -->
+<section class="section showcase" id="integrations" style="padding-top:80px;padding-bottom:80px">
+  <div class="wrap">
+    <div class="section-head reveal" style="margin-bottom:40px">
+      <span class="eyebrow"><span class="dot" style="background:var(--blue)"></span><span data-i18n="in_eyebrow">INTEGRATSIYALAR</span></span>
+      <h2 class="h2" data-i18n="in_h2">Sizning stack’ingiz bilan ishlaydi.</h2>
+      <p class="lede" data-i18n="in_lede">amoCRM’dan boshlab telefoniya va xabar almashish kanallarigacha — Sales mavjud jarayoningizga ulanadi.</p>
+    </div>
+    <div class="integ-grid">
+      <div class="integ reveal"><div class="logo" style="background:var(--blueSoft);color:var(--blue)">a</div><div><div class="nm">amoCRM</div><div class="ds" data-i18n="in1_d">CRM · jonli sinxron</div></div></div>
+      <div class="integ reveal"><div class="logo" style="background:var(--greenSoft);color:var(--green)">☎</div><div><div class="nm">SIP / VATS</div><div class="ds" data-i18n="in2_d">Telefoniya</div></div></div>
+      <div class="integ reveal"><div class="logo" style="background:var(--violetSoft);color:var(--violet)">✆</div><div><div class="nm">Telegram</div><div class="ds" data-i18n="in3_d">Xabar kanallari</div></div></div>
+      <div class="integ reveal"><div class="logo" style="background:var(--amberSoft);color:var(--amber)">{ }</div><div><div class="nm">REST API</div><div class="ds" data-i18n="in4_d">Ochiq API</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRICING ============ -->
+<section class="section" id="pricing">
+  <div class="wrap">
+    <div class="section-head reveal" style="margin-left:auto;margin-right:auto;text-align:center">
+      <span class="eyebrow"><span class="dot" style="background:var(--green)"></span><span data-i18n="pr_eyebrow">NARXLAR</span></span>
+      <h2 class="h2" style="margin-top:14px" data-i18n="pr_h2">Jamoangiz hajmiga mos tarif.</h2>
+      <p class="lede" style="margin:14px auto 0" data-i18n="pr_lede">Barcha tariflar 14 kunlik bepul sinov bilan. Istalgan vaqtda bekor qiling.</p>
+    </div>
+    <div class="pricing-grid">
+      <!-- Start -->
+      <div class="plan reveal">
+        <div class="pname" data-i18n="pl1_n">START</div>
+        <div class="pdesc" data-i18n="pl1_d">Kichik jamoalar va birinchi tajriba uchun.</div>
+        <div class="price"><span class="amt mono" data-i18n="pl1_p">0</span><span class="per" data-i18n="pl1_per">so‘m / 14 kun sinov</span></div>
+        <ul class="pfeat">
+          <li><span class="ck mono">✓</span><span data-i18n="feat_users3">3 tagacha foydalanuvchi</span></li>
+          <li><span class="ck mono">✓</span><span data-i18n="feat_calls">Cheksiz qo‘ng‘iroq tahlili</span></li>
+          <li><span class="ck mono">✓</span><span data-i18n="feat_score">Avtomatik call scoring</span></li>
+          <li><span class="ck mono">✓</span><span data-i18n="feat_dash">Operatsion dashboard</span></li>
+        </ul>
+        <a class="btn btn-ghost" href="#cta" data-i18n="pr_cta_free">Bepul boshlash</a>
+      </div>
+      <!-- Pro -->
+      <div class="plan featured reveal" data-badge="OMMABOP">
+        <div class="pname" data-i18n="pl2_n">PRO</div>
+        <div class="pdesc" data-i18n="pl2_d">O‘sayotgan sotuv bo‘limlari uchun — to‘liq tahlil.</div>
+        <div class="price"><span class="amt mono" data-i18n="pl2_p">1.2M</span><span class="per" data-i18n="pl2_per">so‘m / oy · 10 menejer</span></div>
+        <ul class="pfeat">
+          <li><span class="ck mono">✓</span><span data-i18n="feat_score">Avtomatik call scoring</span></li>
+          <li><span class="ck mono">✓</span><span data-i18n="feat_amo">amoCRM integratsiyasi</span></li>
+          <li><span class="ck mono">✓</span><span data-i18n="feat_heat">Menejer × ko‘nikma heatmap</span></li>
+          <li><span class="ck mono">✓</span><span data-i18n="feat_coach">Coaching zonasi va e’tirozlar</span></li>
+        </ul>
+        <a class="btn btn-primary" href="#cta" data-i18n="pr_cta_pro">PRO’ni tanlash</a>
+      </div>
+      <!-- Business -->
+      <div class="plan reveal">
+        <div class="pname" data-i18n="pl3_n">BIZNES</div>
+        <div class="pdesc" data-i18n="pl3_d">Yirik qo‘ng‘iroq markazlari va maxsus talablar.</div>
+        <div class="price"><span class="amt mono" data-i18n="pl3_p">Kelishuv</span><span class="per" data-i18n="pl3_per">individual taklif</span></div>
+        <ul class="pfeat">
+          <li><span class="ck mono">✓</span><span data-i18n="feat_api">Ochiq API va webhook’lar</span></li>
+          <li><span class="ck mono">✓</span><span data-i18n="feat_sla">Maxsus SLA va onboarding</span></li>
+          <li><span class="ck mono">✓</span><span data-i18n="feat_manager">Shaxsiy menejer</span></li>
+          <li><span class="ck mono">✓</span><span data-i18n="feat_heat">Menejer × ko‘nikma heatmap</span></li>
+        </ul>
+        <a class="btn btn-ghost" href="#cta" data-i18n="pr_cta_ent">Bog‘lanish</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section class="section showcase" id="customers">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot" style="background:var(--pink)"></span><span data-i18n="ts_eyebrow">MIJOZLAR</span></span>
+      <h2 class="h2" data-i18n="ts_h2">Sotuv rahbarlari nima deydi.</h2>
+    </div>
+    <div class="quotes">
+      <div class="quote reveal">
+        <div class="mk">“</div>
+        <p data-i18n="q1">Avval kuniga 10 ta qo‘ng‘iroq tinglardik. Endi 100% tahlil qilinadi — coaching zonasi to‘g‘ridan-to‘g‘ri ko‘rinadi.</p>
+        <div class="who"><div class="av" style="background:var(--amberSoft);color:var(--amber)">SA</div><div><div class="nm" data-i18n="q1_n">Suhrob Abduaxatov</div><div class="rl" data-i18n="q1_r">Head of Sales · Sales.uz</div></div></div>
+      </div>
+      <div class="quote reveal">
+        <div class="mk">“</div>
+        <p data-i18n="q2">Heatmap’dan keyin har bir menejer bilan nimaning ustida ishlashni aniq bilamiz. Konversiya ikki oyda sezilarli o‘sdi.</p>
+        <div class="who"><div class="av" style="background:var(--blueSoft);color:var(--blue)">MY</div><div><div class="nm" data-i18n="q2_n">Madina Yusupova</div><div class="rl" data-i18n="q2_r">Sotuv bo‘limi boshlig‘i</div></div></div>
+      </div>
+      <div class="quote reveal">
+        <div class="mk">“</div>
+        <p data-i18n="q3">amoCRM bilan ulash 15 daqiqa oldi. Ertasiga birinchi hisobot tayyor edi — hech qanday qo‘shimcha jadval yo‘q.</p>
+        <div class="who"><div class="av" style="background:var(--greenSoft);color:var(--green)">OK</div><div><div class="nm" data-i18n="q3_n">Og‘abek Karimov</div><div class="rl" data-i18n="q3_r">Operatsion direktor</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="section" id="faq">
+  <div class="wrap">
+    <div class="section-head reveal" style="margin-left:auto;margin-right:auto;text-align:center">
+      <span class="eyebrow"><span class="dot" style="background:var(--teal)"></span><span data-i18n="faq_eyebrow">SAVOLLAR</span></span>
+      <h2 class="h2" style="margin-top:14px" data-i18n="faq_h2">Tez-tez beriladigan savollar.</h2>
+    </div>
+    <div class="faq-grid">
+      <details class="faq reveal"><summary><span data-i18n="faq1_q">Qo‘ng‘iroqlar qaysi tilda tahlil qilinadi?</span><span class="plus"></span></summary><div class="a" data-i18n="faq1_a">Sales o‘zbek va rus tillaridagi qo‘ng‘iroqlarni transkripsiya qiladi va tahlil qiladi, shu jumladan aralash nutqni ham.</div></details>
+      <details class="faq reveal"><summary><span data-i18n="faq2_q">Call score qanday hisoblanadi?</span><span class="plus"></span></summary><div class="a" data-i18n="faq2_a">Siz o‘z sotuv skriptingiz va bosqichlaringizni belgilaysiz. AI har bir qo‘ng‘iroqni shu qadamlarga muvofiqligi bo‘yicha 0–100 ball bilan baholaydi.</div></details>
+      <details class="faq reveal"><summary><span data-i18n="faq3_q">amoCRM’dan boshqa CRM’lar qo‘llab-quvvatlanadimi?</span><span class="plus"></span></summary><div class="a" data-i18n="faq3_a">amoCRM to‘liq qo‘llab-quvvatlanadi. Boshqa tizimlar uchun ochiq API va webhook’lar mavjud — Biznes tarifida moslashtiramiz.</div></details>
+      <details class="faq reveal"><summary><span data-i18n="faq4_q">Ma’lumotlarim xavfsizmi?</span><span class="plus"></span></summary><div class="a" data-i18n="faq4_a">Barcha yozuvlar shifrlangan holda saqlanadi va faqat sizning jamoangizga ko‘rinadi. Ma’lumotlaringiz hech qachon uchinchi tomonga sotilmaydi.</div></details>
+      <details class="faq reveal"><summary><span data-i18n="faq5_q">Ulanish qancha vaqt oladi?</span><span class="plus"></span></summary><div class="a" data-i18n="faq5_a">Odatda 15 daqiqa. amoCRM va telefoniyani ulaganingizdan so‘ng birinchi tahlil 24 soat ichida tayyor bo‘ladi.</div></details>
+      <details class="faq reveal"><summary><span data-i18n="faq6_q">Bepul sinov qanday ishlaydi?</span><span class="plus"></span></summary><div class="a" data-i18n="faq6_a">14 kun davomida barcha PRO imkoniyatlaridan karta talab qilinmasdan foydalanasiz. Yoqmasa — hech narsa to‘lamaysiz.</div></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FINAL CTA ============ -->
+<section class="section cta" id="cta">
+  <div class="wrap">
+    <div class="cta-card reveal">
+      <span class="eyebrow" style="background:var(--blueSoft);color:var(--blue)"><span data-i18n="cta_eyebrow">BUGUN BOSHLANG</span></span>
+      <h2 class="h2" style="max-width:20ch" data-i18n="cta_h2">Birinchi 100 ta qo‘ng‘irog‘ingizni bepul ballang.</h2>
+      <p class="lede" style="max-width:48ch" data-i18n="cta_lede">Emailingizni qoldiring — biz hisob ochib, amoCRM ulashda yordam beramiz.</p>
+      <form class="signup" data-signup>
+        <input type="email" required data-i18n-ph="cta_input" placeholder="siz@kompaniya.uz" />
+        <button type="submit" class="btn btn-primary btn-lg" data-i18n="cta_btn">Bepul boshlash</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="wrap footer-inner">
+    <div class="footer-top">
+      <div>
+        <a class="brand" href="#top">
+          <div class="brand-mark">S.</div>
+          <div><div class="brand-name">Sales</div><div class="brand-tag">Speech analytics</div></div>
+        </a>
+        <p class="blurb" data-i18n="ft_blurb">Qo‘ng‘iroq markazlari uchun AI nutq tahlili. Har bir qo‘ng‘iroq — ball, har bir ball — o‘sish imkoniyati.</p>
+      </div>
+      <div>
+        <h4 data-i18n="ft_product">Mahsulot</h4>
+        <ul>
+          <li><a href="#features" data-i18n="ft_features">Imkoniyatlar</a></li>
+          <li><a href="#pricing" data-i18n="ft_pricing">Narxlar</a></li>
+          <li><a href="#integrations" data-i18n="ft_integr">Integratsiyalar</a></li>
+          <li><a href="#" data-i18n="ft_changelog">Yangilanishlar</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="ft_company">Kompaniya</h4>
+        <ul>
+          <li><a href="#" data-i18n="ft_about">Biz haqimizda</a></li>
+          <li><a href="#" data-i18n="ft_blog">Blog</a></li>
+          <li><a href="#" data-i18n="ft_careers">Vakansiyalar</a></li>
+          <li><a href="#cta" data-i18n="ft_contact">Bog‘lanish</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 data-i18n="ft_legal">Huquqiy</h4>
+        <ul>
+          <li><a href="#" data-i18n="ft_privacy">Maxfiylik</a></li>
+          <li><a href="#" data-i18n="ft_terms">Shartlar</a></li>
+          <li><a href="#" data-i18n="ft_security">Xavfsizlik</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bot">
+      <span class="cr" data-i18n="ft_cr">© 2026 Sales — Speech analytics. Toshkent, O‘zbekiston.</span>
+      <div style="display:flex;gap:10px">
+        <div class="seg lang-seg" role="group" aria-label="Language">
+          <button data-lang="uz">UZ</button>
+          <button data-lang="en">EN</button>
+        </div>
+        <div class="seg theme-seg" role="group" aria-label="Theme">
+          <button data-theme="light" aria-label="Light"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
+          <button data-theme="dark" aria-label="Dark"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/></svg></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<template id="__bundler_thumbnail" data-bg-color="#0B0B0E">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#0B0B0E"/>
+    <g transform="translate(520 300)">
+      <rect x="0" y="0" width="160" height="160" rx="34" fill="#F5F4EE"/>
+      <text x="80" y="118" font-family="Manrope, sans-serif" font-size="104" font-weight="800" fill="#0B0B0E" text-anchor="middle">S.</text>
+    </g>
+  </svg>
+</template>
+
+<script src="landing.js"></script>
+</body>
+</html>
