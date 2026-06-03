@@ -304,12 +304,12 @@ export const dict = {
   },
 
   // ---- final cta ----
-  cta_eyebrow: { uz: "BUGUN BOSHLANG", en: "GET STARTED", ru: "НАЧНИТЕ СЕГОДНЯ" },
-  cta_h2: { uz: "Birinchi 100 ta qo‘ng‘irog‘ingizni bepul ballang.", en: "Score your first 100 calls free.", ru: "Оцените первые 100 звонков бесплатно." },
+  cta_eyebrow: { uz: "ERTA KIRISH", en: "EARLY ACCESS", ru: "РАННИЙ ДОСТУП" },
+  cta_h2: { uz: "Bizning birinchi mijozimiz bo‘ling.", en: "Become our first client.", ru: "Станьте нашим первым клиентом." },
   cta_lede: {
-    uz: "Emailingizni qoldiring — biz hisob ochib, amoCRM ulashda yordam beramiz.",
-    en: "Leave your email — we’ll open your account and help connect amoCRM.",
-    ru: "Оставьте email — мы откроем аккаунт и поможем подключить amoCRM.",
+    uz: "Erta kirish dasturiga qo‘shiling — platformani jamoangizga moslab beramiz va to‘g‘ridan-to‘g‘ri qo‘llab-quvvatlaymiz.",
+    en: "Join the early-access program — we’ll tailor the platform to your team and support you directly.",
+    ru: "Присоединяйтесь к программе раннего доступа — настроим платформу под вашу команду и поддержим напрямую.",
   },
   cta_input: { uz: "siz@kompaniya.uz", en: "you@company.uz", ru: "you@company.uz" },
   cta_btn: { uz: "Bepul boshlash", en: "Start free", ru: "Начать бесплатно" },
