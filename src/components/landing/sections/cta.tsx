@@ -12,7 +12,7 @@ export function Cta() {
               <T k="cta_eyebrow" />
             </span>
           </span>
-          <h2 className="h2" style={{ maxWidth: "20ch" }}>
+          <h2 className="h2" style={{ maxWidth: "26ch" }}>
             <T k="cta_h2" />
           </h2>
           <p className="lede" style={{ maxWidth: "48ch" }}>

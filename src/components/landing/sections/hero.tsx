@@ -21,9 +21,6 @@ export function Hero() {
           </p>
           <div className="hero-cta">
             <AccessButton k="cta_get_access" className="btn btn-primary btn-lg" />
-            <a className="btn btn-ghost btn-lg" href="#showcase">
-              <T k="hero_cta2" />
-            </a>
           </div>
           <div className="hero-note">
             <span>

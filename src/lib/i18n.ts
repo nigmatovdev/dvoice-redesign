@@ -30,7 +30,6 @@ export const dict = {
     ru: "Sales слушает все звонки, оценивает каждый по шкале 0–100 и автоматически показывает, где теряются сделки и какому менеджеру нужен коучинг.",
   },
   hero_cta1: { uz: "Bepul boshlash", en: "Start free", ru: "Начать бесплатно" },
-  hero_cta2: { uz: "Demoni ko‘rish", en: "Watch demo", ru: "Смотреть демо" },
   hero_note1: { uz: "amoCRM integratsiyasi", en: "amoCRM integration", ru: "Интеграция с amoCRM" },
   hero_note2: { uz: "14 kunlik bepul sinov", en: "14-day free trial", ru: "14 дней бесплатно" },
   hero_note3: { uz: "Karta shart emas", en: "No card required", ru: "Без карты" },
@@ -305,11 +304,15 @@ export const dict = {
 
   // ---- final cta ----
   cta_eyebrow: { uz: "ERTA KIRISH", en: "EARLY ACCESS", ru: "РАННИЙ ДОСТУП" },
-  cta_h2: { uz: "Bizning birinchi mijozimiz bo‘ling.", en: "Become our first client.", ru: "Станьте нашим первым клиентом." },
+  cta_h2: {
+    uz: "Birinchi 20 ta qo‘ng‘irog‘ingizni bepul tahlil qiling va natijani 2 daqiqa ichida oling.",
+    en: "Analyse your first 20 calls free and get the result within 2 minutes.",
+    ru: "Проанализируйте первые 20 звонков бесплатно и получите результат за 2 минуты.",
+  },
   cta_lede: {
-    uz: "Erta kirish dasturiga qo‘shiling — platformani jamoangizga moslab beramiz va to‘g‘ridan-to‘g‘ri qo‘llab-quvvatlaymiz.",
-    en: "Join the early-access program — we’ll tailor the platform to your team and support you directly.",
-    ru: "Присоединяйтесь к программе раннего доступа — настроим платформу под вашу команду и поддержим напрямую.",
+    uz: "Ma’lumotlaringizni qoldiring — jamoamiz 24 soat ichida siz bilan bog‘lanib, hisobni ishga tushiramiz.",
+    en: "Leave your details — our team will get in touch within 24 hours and set up your account.",
+    ru: "Оставьте свои данные — наша команда свяжется с вами в течение 24 часов и настроит аккаунт.",
   },
   cta_input: { uz: "siz@kompaniya.uz", en: "you@company.uz", ru: "you@company.uz" },
   cta_btn: { uz: "Bepul boshlash", en: "Start free", ru: "Начать бесплатно" },
