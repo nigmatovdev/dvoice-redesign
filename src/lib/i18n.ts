@@ -20,7 +20,7 @@ export const dict = {
   // ---- hero ----
   hero_eyebrow: { uz: "AI NUTQ TAHLILI · amoCRM", en: "AI SPEECH ANALYTICS · amoCRM" },
   hero_title: {
-    uz: "Har bir sotuv qo‘ng‘irog‘ini ballga aylantiring.",
+    uz: "Har bir qo‘ng‘iroqni natijaga aylantiring.",
     en: "Turn every sales call into a score.",
   },
   hero_sub: {
@@ -139,7 +139,7 @@ export const dict = {
   rs_h2: { uz: "Tinglashga ketgan vaqt — o‘sishga.", en: "Time spent listening, returned as growth." },
   r1_n: { uz: "100%", en: "100%" },
   r1_l: { uz: "qo‘ng‘iroqlar tahlil qilinadi — tanlangan namuna emas", en: "of calls analysed — not a sampled few" },
-  r2_n: { uz: "8 soat→5 daq", en: "8h→5min" },
+  r2_n: { uz: "8st→5daq", en: "8h→5min" },
   r2_l: {
     uz: "kunlik QA — qo‘lda tinglashdan avtomatik hisobotgacha",
     en: "daily QA — from manual listening to an automatic report",
@@ -308,6 +308,21 @@ export const dict = {
   },
   modal_close: { uz: "Yopish", en: "Close" },
   modal_err_email: { uz: "To‘g‘ri Gmail manzilini kiriting.", en: "Please enter a valid Gmail address." },
+
+  // ---- about us page ----
+  nav_about: { uz: "Biz", en: "About" },
+  about_eyebrow: { uz: "BIZ HAQIMIZDA", en: "ABOUT US" },
+  about_title: { uz: "Biz haqimizda", en: "About us" },
+  about_desc: {
+    uz: "Sales — O‘zbekistondagi sotuv jamoalari uchun AI nutq tahlili platformasini yaratayotgan jamoa. Bizning maqsadimiz — har bir qo‘ng‘iroqni o‘sish imkoniyatiga aylantirish va menejerlarga aniq, ma’lumotga asoslangan coaching berish.",
+    en: "Sales is the team building an AI speech-analytics platform for sales teams across Uzbekistan. Our mission is to turn every call into a growth opportunity and give managers clear, data-driven coaching.",
+  },
+  about_team_eyebrow: { uz: "JAMOA", en: "TEAM" },
+  about_team_title: { uz: "Jamoamiz a’zolari", en: "Meet the team" },
+  about_team_lede: {
+    uz: "Mahsulot, muhandislik va sotuvni birlashtirgan kichik, ammo kuchli jamoa.",
+    en: "A small but mighty team spanning product, engineering and sales.",
+  },
 } as const;
 
 export type DictKey = keyof typeof dict;

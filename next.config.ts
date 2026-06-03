@@ -12,8 +12,9 @@ const nextConfig: NextConfig = {
   images: {
     // Modern formats for better Core Web Vitals (LCP).
     formats: ["image/avif", "image/webp"],
-    // Add remote image hosts here when you use next/image with external URLs:
-    // remotePatterns: [{ protocol: "https", hostname: "images.example.com" }],
+    // Placeholder team avatars. Swap for local /public/team/*.jpg when you have
+    // real photos (local images need no remotePatterns entry).
+    remotePatterns: [{ protocol: "https", hostname: "i.pravatar.cc" }],
   },
 };
 

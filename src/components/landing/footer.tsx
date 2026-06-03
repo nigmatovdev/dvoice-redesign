@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import { type DictKey } from "@/lib/i18n";
 
 import { LangToggle, ThemeToggle } from "./controls";
@@ -7,27 +9,27 @@ const columns: { heading: DictKey; links: { href: string; k: DictKey }[] }[] = [
   {
     heading: "ft_product",
     links: [
-      { href: "#features", k: "ft_features" },
-      { href: "#pricing", k: "ft_pricing" },
-      { href: "#integrations", k: "ft_integr" },
-      { href: "#", k: "ft_changelog" },
+      { href: "/#features", k: "ft_features" },
+      { href: "/#pricing", k: "ft_pricing" },
+      { href: "/#integrations", k: "ft_integr" },
+      { href: "/#", k: "ft_changelog" },
     ],
   },
   {
     heading: "ft_company",
     links: [
-      { href: "#", k: "ft_about" },
-      { href: "#", k: "ft_blog" },
-      { href: "#", k: "ft_careers" },
-      { href: "#cta", k: "ft_contact" },
+      { href: "/about", k: "ft_about" },
+      { href: "/#", k: "ft_blog" },
+      { href: "/#", k: "ft_careers" },
+      { href: "/#cta", k: "ft_contact" },
     ],
   },
   {
     heading: "ft_legal",
     links: [
-      { href: "#", k: "ft_privacy" },
-      { href: "#", k: "ft_terms" },
-      { href: "#", k: "ft_security" },
+      { href: "/#", k: "ft_privacy" },
+      { href: "/#", k: "ft_terms" },
+      { href: "/#", k: "ft_security" },
     ],
   },
 ];
@@ -38,13 +40,13 @@ export function Footer() {
       <div className="wrap footer-inner">
         <div className="footer-top">
           <div>
-            <a className="brand" href="#top">
+            <Link className="brand" href="/">
               <div className="brand-mark">S.</div>
               <div>
                 <div className="brand-name">Sales</div>
                 <div className="brand-tag">Speech analytics</div>
               </div>
-            </a>
+            </Link>
             <p className="blurb">
               <T k="ft_blurb" />
             </p>
@@ -57,9 +59,9 @@ export function Footer() {
               <ul>
                 {col.links.map((link) => (
                   <li key={link.k}>
-                    <a href={link.href}>
+                    <Link href={link.href}>
                       <T k={link.k} />
-                    </a>
+                    </Link>
                   </li>
                 ))}
               </ul>

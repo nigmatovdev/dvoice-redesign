@@ -1,30 +1,36 @@
+import Link from "next/link";
+
+import { type DictKey } from "@/lib/i18n";
+
 import { AccessButton } from "./contact-modal";
 import { LangToggle, ThemeToggle } from "./controls";
 import { T } from "./lang-provider";
 
-// Max 3 primary links to keep the bar clean.
-const links: { href: string; k: "nav_features" | "nav_showcase" | "nav_pricing" }[] = [
-  { href: "#features", k: "nav_features" },
-  { href: "#showcase", k: "nav_showcase" },
-  { href: "#pricing", k: "nav_pricing" },
+// Section links point at the home page (work from any route); "Biz" is a real
+// page route.
+const links: { href: string; k: DictKey }[] = [
+  { href: "/#features", k: "nav_features" },
+  { href: "/#showcase", k: "nav_showcase" },
+  { href: "/#pricing", k: "nav_pricing" },
+  { href: "/about", k: "nav_about" },
 ];
 
 export function Nav() {
   return (
     <header className="nav">
       <div className="wrap nav-inner">
-        <a className="brand" href="#top">
+        <Link className="brand" href="/">
           <div className="brand-mark">S.</div>
           <div>
             <div className="brand-name">Sales</div>
             <div className="brand-tag">Speech analytics</div>
           </div>
-        </a>
+        </Link>
         <nav className="nav-links">
           {links.map((l) => (
-            <a key={l.href} href={l.href}>
+            <Link key={l.href} href={l.href}>
               <T k={l.k} />
-            </a>
+            </Link>
           ))}
         </nav>
         <div className="nav-actions">

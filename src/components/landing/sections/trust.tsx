@@ -9,10 +9,15 @@ export function Trust() {
         <span className="trust-label">
           <T k="trust_label" />
         </span>
-        <div className="trust-logos">
-          {logos.map((l) => (
-            <span key={l}>{l}</span>
-          ))}
+        <div className="trust-marquee" aria-label="Partners">
+          {/* Duplicated set so the track can loop seamlessly. */}
+          <div className="trust-track">
+            {[...logos, ...logos].map((l, i) => (
+              <span key={i} aria-hidden={i >= logos.length || undefined}>
+                {l}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
     </section>
