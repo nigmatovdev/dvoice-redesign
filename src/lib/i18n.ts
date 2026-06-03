@@ -133,6 +133,27 @@ export const dict = {
   sc_l3: { uz: "Menejer × ko‘nikma heatmap va reyting", en: "Manager × skill heatmap and ranking" },
   sc_l4: { uz: "Qorong‘i va yorug‘ rejim · o‘zbek tilida", en: "Dark & light mode · in Uzbek" },
   sc_shot_alt: { uz: "Sales operatsion dashboard", en: "Sales operations dashboard" },
+  sc_hint: { uz: "Ko‘rish uchun pastga aylantiring", en: "Scroll to explore" },
+  sc_i1_t: { uz: "Savdo Dinamikasi", en: "Sales Dynamics" },
+  sc_i1_d: {
+    uz: "Kunlar bo‘yicha qo‘ng‘iroqlar va konversiya dinamikasi.",
+    en: "Calls and conversion trends over time.",
+  },
+  sc_i2_t: { uz: "Bitimlar Oqimi va Tushum", en: "Deal Flow & Revenue" },
+  sc_i2_d: {
+    uz: "Bitimlar oqimi, konversiya va tushum bitta ko‘rinishda.",
+    en: "Deal flow, conversion and revenue in a single view.",
+  },
+  sc_i3_t: { uz: "Baholash Mezonlari", en: "Scoring Criteria" },
+  sc_i3_d: {
+    uz: "Sotuv qadamlari bo‘yicha menejer profili va baholash.",
+    en: "Manager profile and scoring across every sales step.",
+  },
+  sc_i4_t: { uz: "Menejer × Ko‘nikma Heatmap", en: "Manager × Skill Heatmap" },
+  sc_i4_d: {
+    uz: "Menejerlar va ko‘nikmalar bo‘yicha issiqlik xaritasi.",
+    en: "A heatmap across managers and individual skills.",
+  },
 
   // ---- results ----
   rs_eyebrow: { uz: "NATIJALAR", en: "RESULTS" },
