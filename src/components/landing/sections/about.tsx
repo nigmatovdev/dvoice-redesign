@@ -23,10 +23,11 @@ const members: Member[] = [
     initials: "SA",
     bg: "var(--amberSoft)",
     fg: "var(--amber)",
-    role: { uz: "Asoschisi · Bosh direktor", en: "Founder · CEO" },
+    role: { uz: "Asoschisi · Bosh direktor", en: "Founder · CEO", ru: "Основатель · CEO" },
     desc: {
       uz: "Sotuv jamoalarini boshqarishda 10 yillik tajriba. Mahsulot strategiyasi va mijozlar bilan ishlashga rahbarlik qiladi.",
       en: "A decade of leading sales teams. Drives product strategy and customer success.",
+      ru: "10 лет опыта в управлении отделами продаж. Отвечает за стратегию продукта и работу с клиентами.",
     },
   },
   {
@@ -35,10 +36,11 @@ const members: Member[] = [
     initials: "MY",
     bg: "var(--blueSoft)",
     fg: "var(--blue)",
-    role: { uz: "Mahsulot direktori", en: "Head of Product" },
+    role: { uz: "Mahsulot direktori", en: "Head of Product", ru: "Директор по продукту" },
     desc: {
       uz: "Dashboard va tahlil interfeyslarini ishlab chiqadi. Murakkab ma’lumotni sodda qarorlarga aylantiradi.",
       en: "Shapes the dashboard and analytics experience. Turns complex data into simple decisions.",
+      ru: "Создаёт интерфейсы дашборда и аналитики. Превращает сложные данные в простые решения.",
     },
   },
   {
@@ -47,10 +49,11 @@ const members: Member[] = [
     initials: "OK",
     bg: "var(--greenSoft)",
     fg: "var(--green)",
-    role: { uz: "Bosh muhandis", en: "Lead Engineer" },
+    role: { uz: "Bosh muhandis", en: "Lead Engineer", ru: "Ведущий инженер" },
     desc: {
       uz: "Nutqni transkripsiya qilish va ballash tizimini quradi. amoCRM integratsiyasiga mas’ul.",
       en: "Builds the transcription and scoring pipeline. Owns the amoCRM integration.",
+      ru: "Строит систему транскрипции и оценки. Отвечает за интеграцию с amoCRM.",
     },
   },
   {
@@ -59,10 +62,11 @@ const members: Member[] = [
     initials: "DR",
     bg: "var(--violetSoft)",
     fg: "var(--violet)",
-    role: { uz: "AI tadqiqotchi", en: "AI Researcher" },
+    role: { uz: "AI tadqiqotchi", en: "AI Researcher", ru: "AI-исследователь" },
     desc: {
       uz: "O‘zbek va rus tillari uchun nutq modellarini sozlaydi. E’tirozlar tahlilini takomillashtiradi.",
       en: "Tunes the speech models for Uzbek and Russian. Improves objection analytics.",
+      ru: "Настраивает речевые модели для узбекского и русского. Совершенствует анализ возражений.",
     },
   },
   {
@@ -71,10 +75,11 @@ const members: Member[] = [
     initials: "JT",
     bg: "var(--redSoft)",
     fg: "var(--red)",
-    role: { uz: "Sotuv rahbari", en: "Head of Sales" },
+    role: { uz: "Sotuv rahbari", en: "Head of Sales", ru: "Руководитель продаж" },
     desc: {
       uz: "Mijozlarni joriy etishda yordam beradi. Coaching metodikasini jamoalar bilan ulashadi.",
       en: "Guides customer onboarding. Shares coaching methodology with teams.",
+      ru: "Помогает клиентам с внедрением. Делится методикой коучинга с командами.",
     },
   },
   {
@@ -83,10 +88,11 @@ const members: Member[] = [
     initials: "KS",
     bg: "var(--blueSoft)",
     fg: "var(--blue)",
-    role: { uz: "Mijozlar muvaffaqiyati", en: "Customer Success" },
+    role: { uz: "Mijozlar muvaffaqiyati", en: "Customer Success", ru: "Customer Success" },
     desc: {
       uz: "Mijozlar bilan kunma-kun ishlaydi va ularning natijalari o‘sishini ta’minlaydi.",
       en: "Works with customers day to day and makes sure their results keep growing.",
+      ru: "Ежедневно работает с клиентами и обеспечивает рост их результатов.",
     },
   },
 ];

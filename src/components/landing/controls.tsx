@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-import type { Lang } from "@/lib/i18n";
+import { LANGS } from "@/lib/i18n";
 
 import { useLang } from "./lang-provider";
 
@@ -16,10 +16,10 @@ const GlobeIcon = (
   </svg>
 );
 
-/** Single button that toggles the language UZ ⇄ EN. Shows the current code. */
+/** Single button that cycles the language UZ → EN → RU. Shows the current code. */
 export function LangToggle() {
   const { lang, setLang } = useLang();
-  const next: Lang = lang === "uz" ? "en" : "uz";
+  const next = LANGS[(LANGS.indexOf(lang) + 1) % LANGS.length];
   return (
     <button
       type="button"

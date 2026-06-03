@@ -13,6 +13,10 @@ import { useLang } from "../lang-provider";
 
 type Bi = Record<Lang, string>;
 
+/** Pick a string for the active language. */
+const pick = (lang: Lang, uz: string, en: string, ru: string) =>
+  lang === "uz" ? uz : lang === "ru" ? ru : en;
+
 function Frame({ addr, children }: { addr: string; children: React.ReactNode }) {
   return (
     <div className="preview flat shot">
@@ -55,7 +59,9 @@ function Head({ title, sub, seg }: { title: string; sub?: string; seg: React.Rea
 
 /** Shared period segmented control (Day / Week / Month). */
 function periodItems(lang: Lang): string[] {
-  return lang === "uz" ? ["Kun", "Hafta", "Oy"] : ["Day", "Week", "Month"];
+  if (lang === "ru") return ["День", "Неделя", "Месяц"];
+  if (lang === "en") return ["Day", "Week", "Month"];
+  return ["Kun", "Hafta", "Oy"];
 }
 
 /** Maps a 0–100 value to a quality-zone colour. */
@@ -90,10 +96,10 @@ const SD_CARDS: {
   bars?: number[];
   area?: boolean;
 }[] = [
-  { lab: { uz: "Yaratildi", en: "Created" }, color: "var(--blue)", delta: "+18%", up: true, val: "2.7k", bars: [20, 28, 16, 64, 40, 18] },
-  { lab: { uz: "Yutildi", en: "Won" }, color: "var(--green)", delta: "+24%", up: true, val: "112", bars: [10, 16, 24, 40, 70, 86] },
-  { lab: { uz: "Yo‘qotildi", en: "Lost" }, color: "var(--red)", delta: "−9%", up: false, val: "1.7k", bars: [44, 56, 70, 84, 60, 46] },
-  { lab: { uz: "Tushum", en: "Revenue" }, color: "var(--amber)", delta: "+31%", up: true, val: "310M", area: true },
+  { lab: { uz: "Yaratildi", en: "Created", ru: "Создано" }, color: "var(--blue)", delta: "+18%", up: true, val: "2.7k", bars: [20, 28, 16, 64, 40, 18] },
+  { lab: { uz: "Yutildi", en: "Won", ru: "Выиграно" }, color: "var(--green)", delta: "+24%", up: true, val: "112", bars: [10, 16, 24, 40, 70, 86] },
+  { lab: { uz: "Yo‘qotildi", en: "Lost", ru: "Потеряно" }, color: "var(--red)", delta: "−9%", up: false, val: "1.7k", bars: [44, 56, 70, 84, 60, 46] },
+  { lab: { uz: "Tushum", en: "Revenue", ru: "Выручка" }, color: "var(--amber)", delta: "+31%", up: true, val: "310M", area: true },
 ];
 
 export function SalesDynamicsShot() {
@@ -101,8 +107,8 @@ export function SalesDynamicsShot() {
   return (
     <Frame addr="app.sales.uz/dynamics">
       <Head
-        title={lang === "uz" ? "Sotuv dinamikasi" : "Sales dynamics"}
-        sub={lang === "uz" ? "To‘rt ko‘rsatkich · alohida tahlil" : "Four metrics · analysed separately"}
+        title={pick(lang, "Sotuv dinamikasi", "Sales dynamics", "Динамика продаж")}
+        sub={pick(lang, "To‘rt ko‘rsatkich · alohida tahlil", "Four metrics · analysed separately", "Четыре показателя · раздельный анализ")}
         seg={<Seg items={periodItems(lang)} active={1} />}
       />
       <div className="sd-grid">
@@ -142,10 +148,10 @@ export function SalesDynamicsShot() {
    2 — Bitimlar oqimi va tushum · KPI strip + combined chart
    ============================================================ */
 const DF_KPIS: { lab: Bi; val: string; unit: string; sub: Bi; tone: string }[] = [
-  { lab: { uz: "TUSHUM", en: "REVENUE" }, val: "310.3M", unit: "so‘m", sub: { uz: "+31% vs oldingi", en: "+31% vs prev" }, tone: "var(--amber)" },
-  { lab: { uz: "KONVERSIYA", en: "CONVERSION" }, val: "6.0", unit: "%", sub: { uz: "yutildi / yopildi", en: "won / closed" }, tone: "var(--green)" },
-  { lab: { uz: "YOPILGAN", en: "CLOSED" }, val: "1852", unit: "", sub: { uz: "112 yutildi", en: "112 won" }, tone: "var(--ink3)" },
-  { lab: { uz: "LID", en: "LEADS" }, val: "2.7k", unit: "", sub: { uz: "yaratildi", en: "created" }, tone: "var(--blue)" },
+  { lab: { uz: "TUSHUM", en: "REVENUE", ru: "ВЫРУЧКА" }, val: "310.3M", unit: "so‘m", sub: { uz: "+31% vs oldingi", en: "+31% vs prev", ru: "+31% к пред." }, tone: "var(--amber)" },
+  { lab: { uz: "KONVERSIYA", en: "CONVERSION", ru: "КОНВЕРСИЯ" }, val: "6.0", unit: "%", sub: { uz: "yutildi / yopildi", en: "won / closed", ru: "выигр. / закрыто" }, tone: "var(--green)" },
+  { lab: { uz: "YOPILGAN", en: "CLOSED", ru: "ЗАКРЫТО" }, val: "1852", unit: "", sub: { uz: "112 yutildi", en: "112 won", ru: "112 выиграно" }, tone: "var(--ink3)" },
+  { lab: { uz: "LID", en: "LEADS", ru: "ЛИДЫ" }, val: "2.7k", unit: "", sub: { uz: "yaratildi", en: "created", ru: "создано" }, tone: "var(--blue)" },
 ];
 const DF_BARS = [
   { x: 196, green: 6, red: 30 },
@@ -158,16 +164,16 @@ const DF_BARS = [
 export function DealFlowShot() {
   const { lang } = useLang();
   const legend: Bi[] = [
-    { uz: "Yutildi", en: "Won" },
-    { uz: "Yo‘qotildi", en: "Lost" },
-    { uz: "Tushum", en: "Revenue" },
+    { uz: "Yutildi", en: "Won", ru: "Выиграно" },
+    { uz: "Yo‘qotildi", en: "Lost", ru: "Потеряно" },
+    { uz: "Tushum", en: "Revenue", ru: "Выручка" },
   ];
   const legendColors = ["var(--green)", "var(--red)", "var(--amber)"];
   return (
     <Frame addr="app.sales.uz/pipeline">
       <Head
-        title={lang === "uz" ? "Sotuv dinamikasi" : "Sales dynamics"}
-        sub={lang === "uz" ? "Bitimlar oqimi va tushum" : "Deal flow and revenue"}
+        title={pick(lang, "Sotuv dinamikasi", "Sales dynamics", "Динамика продаж")}
+        sub={pick(lang, "Bitimlar oqimi va tushum", "Deal flow and revenue", "Поток сделок и выручка")}
         seg={<Seg items={periodItems(lang)} active={1} />}
       />
       <div className="df-kpis">
@@ -219,11 +225,11 @@ export function DealFlowShot() {
    3 — Sotuv qadamlari bo‘yicha menejer profili · multi-line
    ============================================================ */
 const ML_STEPS: Bi[] = [
-  { uz: "Salomlashish", en: "Greeting" },
-  { uz: "Ehtiyoj", en: "Needs" },
-  { uz: "Taqdimot", en: "Pitch" },
-  { uz: "E’tiroz", en: "Objection" },
-  { uz: "Yopish", en: "Close" },
+  { uz: "Salomlashish", en: "Greeting", ru: "Приветствие" },
+  { uz: "Ehtiyoj", en: "Needs", ru: "Потребность" },
+  { uz: "Taqdimot", en: "Pitch", ru: "Презентация" },
+  { uz: "E’tiroz", en: "Objection", ru: "Возражение" },
+  { uz: "Yopish", en: "Close", ru: "Закрытие" },
 ];
 const ML_SERIES = [
   { name: "Dilnoza", color: "var(--green)", pts: [92, 88, 85, 82, 90] },
@@ -240,8 +246,8 @@ export function CriteriaShot() {
   return (
     <Frame addr="app.sales.uz/profile">
       <Head
-        title={lang === "uz" ? "Sotuv qadamlari bo‘yicha menejer profili" : "Manager profile by sales step"}
-        sub={lang === "uz" ? "Har bir menejer voronka bo‘yicha qayerda kuchsiz" : "Where each manager is weak across the funnel"}
+        title={pick(lang, "Sotuv qadamlari bo‘yicha menejer profili", "Manager profile by sales step", "Профиль менеджера по этапам продаж")}
+        sub={pick(lang, "Har bir menejer voronka bo‘yicha qayerda kuchsiz", "Where each manager is weak across the funnel", "Где каждый менеджер слаб в воронке")}
         seg={<Seg items={periodItems(lang)} active={1} />}
       />
       <svg className="ml-chart" viewBox={`0 0 ${ML_W} ${ML_H}`} aria-hidden="true">
@@ -281,11 +287,11 @@ export function CriteriaShot() {
    4 — Menejer × ko‘nikma · heatmap
    ============================================================ */
 const HM_SKILLS: Bi[] = [
-  { uz: "Salom", en: "Greet" },
-  { uz: "Ehtiyoj", en: "Needs" },
-  { uz: "Taqdimot", en: "Pitch" },
-  { uz: "E’tiroz", en: "Obj." },
-  { uz: "Yopish", en: "Close" },
+  { uz: "Salom", en: "Greet", ru: "Привет." },
+  { uz: "Ehtiyoj", en: "Needs", ru: "Потреб." },
+  { uz: "Taqdimot", en: "Pitch", ru: "Презент." },
+  { uz: "E’tiroz", en: "Obj.", ru: "Возраж." },
+  { uz: "Yopish", en: "Close", ru: "Закр." },
 ];
 const HM_ROWS = [
   { n: "Dilnoza", v: [92, 88, 85, 82, 90], avg: 87 },
@@ -306,8 +312,8 @@ export function HeatmapShot() {
   return (
     <Frame addr="app.sales.uz/heatmap">
       <Head
-        title={lang === "uz" ? "Menejer × ko‘nikma" : "Manager × skill"}
-        sub={lang === "uz" ? "Sotuv qadamlari bo‘yicha ball (0–100)" : "Score by sales step (0–100)"}
+        title={pick(lang, "Menejer × ko‘nikma", "Manager × skill", "Менеджер × навык")}
+        sub={pick(lang, "Sotuv qadamlari bo‘yicha ball (0–100)", "Score by sales step (0–100)", "Балл по этапам продаж (0–100)")}
         seg={<Seg items={periodItems(lang)} active={1} />}
       />
       <div className="hm-grid">
@@ -317,13 +323,13 @@ export function HeatmapShot() {
             {s[lang]}
           </div>
         ))}
-        <div className="hm-colh mono hm-avgh">{lang === "uz" ? "O‘RT" : "AVG"}</div>
+        <div className="hm-colh mono hm-avgh">{pick(lang, "O‘RT", "AVG", "СРЕД")}</div>
 
         {HM_ROWS.map((row) => (
           <HmRow key={row.n} row={row} />
         ))}
 
-        <div className="hm-rowh hm-foot">{lang === "uz" ? "O‘RTACHA" : "AVERAGE"}</div>
+        <div className="hm-rowh hm-foot">{pick(lang, "O‘RTACHA", "AVERAGE", "СРЕДНЕЕ")}</div>
         {HM_AVG.map((v, i) => (
           <div key={i} className="hm-cell mono hm-foot" style={cell(v)}>
             {v}

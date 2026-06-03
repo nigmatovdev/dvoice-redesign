@@ -2,7 +2,7 @@
 
 import { createContext, useCallback, useContext, useEffect, useState } from "react";
 
-import { type DictKey, type Lang, translate } from "@/lib/i18n";
+import { type DictKey, type Lang, LANGS, translate } from "@/lib/i18n";
 
 const STORAGE_KEY = "sales-landing-lang";
 
@@ -26,7 +26,7 @@ export function LangProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     try {
       const saved = localStorage.getItem(STORAGE_KEY);
-      if (saved === "uz" || saved === "en") setLangState(saved);
+      if (saved && (LANGS as string[]).includes(saved)) setLangState(saved as Lang);
     } catch {
       /* localStorage unavailable — keep default */
     }

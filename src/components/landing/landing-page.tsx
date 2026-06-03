@@ -30,13 +30,13 @@ export function LandingPage() {
         <Nav />
         <main id="top">
           <Hero />
-          <Trust />
+          {/* <Trust /> */}
           <Features />
           <How />
           <Showcase />
           <Results />
           <Integrations />
-          <Pricing />
+          {/* <Pricing /> */}
           <Testimonials />
           <Faq />
           <Cta />
