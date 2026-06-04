@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useRef, useState } from "react";
 
 import { type Lang } from "@/lib/i18n";
 
@@ -7,7 +10,7 @@ import { Reveal } from "../reveal";
 
 interface Member {
   name: string;
-  /** Photo URL. Replace with local /public/team/*.jpg when available. */
+  /** Portrait URL. Replace with local /public/team/*.jpg when available. */
   photo: string;
   initials: string;
   bg: string;
@@ -19,7 +22,7 @@ interface Member {
 const members: Member[] = [
   {
     name: "Suhrob Abduaxatov",
-    photo: "https://i.pravatar.cc/200?img=12",
+    photo: "https://i.pravatar.cc/600?img=12",
     initials: "SA",
     bg: "var(--amberSoft)",
     fg: "var(--amber)",
@@ -32,7 +35,7 @@ const members: Member[] = [
   },
   {
     name: "Madina Yusupova",
-    photo: "https://i.pravatar.cc/200?img=45",
+    photo: "https://i.pravatar.cc/600?img=45",
     initials: "MY",
     bg: "var(--blueSoft)",
     fg: "var(--blue)",
@@ -45,7 +48,7 @@ const members: Member[] = [
   },
   {
     name: "Og‘abek Karimov",
-    photo: "https://i.pravatar.cc/200?img=33",
+    photo: "https://i.pravatar.cc/600?img=33",
     initials: "OK",
     bg: "var(--greenSoft)",
     fg: "var(--green)",
@@ -58,7 +61,7 @@ const members: Member[] = [
   },
   {
     name: "Dilnoza Rahimova",
-    photo: "https://i.pravatar.cc/200?img=47",
+    photo: "https://i.pravatar.cc/600?img=47",
     initials: "DR",
     bg: "var(--violetSoft)",
     fg: "var(--violet)",
@@ -69,36 +72,26 @@ const members: Member[] = [
       ru: "Настраивает речевые модели для узбекского и русского. Совершенствует анализ возражений.",
     },
   },
-  {
-    name: "Javohir To‘xtayev",
-    photo: "https://i.pravatar.cc/200?img=15",
-    initials: "JT",
-    bg: "var(--redSoft)",
-    fg: "var(--red)",
-    role: { uz: "Sotuv rahbari", en: "Head of Sales", ru: "Руководитель продаж" },
-    desc: {
-      uz: "Mijozlarni joriy etishda yordam beradi. Coaching metodikasini jamoalar bilan ulashadi.",
-      en: "Guides customer onboarding. Shares coaching methodology with teams.",
-      ru: "Помогает клиентам с внедрением. Делится методикой коучинга с командами.",
-    },
-  },
-  {
-    name: "Kamola Sodiqova",
-    photo: "https://i.pravatar.cc/200?img=26",
-    initials: "KS",
-    bg: "var(--blueSoft)",
-    fg: "var(--blue)",
-    role: { uz: "Mijozlar muvaffaqiyati", en: "Customer Success", ru: "Customer Success" },
-    desc: {
-      uz: "Mijozlar bilan kunma-kun ishlaydi va ularning natijalari o‘sishini ta’minlaydi.",
-      en: "Works with customers day to day and makes sure their results keep growing.",
-      ru: "Ежедневно работает с клиентами и обеспечивает рост их результатов.",
-    },
-  },
 ];
 
 export function About() {
   const { lang } = useLang();
+  const [active, setActive] = useState(0);
+  const count = members.length;
+  const go = (i: number) => setActive((i + count) % count);
+
+  // Lightweight touch swipe for mobile.
+  const startX = useRef<number | null>(null);
+  const onTouchStart = (e: React.TouchEvent) => {
+    startX.current = e.touches[0].clientX;
+  };
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (startX.current === null) return;
+    const dx = e.changedTouches[0].clientX - startX.current;
+    if (Math.abs(dx) > 45) go(active + (dx < 0 ? 1 : -1));
+    startX.current = null;
+  };
+
   return (
     <>
       {/* Title + description */}
@@ -121,7 +114,7 @@ export function About() {
         </div>
       </section>
 
-      {/* Members */}
+      {/* Members carousel */}
       <section className="section showcase" id="team" style={{ paddingTop: 72 }}>
         <div className="wrap">
           <Reveal className="section-head">
@@ -139,30 +132,89 @@ export function About() {
             </p>
           </Reveal>
 
-          <div className="team-grid">
-            {members.map((m) => (
-              <Reveal key={m.name} className="member">
-                <div className="member-photo-wrap">
-                  {m.photo ? (
-                    <Image
-                      className="member-photo"
-                      src={m.photo}
-                      alt={m.name}
-                      width={72}
-                      height={72}
-                    />
-                  ) : (
-                    <div className="member-av" style={{ background: m.bg, color: m.fg }}>
-                      {m.initials}
-                    </div>
-                  )}
-                </div>
-                <div className="member-name">{m.name}</div>
-                <div className="member-role">{m.role[lang]}</div>
-                <p className="member-desc">{m.desc[lang]}</p>
-              </Reveal>
-            ))}
-          </div>
+          <Reveal className="team-carousel">
+            <div
+              className="carousel-viewport"
+              onTouchStart={onTouchStart}
+              onTouchEnd={onTouchEnd}
+            >
+              <div
+                className="carousel-track"
+                style={{ transform: `translateX(-${active * 100}%)` }}
+              >
+                {members.map((m, i) => (
+                  <div
+                    className="carousel-slide"
+                    key={m.name}
+                    aria-hidden={i !== active}
+                  >
+                    <article className="member-card">
+                      <div className="photo">
+                        {m.photo ? (
+                          <Image
+                            className="member-portrait"
+                            src={m.photo}
+                            alt={m.name}
+                            fill
+                            sizes="(max-width: 860px) 100vw, 420px"
+                            style={{ objectFit: "cover" }}
+                            priority={i === 0}
+                          />
+                        ) : (
+                          <div className="member-av" style={{ background: m.bg, color: m.fg }}>
+                            {m.initials}
+                          </div>
+                        )}
+                      </div>
+                      <div className="info">
+                        <div className="mc-role" style={{ color: m.fg }}>
+                          {m.role[lang]}
+                        </div>
+                        <div className="mc-name">{m.name}</div>
+                        <p className="mc-desc">{m.desc[lang]}</p>
+                      </div>
+                    </article>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="carousel-controls">
+              <button
+                type="button"
+                className="carousel-arrow"
+                onClick={() => go(active - 1)}
+                aria-label="Previous member"
+              >
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M15 6l-6 6 6 6" />
+                </svg>
+              </button>
+              <div className="carousel-dots" role="tablist">
+                {members.map((m, i) => (
+                  <button
+                    key={m.name}
+                    type="button"
+                    className={`carousel-dot${i === active ? " active" : ""}`}
+                    onClick={() => go(i)}
+                    aria-label={`Go to ${m.name}`}
+                    aria-selected={i === active}
+                    role="tab"
+                  />
+                ))}
+              </div>
+              <button
+                type="button"
+                className="carousel-arrow"
+                onClick={() => go(active + 1)}
+                aria-label="Next member"
+              >
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M9 6l6 6-6 6" />
+                </svg>
+              </button>
+            </div>
+          </Reveal>
         </div>
       </section>
     </>
