@@ -36,7 +36,7 @@ export function LandingPage() {
           <Problem />
           <Ceo />
           <Ops />
-          <ValueProp />
+          {/* <ValueProp /> */}
           <Hero />
           {/* <Trust /> */}
           <Features />
