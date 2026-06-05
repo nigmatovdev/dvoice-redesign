@@ -399,6 +399,23 @@ export const dict = {
     ru: "14 дней все возможности PRO без карты. Не понравится — ничего не платите.",
   },
 
+  // ---- expert opinions (video carousel) ----
+  exp_eyebrow: { uz: "EKSPERTLAR", en: "EXPERTS", ru: "ЭКСПЕРТЫ" },
+  exp_h2: { uz: "Ekspert fikrlari", en: "Expert opinions", ru: "Мнения экспертов" },
+  exp_lede: {
+    uz: "Sotuv va qo‘ng‘iroq markazi ekspertlari Sales haqida nima deydi.",
+    en: "What sales and contact-center experts say about Sales.",
+    ru: "Что эксперты по продажам и контакт-центрам говорят о Sales.",
+  },
+  exp1_n: { uz: "Bobur Aliyev", en: "Bobur Aliyev", ru: "Бобур Алиев" },
+  exp1_r: { uz: "Sotuv bo‘yicha ekspert", en: "Sales expert", ru: "Эксперт по продажам" },
+  exp2_n: { uz: "Nilufar Saidova", en: "Nilufar Saidova", ru: "Нилуфар Саидова" },
+  exp2_r: { uz: "Biznes-trener", en: "Business trainer", ru: "Бизнес-тренер" },
+  exp3_n: { uz: "Rustam Qodirov", en: "Rustam Qodirov", ru: "Рустам Кодиров" },
+  exp3_r: { uz: "CRM konsultant", en: "CRM consultant", ru: "CRM-консультант" },
+  exp4_n: { uz: "Aziza Karimova", en: "Aziza Karimova", ru: "Азиза Каримова" },
+  exp4_r: { uz: "Call-markaz rahbari", en: "Call-center lead", ru: "Руководитель колл-центра" },
+
   // ---- final cta ----
   cta_eyebrow: { uz: "ERTA KIRISH", en: "EARLY ACCESS", ru: "РАННИЙ ДОСТУП" },
   cta_h2: {

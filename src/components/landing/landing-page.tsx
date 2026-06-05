@@ -7,6 +7,7 @@ import { MouseGlow } from "./mouse-glow";
 import { Nav } from "./nav";
 import { Ceo } from "./sections/ceo";
 import { Cta } from "./sections/cta";
+import { Experts } from "./sections/experts";
 import { Faq } from "./sections/faq";
 import { Features } from "./sections/features";
 import { Hero } from "./sections/hero";
@@ -46,6 +47,7 @@ export function LandingPage() {
           <Integrations />
           {/* <Pricing /> */}
           <Testimonials />
+          <Experts />
           <Faq />
           <Cta />
         </main>

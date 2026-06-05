@@ -924,6 +924,42 @@ button { font-family: inherit; cursor: pointer; }
 }
 .vp-result .rl { font-size: 14px; color: var(--ink2); max-width: 34ch; text-align: left; line-height: 1.45; }
 
+/* ---- Expert opinions : vertical 9:16 video carousel -------- */
+.experts { --cw: clamp(248px, 30vw, 340px); --ch: calc(var(--cw) * 16 / 9); }
+.expert-stage { position: relative; height: var(--ch); margin: 8px auto 0; }
+.expert-card {
+  position: absolute; top: 0; left: 50%; width: var(--cw); height: var(--ch);
+  margin-left: calc(var(--cw) / -2); cursor: pointer;
+  transition: transform .6s cubic-bezier(.2,.7,.2,1), opacity .6s ease;
+  will-change: transform, opacity;
+}
+.expert-media {
+  position: relative; width: 100%; height: 100%; border-radius: 20px; overflow: hidden;
+  border: 1px solid var(--rule); background: var(--surface); box-shadow: var(--shadowLg);
+}
+.expert-media img { width: 100%; height: 100%; object-fit: cover; display: block; }
+/* Scale the 16:9 iframe up so it covers the 9:16 frame with no letterbox bars. */
+.expert-media iframe {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: calc(var(--ch) * 16 / 9); height: var(--ch); border: 0; display: block;
+  pointer-events: none;
+}
+.expert-cap {
+  position: absolute; inset: auto 0 0 0; padding: 38px 18px 16px;
+  background: linear-gradient(transparent, rgba(0,0,0,.78));
+}
+.expert-cap .en { font-size: 16px; font-weight: 800; letter-spacing: -0.2px; }
+.expert-cap .er {
+  font-family: var(--font-mono), ui-monospace, monospace; font-size: 11px; font-weight: 700;
+  letter-spacing: .4px; text-transform: uppercase; color: rgba(255,255,255,.82); margin-top: 3px;
+}
+@media (max-width: 600px) {
+  .expert-card.side { opacity: 0 !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .expert-card { transition: none; }
+}
+
 /* ---- Reveal on scroll -------------------------------------- */
 .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); }
 .reveal.in { opacity: 1; transform: none; }
