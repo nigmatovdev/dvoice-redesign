@@ -39,8 +39,8 @@ export function LandingPage() {
           {/* <ValueProp /> */}
           <Hero />
           {/* <Trust /> */}
-          <Features />
-          <How />
+          {/* <Features /> */}
+          {/* <How /> */}
           <Showcase />
           <Results />
           <Integrations />
