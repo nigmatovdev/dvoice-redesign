@@ -10,27 +10,21 @@ const columns: { heading: DictKey; links: { href: string; k: DictKey }[] }[] = [
     heading: "ft_product",
     links: [
       { href: "/#features", k: "ft_features" },
-      { href: "/#pricing", k: "ft_pricing" },
+      { href: "/#how", k: "nav_how" },
+      { href: "/#showcase", k: "nav_showcase" },
       { href: "/#integrations", k: "ft_integr" },
-      { href: "/#", k: "ft_changelog" },
     ],
   },
   {
     heading: "ft_company",
     links: [
       { href: "/about", k: "ft_about" },
-      { href: "/#", k: "ft_blog" },
-      { href: "/#", k: "ft_careers" },
-      { href: "/#cta", k: "ft_contact" },
+      { href: "/#faq", k: "nav_faq" },
     ],
   },
   {
     heading: "ft_legal",
-    links: [
-      { href: "/#", k: "ft_privacy" },
-      { href: "/#", k: "ft_terms" },
-      { href: "/#", k: "ft_security" },
-    ],
+    links: [{ href: "/privacy", k: "ft_privacy" }],
   },
 ];
 
