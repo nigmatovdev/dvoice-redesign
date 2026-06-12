@@ -72,6 +72,7 @@ function ContactModal({ onClose }: { onClose: () => void }) {
   const { t } = useLang();
   const [sent, setSent] = useState(false);
   const [sending, setSending] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
   const firstFieldRef = useRef<HTMLInputElement>(null);
 
@@ -85,15 +86,31 @@ function ContactModal({ onClose }: { onClose: () => void }) {
     return () => document.removeEventListener("keydown", onKey);
   }, [onClose]);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setError(null);
     setSending(true);
-    // No backend yet — simulate a request, then show the success state.
-    // Wire this to a server action / API route when the backend exists.
-    window.setTimeout(() => {
-      setSending(false);
+    const fd = new FormData(e.currentTarget);
+    // Backend schema: business_name · person_name · phone · email.
+    const payload = {
+      business_name: fd.get("company"),
+      person_name: fd.get("fullName"),
+      phone: fd.get("phone"),
+      email: fd.get("email"),
+    };
+    try {
+      const res = await fetch("/api/signup-requests", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) throw new Error(`status ${res.status}`);
       setSent(true);
-    }, 600);
+    } catch {
+      setError(t("modal_err_submit"));
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -151,6 +168,15 @@ function ContactModal({ onClose }: { onClose: () => void }) {
                 <span>{t("modal_phone")}</span>
                 <input name="phone" type="tel" required autoComplete="tel" placeholder={t("modal_phone_ph")} />
               </label>
+              <label className="field">
+                <span>{t("modal_email")}</span>
+                <input name="email" type="email" required autoComplete="email" placeholder={t("modal_email_ph")} />
+              </label>
+              {error && (
+                <p className="modal-error" role="alert">
+                  {error}
+                </p>
+              )}
               <button type="submit" className="btn btn-primary btn-lg" disabled={sending}>
                 {sending ? t("modal_sending") : t("modal_submit")}
               </button>

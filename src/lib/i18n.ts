@@ -486,6 +486,11 @@ export const dict = {
   },
   modal_close: { uz: "Yopish", en: "Close", ru: "Закрыть" },
   modal_err_email: { uz: "To‘g‘ri Gmail manzilini kiriting.", en: "Please enter a valid Gmail address.", ru: "Введите корректный адрес Gmail." },
+  modal_err_submit: {
+    uz: "Yuborishda xatolik. Iltimos, qayta urinib ko‘ring.",
+    en: "Something went wrong. Please try again.",
+    ru: "Ошибка отправки. Попробуйте ещё раз.",
+  },
 
   // ---- about us page ----
   nav_about: { uz: "Biz", en: "About", ru: "О нас" },

@@ -763,6 +763,10 @@ button { font-family: inherit; cursor: pointer; }
 }
 .field input:focus { outline: none; border-color: var(--blue); }
 .field input::placeholder { color: var(--ink4); }
+.modal-error {
+  margin: 0; font-size: 12.5px; color: var(--red); line-height: 1.4;
+  background: var(--redSoft); border-radius: 8px; padding: 9px 12px;
+}
 .modal-form .btn { width: 100%; margin-top: 4px; }
 .modal-form .btn:disabled { opacity: .65; cursor: default; }
 
