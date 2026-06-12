@@ -458,14 +458,18 @@ export const dict = {
   },
 
   // ---- access / partner CTAs + contact modal ----
-  cta_get_access: { uz: "Ruxsat olish", en: "Get Access", ru: "Получить доступ" },
+  cta_get_access: { uz: "Boshlash", en: "Get Access", ru: "Получить доступ" },
   cta_partner: { uz: "Hamkor bo‘lish", en: "Become a Partner", ru: "Стать партнёром" },
-  modal_title: { uz: "Ruxsat olish uchun ariza", en: "Request access", ru: "Запрос доступа" },
+  modal_title: { uz: "Boshlash uchun ariza", en: "Request access", ru: "Запрос доступа" },
   modal_sub: {
     uz: "Ma’lumotlaringizni qoldiring — jamoamiz tez orada siz bilan bog‘lanadi.",
     en: "Leave your details and our team will reach out to you shortly.",
     ru: "Оставьте свои данные — наша команда свяжется с вами в ближайшее время.",
   },
+  modal_company: { uz: "Kompaniya", en: "Company", ru: "Компания" },
+  modal_company_ph: { uz: "Kompaniya nomi", en: "Company name", ru: "Название компании" },
+  modal_position: { uz: "Lavozim", en: "Position", ru: "Должность" },
+  modal_position_ph: { uz: "Masalan, Sotuv rahbari", en: "e.g. Head of Sales", ru: "Напр., Руководитель продаж" },
   modal_name: { uz: "To‘liq ism", en: "Full name", ru: "Полное имя" },
   modal_name_ph: { uz: "Ism Familiya", en: "Jane Doe", ru: "Иван Иванов" },
   modal_email: { uz: "Gmail manzili", en: "Gmail address", ru: "Адрес Gmail" },

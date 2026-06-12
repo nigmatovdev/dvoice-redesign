@@ -136,20 +136,16 @@ function ContactModal({ onClose }: { onClose: () => void }) {
 
             <form className="modal-form" onSubmit={handleSubmit}>
               <label className="field">
-                <span>{t("modal_name")}</span>
-                <input ref={firstFieldRef} name="fullName" type="text" required autoComplete="name" placeholder={t("modal_name_ph")} />
+                <span>{t("modal_company")}</span>
+                <input ref={firstFieldRef} name="company" type="text" required autoComplete="organization" placeholder={t("modal_company_ph")} />
               </label>
               <label className="field">
-                <span>{t("modal_email")}</span>
-                <input
-                  name="email"
-                  type="email"
-                  required
-                  autoComplete="email"
-                  pattern="[a-zA-Z0-9._%+\-]+@gmail\.com"
-                  title={t("modal_err_email")}
-                  placeholder={t("modal_email_ph")}
-                />
+                <span>{t("modal_position")}</span>
+                <input name="position" type="text" required autoComplete="organization-title" placeholder={t("modal_position_ph")} />
+              </label>
+              <label className="field">
+                <span>{t("modal_name")}</span>
+                <input name="fullName" type="text" required autoComplete="name" placeholder={t("modal_name_ph")} />
               </label>
               <label className="field">
                 <span>{t("modal_phone")}</span>
