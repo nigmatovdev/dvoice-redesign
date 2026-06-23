@@ -47,7 +47,7 @@ export function LandingPage() {
           <Integrations />
           {/* <Pricing /> */}
           <Testimonials />
-          <Experts />
+          {/* <Experts /> */}
           <Faq />
           <Cta />
         </main>
