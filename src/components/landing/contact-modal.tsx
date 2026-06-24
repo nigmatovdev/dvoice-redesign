@@ -74,15 +74,14 @@ function ContactModal({ onClose }: { onClose: () => void }) {
   const [sending, setSending] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const dialogRef = useRef<HTMLDivElement>(null);
-  const firstFieldRef = useRef<HTMLInputElement>(null);
 
-  // Close on Escape; focus the first field on open.
+  // Close on Escape. (No auto-focus — opening the modal shouldn't highlight a
+  // field; users tap the field they want.)
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
     };
     document.addEventListener("keydown", onKey);
-    firstFieldRef.current?.focus();
     return () => document.removeEventListener("keydown", onKey);
   }, [onClose]);
 
@@ -154,7 +153,7 @@ function ContactModal({ onClose }: { onClose: () => void }) {
             <form className="modal-form" onSubmit={handleSubmit}>
               <label className="field">
                 <span>{t("modal_company")}</span>
-                <input ref={firstFieldRef} name="company" type="text" required autoComplete="organization" placeholder={t("modal_company_ph")} />
+                <input name="company" type="text" required autoComplete="organization" placeholder={t("modal_company_ph")} />
               </label>
               <label className="field">
                 <span>{t("modal_position")}</span>

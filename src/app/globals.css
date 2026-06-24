@@ -98,9 +98,19 @@ a { color: inherit; text-decoration: none; }
 img { max-width: 100%; display: block; }
 button { font-family: inherit; cursor: pointer; }
 
+/* Keyboard-only focus rings: clicking/tapping never leaves a lingering ring,
+   but Tab navigation still shows a clear ring for accessibility. */
+:focus:not(:focus-visible) { outline: none; }
+.btn:focus-visible, .toggle-btn:focus-visible, .nav-burger:focus-visible,
+.seg button:focus-visible, .carousel-arrow:focus-visible, .modal-x:focus-visible {
+  outline: 2px solid var(--blue); outline-offset: 2px;
+}
+
 .mono { font-family: var(--font-mono), ui-monospace, monospace; }
 
 .wrap { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+/* Offset anchor jumps so the sticky nav doesn't cover the section heading. */
+.section, #top { scroll-margin-top: 84px; }
 .section { padding: 104px 0; }
 @media (max-width: 760px) { .section { padding: 64px 0; } .wrap { padding: 0 20px; } }
 
@@ -208,9 +218,51 @@ button { font-family: inherit; cursor: pointer; }
 .toggle-btn svg { display: block; }
 .toggle-icon { padding: 8px; }
 
-.nav-toggle { display: none; }
+/* Hamburger — hidden on desktop, shown once the inline links collapse. */
+.nav-burger {
+  display: none; width: 36px; height: 36px; border-radius: 9px;
+  background: var(--surface); border: 1px solid var(--rule); color: var(--ink2);
+  place-items: center; transition: color .15s, border-color .15s;
+}
+.nav-burger:hover { color: var(--ink); border-color: var(--ink3); }
+
+/* Mobile dropdown menu (under the sticky bar). */
+.nav-menu {
+  position: absolute; left: 0; right: 0; top: 100%;
+  background: color-mix(in srgb, var(--bg) 96%, transparent);
+  backdrop-filter: saturate(140%) blur(14px);
+  border-bottom: 1px solid var(--rule);
+  animation: nav-menu-in .18s ease;
+}
+.nav-menu .wrap { display: flex; flex-direction: column; align-items: center; gap: 4px; padding-top: 12px; padding-bottom: 18px; }
+.nav-menu a {
+  width: 100%; text-align: center;
+  font-size: 16px; font-weight: 600; color: var(--ink2);
+  padding: 13px 8px; border-radius: 10px; border-bottom: 1px solid var(--rule2);
+}
+.nav-menu a:hover { background: var(--surface); color: var(--ink); }
+.nav-menu-toggles { display: flex; justify-content: center; gap: 8px; padding: 14px 0 4px; }
+.nav-menu-cta { width: 100%; margin-top: 8px; }
+@keyframes nav-menu-in { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .nav-menu { animation: none; } }
+
+@media (min-width: 941px) { .nav-menu { display: none; } }
 @media (max-width: 940px) {
+  /* Logo at the start, actions/burger at the end, space between. */
+  .nav-inner { display: flex; justify-content: space-between; }
   .nav-links { display: none; }
+  .nav-burger { display: grid; }
+}
+/* On phones, drop the inline toggles + brand tag so the bar never overflows;
+   toggles live in the dropdown menu instead. */
+@media (max-width: 600px) {
+  .nav-inner { gap: 10px; height: 60px; }
+  .brand-tag { display: none; }
+  .nav-actions { gap: 7px; }
+  .nav-actions .toggle-btn { display: none; }
+}
+@media (max-width: 360px) {
+  .nav-cta { display: none; }
 }
 
 /* ---- Cursor-following background glow ---------------------- */
@@ -257,6 +309,16 @@ button { font-family: inherit; cursor: pointer; }
   font-size: 24px; font-weight: 600; letter-spacing: -1px;
 }
 .hero-ticks .tick .l { font-size: 12px; color: var(--ink3); margin-top: 2px; }
+/* On phones the hero stacks — center everything so it reads cleanly. */
+@media (max-width: 760px) {
+  .hero-inner { text-align: center; }
+  .hero-copy .eyebrow { margin: 0 auto; }
+  .hero-copy .lede { margin-left: auto; margin-right: auto; }
+  .hero-cta { justify-content: center; }
+  .hero-cta .btn { width: 100%; max-width: 320px; }
+  .hero-note { justify-content: center; flex-wrap: wrap; }
+  .hero-ticks { justify-content: center; gap: 22px 32px; }
+}
 
 /* ---- Recreated mini dashboard (hero visual) ---------------- */
 .preview {
@@ -707,7 +769,18 @@ button { font-family: inherit; cursor: pointer; }
 .footer { border-top: 1px solid var(--rule); background: var(--surface); }
 .footer-inner { padding: 56px 0 28px; }
 .footer-top { display: grid; grid-template-columns: 1fr repeat(3, auto); gap: 64px; align-items: start; }
-@media (max-width: 760px) { .footer-top { grid-template-columns: 1fr 1fr; gap: 28px 40px; } }
+/* Mobile: stack into one centered column with the logo centered — reads cleaner
+   than a lopsided grid. */
+@media (max-width: 860px) {
+  .footer-inner { padding: 44px 0 24px; }
+  .footer-top { grid-template-columns: 1fr; gap: 32px; text-align: center; }
+  /* fit-content + auto margins centers the logo regardless of flex width. */
+  .footer .brand { justify-content: center; width: fit-content; margin: 0 auto 12px; }
+  .footer .blurb { margin-left: auto; margin-right: auto; }
+  .footer-tg { margin-top: 16px; }
+  .footer ul { justify-items: center; }
+  .footer-bot { flex-direction: column; justify-content: center; text-align: center; gap: 16px; }
+}
 .footer .brand { margin-bottom: 14px; }
 .footer .blurb { font-size: 13px; color: var(--ink3); max-width: 30ch; line-height: 1.55; }
 .footer h4 {
@@ -744,9 +817,14 @@ button { font-family: inherit; cursor: pointer; }
 }
 .modal {
   position: relative; width: 100%; max-width: 440px;
+  max-height: calc(100dvh - 40px); overflow-y: auto;
   background: var(--card); border: 1px solid var(--rule); border-radius: 18px;
   padding: 30px 28px; box-shadow: var(--shadowLg);
   animation: modal-pop .22s cubic-bezier(.2,.7,.2,1);
+}
+@media (max-width: 480px) {
+  .modal-overlay { padding: 12px; }
+  .modal { padding: 26px 20px; border-radius: 16px; max-height: calc(100dvh - 24px); }
 }
 .modal-x {
   position: absolute; top: 14px; right: 14px;
