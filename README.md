@@ -22,7 +22,7 @@ This project uses [`next/font`](https://nextjs.org/docs/app/building-your-applic
 
 ## Environment Variables
 
-The contact/signup form proxies through a server-only route (`src/app/api/signup-requests/route.ts`). Copy `.env.example` to `.env.local` and fill these in:
+The contact/signup form proxies through a server-only route (`src/app/api/signup/route.ts`). Copy `.env.example` to `.env.local` and fill these in:
 
 | Variable | Description |
 | --- | --- |

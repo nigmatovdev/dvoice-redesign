@@ -1,17 +1,17 @@
-// Proxy for the signup-request form. Forwards to the dvoice backend server-side
+// Proxy for the landing signup form. Forwards to the dvoice backend server-side
 // so the browser never makes a cross-origin POST (no CORS dance) AND the upstream
 // endpoint + secret key stay server-only — never shipped to the client.
 //
 // Required env (set in .env.local locally, project env in prod — NOT NEXT_PUBLIC_):
-//   SIGNUP_UPSTREAM_URL  full backend endpoint, e.g. https://dvoice.uz/api/signup-requests
-//   SIGNUP_API_KEY       shared secret; backend rejects requests without it
+//   SIGNUP_UPSTREAM_URL  full backend endpoint, e.g. https://dvoice.uz/api/signup
+//   SIGNUP_API_KEY       shared secret; backend accepts the request only with it
 const UPSTREAM = process.env.SIGNUP_UPSTREAM_URL;
 const API_KEY = process.env.SIGNUP_API_KEY;
 
 export async function POST(request: Request) {
   if (!UPSTREAM || !API_KEY) {
     // Misconfiguration — fail loud server-side, generic to client.
-    console.error("signup-requests: missing SIGNUP_UPSTREAM_URL or SIGNUP_API_KEY");
+    console.error("signup: missing SIGNUP_UPSTREAM_URL or SIGNUP_API_KEY");
     return Response.json({ error: "server not configured" }, { status: 500 });
   }
 

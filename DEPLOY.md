@@ -77,7 +77,7 @@ The app reads server-only secrets at runtime. Create `.env.local` in the project
 ```bash
 cd /var/www/dvoice
 cat > .env.local <<'EOF'
-SIGNUP_UPSTREAM_URL=https://[YOURDOMAIN]/api/signup-requests
+SIGNUP_UPSTREAM_URL=https://[YOURDOMAIN]/api/signup
 SIGNUP_API_KEY=PASTE_THE_REAL_SECRET_HERE
 EOF
 chmod 600 .env.local

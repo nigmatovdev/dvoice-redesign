@@ -17,10 +17,7 @@ const columns: { heading: DictKey; links: { href: string; k: DictKey }[] }[] = [
   },
   {
     heading: "ft_company",
-    links: [
-      { href: "/about", k: "ft_about" },
-      { href: "/#faq", k: "nav_faq" },
-    ],
+    links: [{ href: "/#faq", k: "nav_faq" }],
   },
   {
     heading: "ft_legal",
@@ -44,6 +41,18 @@ export function Footer() {
             <p className="blurb">
               <T k="ft_blurb" />
             </p>
+            <a
+              className="footer-tg"
+              href="https://t.me/arislanbek_pm"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Telegram @arislanbek_pm"
+            >
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M21.95 4.36 18.7 19.71c-.24 1.08-.88 1.35-1.79.84l-4.95-3.65-2.39 2.3c-.26.26-.49.49-1 .49l.36-5.09 9.26-8.37c.4-.36-.09-.56-.62-.2L6.13 13.1l-4.93-1.54c-1.07-.34-1.09-1.07.23-1.59l19.27-7.43c.9-.33 1.68.2 1.38 1.42Z" />
+              </svg>
+              <span>Telegram</span>
+            </a>
           </div>
           {columns.map((col) => (
             <div key={col.heading}>
@@ -66,7 +75,7 @@ export function Footer() {
           <span className="cr">
             <T k="ft_cr" />
           </span>
-          <div style={{ display: "flex", gap: 10 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
             <LangToggle />
             <ThemeToggle />
           </div>

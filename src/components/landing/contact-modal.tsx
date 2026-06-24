@@ -99,7 +99,7 @@ function ContactModal({ onClose }: { onClose: () => void }) {
       email: fd.get("email"),
     };
     try {
-      const res = await fetch("/api/signup-requests", {
+      const res = await fetch("/api/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),

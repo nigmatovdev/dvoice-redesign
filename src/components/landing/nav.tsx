@@ -6,13 +6,11 @@ import { AccessButton } from "./contact-modal";
 import { LangToggle, ThemeToggle } from "./controls";
 import { T } from "./lang-provider";
 
-// Section links point at the home page (work from any route); "Biz" is a real
-// page route.
+// Section links point at the home page (work from any route).
 const links: { href: string; k: DictKey }[] = [
   { href: "/#features", k: "nav_features" },
   { href: "/#showcase", k: "nav_showcase" },
-  // { href: "/#pricing", k: "nav_pricing" },
-  { href: "/about", k: "nav_about" },
+  { href: "/#faq", k: "nav_faq" },
 ];
 
 export function Nav() {
