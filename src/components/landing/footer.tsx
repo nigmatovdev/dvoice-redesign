@@ -43,7 +43,7 @@ export function Footer() {
             </p>
             <a
               className="footer-tg"
-              href="https://t.me/arislanbek_pm"
+              href="https://t.me/arislanbek9"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Telegram @arislanbek9"
