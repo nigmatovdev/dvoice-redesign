@@ -849,6 +849,10 @@ button { font-family: inherit; cursor: pointer; }
 }
 .field input:focus { outline: none; border-color: var(--blue); }
 .field input::placeholder { color: var(--ink4); }
+/* >=16px stops iOS Safari from auto-zooming the page when a field is focused. */
+@media (max-width: 760px) {
+  .field input, .signup input { font-size: 16px; }
+}
 .modal-error {
   margin: 0; font-size: 12.5px; color: var(--red); line-height: 1.4;
   background: var(--redSoft); border-radius: 8px; padding: 9px 12px;
