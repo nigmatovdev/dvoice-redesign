@@ -61,3 +61,4 @@ npm run start   # serves on port 3000
 ```
 
 Then reverse-proxy port 3000 with Nginx and terminate TLS with Certbot. See [DEPLOY.md](./DEPLOY.md) for the full setup (Node install, env vars, systemd/PM2, Nginx config, SSL, updates).
+
