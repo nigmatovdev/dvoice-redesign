@@ -66,9 +66,9 @@ export function Nav() {
     <header className="nav">
       <div className="wrap nav-inner">
         <Link className="brand" href="/" onClick={() => setOpen(false)}>
-          <div className="brand-mark">S.</div>
+          <div className="brand-mark">D.</div>
           <div>
-            <div className="brand-name">Sales</div>
+            <div className="brand-name">Dvoice</div>
             <div className="brand-tag">Speech analytics</div>
           </div>
         </Link>
