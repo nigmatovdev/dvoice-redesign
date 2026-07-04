@@ -1,0 +1,52 @@
+name: Deploy to Cloud Run
+
+on:
+  push:
+    branches: [c-run]
+
+env:
+  PROJECT_ID: project-ca265e68-9d90-4187-a94
+  REGION: asia-south1
+  SERVICE: dvoice-landing
+  REPOSITORY: dvoice-landing
+  WORKLOAD_IDENTITY_PROVIDER: projects/991177706039/locations/global/workloadIdentityPools/github-actions/providers/dvoice-landing-repo
+  SERVICE_ACCOUNT: dvoice-landing-deployer@project-ca265e68-9d90-4187-a94.iam.gserviceaccount.com
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Authenticate to Google Cloud
+        id: auth
+        uses: google-github-actions/auth@v2
+        with:
+          workload_identity_provider: ${{ env.WORKLOAD_IDENTITY_PROVIDER }}
+          service_account: ${{ env.SERVICE_ACCOUNT }}
+
+      - name: Set up gcloud
+        uses: google-github-actions/setup-gcloud@v2
+
+      - name: Build and push image
+        run: |
+          IMAGE="${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.SERVICE }}:${{ github.sha }}"
+          gcloud builds submit --tag "$IMAGE" --region="${{ env.REGION }}" .
+          echo "IMAGE=$IMAGE" >> "$GITHUB_ENV"
+
+      - name: Deploy to Cloud Run
+        run: |
+          gcloud run deploy "${{ env.SERVICE }}" \
+            --image="${{ env.IMAGE }}" \
+            --region="${{ env.REGION }}" \
+            --platform=managed \
+            --allow-unauthenticated \
+            --port=3000 \
+            --min-instances=0 \
+            --max-instances=10 \
+            --set-env-vars="SIGNUP_UPSTREAM_URL=${{ secrets.SIGNUP_UPSTREAM_URL }},SIGNUP_API_KEY=${{ secrets.SIGNUP_API_KEY }},NEXT_PUBLIC_SITE_URL=${{ secrets.NEXT_PUBLIC_SITE_URL }}"

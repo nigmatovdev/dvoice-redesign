@@ -1,6 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  // Self-contained server bundle for containerized deploys (Cloud Run).
+  output: "standalone",
   // Surface React issues during development.
   reactStrictMode: true,
   // Drop the `X-Powered-By: Next.js` header.
