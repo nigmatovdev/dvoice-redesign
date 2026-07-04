@@ -37,8 +37,31 @@ jobs:
 
       - name: Build and push image
         run: |
+          set -euo pipefail
           IMAGE="${{ env.REGION }}-docker.pkg.dev/${{ env.PROJECT_ID }}/${{ env.REPOSITORY }}/${{ env.SERVICE }}:${{ github.sha }}"
-          gcloud builds submit --project="${{ env.PROJECT_ID }}" --tag "$IMAGE" --region="${{ env.REGION }}" .
+
+          # --async: the submitting identity isn't granted project Viewer/Owner,
+          # so it can't stream logs from the default Cloud Build logs bucket.
+          # Submit without waiting, then poll build status via the Cloud Build API instead.
+          BUILD_ID=$(gcloud builds submit --project="${{ env.PROJECT_ID }}" --tag "$IMAGE" \
+            --region="${{ env.REGION }}" --async --format="value(id)" .)
+          echo "Build submitted: $BUILD_ID"
+
+          for i in $(seq 1 60); do
+            STATUS=$(gcloud builds describe "$BUILD_ID" --project="${{ env.PROJECT_ID }}" \
+              --region="${{ env.REGION }}" --format="value(status)")
+            echo "status=$STATUS"
+            case "$STATUS" in
+              SUCCESS) break ;;
+              FAILURE|INTERNAL_ERROR|TIMEOUT|CANCELLED|EXPIRED)
+                echo "Build failed with status $STATUS"; exit 1 ;;
+            esac
+            sleep 10
+          done
+          if [ "$STATUS" != "SUCCESS" ]; then
+            echo "Build did not finish in time"; exit 1
+          fi
+
           echo "IMAGE=$IMAGE" >> "$GITHUB_ENV"
 
       - name: Deploy to Cloud Run
