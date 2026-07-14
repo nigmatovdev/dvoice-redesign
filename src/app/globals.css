@@ -668,6 +668,8 @@ button { font-family: inherit; cursor: pointer; }
 /* ---- Integrations ------------------------------------------ */
 .integ-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
 @media (max-width: 760px) { .integ-grid { grid-template-columns: repeat(2, 1fr); } }
+/* Phones: one full-width row per card so logo + name + status badge fit cleanly. */
+@media (max-width: 560px) { .integ-grid { grid-template-columns: 1fr; } }
 .integ {
   background: var(--card); border: 1px solid var(--rule); border-radius: 12px;
   padding: 18px 18px; display: flex; align-items: center; gap: 12px; box-shadow: var(--shadow);
