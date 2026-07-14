@@ -6,7 +6,7 @@ on:
 
 env:
   PROJECT_ID: project-ca265e68-9d90-4187-a94
-  REGION: asia-south1
+  REGION: asia-southeast1
   SERVICE: dvoice-landing
   REPOSITORY: dvoice-landing
   WORKLOAD_IDENTITY_PROVIDER: projects/991177706039/locations/global/workloadIdentityPools/github-actions/providers/dvoice-landing-repo
