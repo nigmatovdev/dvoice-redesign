@@ -7,7 +7,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildMetadata({
   title: "Foydalanish shartlari",
   description:
-    "metrixme (metrixme.com) platformasidan foydalanish shartlari — xizmat, ma'lumotlar, to'lovlar va javobgarlik bo'yicha qoidalar.",
+    "metrixme (metrixme.com) platformasidan foydalanish shartlari — xizmat, ma'lumotlar, to‘lovlar va javobgarlik bo‘yicha qoidalar.",
   path: "/terms",
 });
 

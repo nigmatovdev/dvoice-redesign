@@ -25,73 +25,73 @@ const CONTENT: Record<Lang, Policy> = {
     title: "Maxfiylik siyosati",
     updated: "Oxirgi yangilanish: 2026-yil 24-iyun",
     intro:
-      "Ushbu Maxfiylik siyosati metrixme (metrixme.com) platformasi shaxsiy ma'lumotlarni qanday yig'ishi, ishlatishi va himoya qilishini tushuntiradi. Platformadan foydalanib yoki saytdagi formani to'ldirib, siz ushbu siyosatga rozilik bildirasiz.",
+      "Ushbu Maxfiylik siyosati metrixme (metrixme.com) platformasi shaxsiy ma'lumotlarni qanday yig‘ishi, ishlatishi va himoya qilishini tushuntiradi. Platformadan foydalanib yoki saytdagi formani to‘ldirib, siz ushbu siyosatga rozilik bildirasiz.",
     blocks: [
       {
-        h: "1. Biz yig'adigan ma'lumotlar",
-        p: ["Biz quyidagi ma'lumotlarni yig'amiz:"],
+        h: "1. Biz yig‘adigan ma'lumotlar",
+        p: ["Biz quyidagi ma'lumotlarni yig‘amiz:"],
         list: [
           "Aloqa ma'lumotlari: kompaniya nomi, lavozim, ism, telefon raqami va elektron pochta (saytdagi forma orqali).",
-          "Qo'ng'iroq yozuvlari va audio: tahlil uchun yuklangan yoki integratsiya orqali olingan sotuv qo'ng'iroqlari.",
+          "Qo‘ng‘iroq yozuvlari va audio: tahlil uchun yuklangan yoki integratsiya orqali olingan sotuv qo‘ng‘iroqlari.",
           "Foydalanish ma'lumotlari: brauzer turi, qurilma, IP-manzil va platformadan foydalanish statistikasi.",
         ],
       },
       {
         h: "2. Ma'lumotlardan foydalanish maqsadi",
         list: [
-          "Xizmatni taqdim etish va qo'ng'iroqlarni AI yordamida tahlil qilish.",
-          "Sizning so'rovingizga javob berish va demo / kirish huquqini taqdim etish.",
+          "Xizmatni taqdim etish va qo‘ng‘iroqlarni AI yordamida tahlil qilish.",
+          "Sizning so‘rovingizga javob berish va demo / kirish huquqini taqdim etish.",
           "Xizmat sifatini yaxshilash va analitik hisobotlar tayyorlash.",
           "Qonuniy talablarni bajarish.",
         ],
       },
       {
-        h: "3. Qo'ng'iroq yozuvlari va AI tahlili",
+        h: "3. Qo‘ng‘iroq yozuvlari va AI tahlili",
         p: [
-          "Sotuv qo'ng'iroqlari faqat tahlil va hisobot maqsadida qayta ishlanadi. Audio va transkriptlar uchinchi tomonlarga sotilmaydi. Tahlil natijalari faqat sizning tashkilotingizga ko'rinadi.",
+          "Sotuv qo‘ng‘iroqlari faqat tahlil va hisobot maqsadida qayta ishlanadi. Audio va transkriptlar uchinchi tomonlarga sotilmaydi. Tahlil natijalari faqat sizning tashkilotingizga ko‘rinadi.",
         ],
       },
       {
         h: "4. Ma'lumotlarni ulashish",
         p: [
-          "Biz shaxsiy ma'lumotlarni sotmaymiz. Ma'lumotlar faqat xizmatni ta'minlash uchun zarur bo'lgan ishonchli xizmat ko'rsatuvchilar (masalan, hosting va infratuzilma) bilan, maxfiylik shartlari asosida ulashilishi mumkin.",
+          "Biz shaxsiy ma'lumotlarni sotmaymiz. Ma'lumotlar faqat xizmatni ta'minlash uchun zarur bo‘lgan ishonchli xizmat ko‘rsatuvchilar (masalan, hosting va infratuzilma) bilan, maxfiylik shartlari asosida ulashilishi mumkin.",
         ],
       },
       {
         h: "5. Saqlash va xavfsizlik",
         p: [
-          "Ma'lumotlar shifrlangan kanallar orqali uzatiladi va himoyalangan serverlarda saqlanadi. Biz ruxsatsiz kirish, o'zgartirish yoki yo'qotishdan himoya qilish uchun texnik va tashkiliy choralarni qo'llaymiz.",
+          "Ma'lumotlar shifrlangan kanallar orqali uzatiladi va himoyalangan serverlarda saqlanadi. Biz ruxsatsiz kirish, o‘zgartirish yoki yo‘qotishdan himoya qilish uchun texnik va tashkiliy choralarni qo‘llaymiz.",
         ],
       },
       {
         h: "6. Ma'lumotlarni saqlash muddati",
         p: [
-          "Shaxsiy ma'lumotlar yig'ilgan maqsad uchun zarur bo'lgan muddatgacha yoki qonun talab qilgan muddatgacha saqlanadi. So'rov bo'yicha ma'lumotlaringizni o'chirib tashlashimiz mumkin.",
+          "Shaxsiy ma'lumotlar yig‘ilgan maqsad uchun zarur bo‘lgan muddatgacha yoki qonun talab qilgan muddatgacha saqlanadi. So‘rov bo‘yicha ma'lumotlaringizni o‘chirib tashlashimiz mumkin.",
         ],
       },
       {
         h: "7. Sizning huquqlaringiz",
         list: [
-          "O'zingiz haqingizdagi ma'lumotlarga kirish va ularni tuzatishni so'rash.",
-          "Ma'lumotlaringizni o'chirishni so'rash.",
+          "O‘zingiz haqingizdagi ma'lumotlarga kirish va ularni tuzatishni so‘rash.",
+          "Ma'lumotlaringizni o‘chirishni so‘rash.",
           "Ma'lumotlarni qayta ishlashga roziligingizni qaytarib olish.",
         ],
       },
       {
         h: "8. Cookie-fayllar",
         p: [
-          "Sayt asosiy funksiyalar va afzalliklarni (masalan, til va mavzu tanlovi) saqlash uchun localStorage va shunga o'xshash texnologiyalardan foydalanadi.",
+          "Sayt asosiy funksiyalar va afzalliklarni (masalan, til va mavzu tanlovi) saqlash uchun localStorage va shunga o‘xshash texnologiyalardan foydalanadi.",
         ],
       },
       {
-        h: "9. Siyosatdagi o'zgarishlar",
+        h: "9. Siyosatdagi o‘zgarishlar",
         p: [
           "Biz ushbu siyosatni vaqti-vaqti bilan yangilashimiz mumkin. Yangilangan versiya ushbu sahifada e'lon qilinadi va sana yangilanadi.",
         ],
       },
     ],
     contactNote:
-      "Maxfiylik bo'yicha savollaringiz bo'lsa, biz bilan bog'laning:",
+      "Maxfiylik bo‘yicha savollaringiz bo‘lsa, biz bilan bog‘laning:",
   },
   en: {
     title: "Privacy Policy",

@@ -61,7 +61,16 @@ const noFlashScript = `
 try {
   var t = localStorage.getItem('metrixme-landing-theme') || 'dark';
   document.documentElement.setAttribute('data-theme', t);
-  var l = localStorage.getItem('metrixme-landing-lang') || 'uz';
+  var l = localStorage.getItem('metrixme-landing-lang');
+  if (!l) {
+    var supported = ['uz', 'en', 'ru'];
+    var cands = (navigator.languages && navigator.languages.length) ? navigator.languages : [navigator.language || ''];
+    for (var i = 0; i < cands.length; i++) {
+      var code = (cands[i] || '').toLowerCase().slice(0, 2);
+      if (supported.indexOf(code) !== -1) { l = code; break; }
+    }
+    l = l || 'uz';
+  }
   document.documentElement.setAttribute('lang', l);
 } catch (e) {}
 `;
