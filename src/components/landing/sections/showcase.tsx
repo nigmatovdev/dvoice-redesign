@@ -36,23 +36,44 @@ const CheckIcon = (
 
 export function Showcase() {
   const sectionRef = useRef<HTMLElement>(null);
+  const stageRef = useRef<HTMLDivElement>(null);
   const advancedRef = useRef(false);
   const [progress, setProgress] = useState(0);
-  // How many items have been completed (checked), and which visual is active.
+  // Which visual is active (highlighted) and how many items are checked.
   const [active, setActive] = useState(0);
   const [checked, setChecked] = useState<boolean[]>(() => Array(N).fill(false));
+  // On phones the stage is a swipe carousel (see CSS); track that for a11y + taps.
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const section = sectionRef.current;
     if (!section) return;
 
-    // Mobile: the section is un-pinned (see CSS), so all visuals stack and show
-    // at once. Mark every item done, and skip the scroll listener + auto-advance
-    // entirely — scroll-jacking is jarring on touch.
-    if (window.matchMedia?.("(max-width: 760px)").matches) {
+    // Mobile: the section is un-pinned and the stage is a horizontal swipe
+    // carousel (see CSS). Skip the scroll-jack; instead highlight the checklist
+    // item for whichever dashboard is currently in view.
+    const mobile = !!window.matchMedia?.("(max-width: 760px)").matches;
+    setIsMobile(mobile);
+    if (mobile) {
       setChecked(Array(N).fill(true));
-      setActive(0);
-      return;
+      const stage = stageRef.current;
+      if (!stage) {
+        setActive(0);
+        return;
+      }
+      const io = new IntersectionObserver(
+        (entries) => {
+          for (const e of entries) {
+            if (e.isIntersecting) {
+              const idx = Number((e.target as HTMLElement).dataset.idx);
+              if (!Number.isNaN(idx)) setActive(idx);
+            }
+          }
+        },
+        { root: stage, threshold: 0.6 },
+      );
+      stage.querySelectorAll(".scrolly-visual").forEach((el) => io.observe(el));
+      return () => io.disconnect();
     }
 
     const reduce = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
@@ -95,6 +116,13 @@ export function Showcase() {
     };
   }, []);
 
+  // Tap a checklist item → swipe the carousel to that dashboard (mobile only).
+  const goToSlide = (i: number) => {
+    if (!isMobile) return;
+    const el = stageRef.current?.querySelectorAll<HTMLElement>(".scrolly-visual")[i];
+    el?.scrollIntoView({ behavior: "smooth", inline: "start", block: "nearest" });
+  };
+
   return (
     <section className="section showcase scrolly" id="showcase" ref={sectionRef}>
       <div className="scrolly-sticky">
@@ -119,6 +147,20 @@ export function Showcase() {
                 <li
                   key={s.title}
                   className={`scrolly-item${i === active ? " active" : ""}${checked[i] ? " done" : ""}`}
+                  onClick={() => goToSlide(i)}
+                  style={isMobile ? { cursor: "pointer" } : undefined}
+                  {...(isMobile
+                    ? {
+                        role: "button",
+                        tabIndex: 0,
+                        onKeyDown: (e: React.KeyboardEvent) => {
+                          if (e.key === "Enter" || e.key === " ") {
+                            e.preventDefault();
+                            goToSlide(i);
+                          }
+                        },
+                      }
+                    : {})}
                 >
                   <span className="scrolly-check">{CheckIcon}</span>
                   <span className="scrolly-text">
@@ -139,10 +181,15 @@ export function Showcase() {
             </div>
           </div>
 
-          {/* Visual stage — crossfading screenshots */}
-          <div className="scrolly-stage">
+          {/* Visual stage — crossfading screenshots (desktop) / swipe carousel (mobile) */}
+          <div className="scrolly-stage" ref={stageRef}>
             {steps.map((s, i) => (
-              <div key={i} className={`scrolly-visual${i === active ? " active" : ""}`} aria-hidden={i !== active}>
+              <div
+                key={i}
+                data-idx={i}
+                className={`scrolly-visual${i === active ? " active" : ""}`}
+                aria-hidden={!isMobile && i !== active}
+              >
                 {s.visual}
               </div>
             ))}

@@ -293,6 +293,13 @@ button { font-family: inherit; cursor: pointer; }
 }
 @media (max-width: 360px) {
   .nav-cta { display: none; }
+  /* Tiny screens (iPhone 4/5, small Android): lighter headings + tighter
+     vertical rhythm so the heavy Sora headings and section gaps don't dominate. */
+  .section { padding: 52px 0; }
+  .section-head { margin-bottom: 30px; }
+  .h-display { font-size: 29px; letter-spacing: -0.8px; }
+  .h2 { font-size: 22px; letter-spacing: -0.5px; }
+  .lede { font-size: 14.5px; }
 }
 
 /* ---- Cursor-following background glow ---------------------- */
@@ -635,8 +642,22 @@ button { font-family: inherit; cursor: pointer; }
   .scrolly { height: auto; }
   .scrolly-sticky { position: static; height: auto; display: block; padding: 56px 0; }
   .scrolly-grid { display: block; }
-  .scrolly-stage { order: 0; display: grid; gap: 16px; margin-top: 24px; }
-  .scrolly-visual { position: relative; inset: auto; opacity: 1; transform: none; pointer-events: auto; }
+  /* Dashboards become a full-bleed horizontal swipe carousel — each renders at a
+     comfortable width (peek of the next signals swipe) instead of being crushed
+     by a full reflow or eating huge vertical space when stacked. */
+  .scrolly-stage {
+    order: 0; margin: 22px -20px 0; padding: 2px 20px 10px;
+    display: flex; gap: 12px;
+    overflow-x: auto; scroll-snap-type: x mandatory;
+    scroll-padding-inline: 20px; -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    overscroll-behavior-x: contain;
+  }
+  .scrolly-stage::-webkit-scrollbar { display: none; }
+  .scrolly-visual {
+    position: relative; inset: auto; opacity: 1; transform: none; pointer-events: auto;
+    flex: 0 0 min(88%, 360px); scroll-snap-align: start;
+  }
   .scrolly-text .de { display: block; }
   .scrolly-item { opacity: 1; transform: none; }
   .scrolly-progress { display: none; }
@@ -651,8 +672,11 @@ button { font-family: inherit; cursor: pointer; }
 }
 
 /* ---- Results band ------------------------------------------ */
-.results-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-@media (max-width: 760px) { .results-grid { grid-template-columns: repeat(2, 1fr); } }
+.results-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 760px) { .results-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+/* Phones: full-width stat cards so the big numbers fit and descriptions don't
+   wrap into a tall stack. */
+@media (max-width: 480px) { .results-grid { grid-template-columns: 1fr; } }
 .result {
   background: var(--card); border: 1px solid var(--rule); border-radius: 14px; padding: 26px 24px;
   box-shadow: var(--shadow);
