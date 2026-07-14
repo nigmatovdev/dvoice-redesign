@@ -46,6 +46,15 @@ export function Showcase() {
     const section = sectionRef.current;
     if (!section) return;
 
+    // Mobile: the section is un-pinned (see CSS), so all visuals stack and show
+    // at once. Mark every item done, and skip the scroll listener + auto-advance
+    // entirely — scroll-jacking is jarring on touch.
+    if (window.matchMedia?.("(max-width: 760px)").matches) {
+      setChecked(Array(N).fill(true));
+      setActive(0);
+      return;
+    }
+
     const reduce = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
     let raf = 0;
 
@@ -93,7 +102,7 @@ export function Showcase() {
           {/* Copy + checklist */}
           <div className="scrolly-copy">
             <span className="eyebrow">
-              <span className="dot" style={{ background: "var(--green)" }} />
+              <span className="dot" />
               <span>
                 <T k="sc_eyebrow" />
               </span>

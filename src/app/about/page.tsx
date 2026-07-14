@@ -7,7 +7,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildMetadata({
   title: "Biz haqimizda",
   description:
-    "Sales — O‘zbekistondagi sotuv jamoalari uchun AI nutq tahlili platformasini yaratayotgan jamoa. Jamoamiz a’zolari bilan tanishing.",
+    "metrixme — O‘zbekistondagi sotuv jamoalari uchun AI nutq tahlili platformasini yaratayotgan jamoa. Jamoamiz a’zolari bilan tanishing.",
   path: "/about",
 });
 

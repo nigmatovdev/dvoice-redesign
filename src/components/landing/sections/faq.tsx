@@ -9,7 +9,6 @@ const faqs: { q: DictKey; a: DictKey }[] = [
   { q: "faq3_q", a: "faq3_a" },
   { q: "faq4_q", a: "faq4_a" },
   { q: "faq5_q", a: "faq5_a" },
-  { q: "faq6_q", a: "faq6_a" },
 ];
 
 export function Faq() {
@@ -19,7 +18,7 @@ export function Faq() {
         <Reveal className="section-head">
           <div style={{ textAlign: "center" }}>
             <span className="eyebrow">
-              <span className="dot" style={{ background: "var(--teal)" }} />
+              <span className="dot" />
               <span>
                 <T k="faq_eyebrow" />
               </span>

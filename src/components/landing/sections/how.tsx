@@ -15,7 +15,7 @@ export function How() {
       <div className="wrap">
         <Reveal className="section-head">
           <span className="eyebrow">
-            <span className="dot" style={{ background: "var(--teal)" }} />
+            <span className="dot" />
             <span>
               <T k="how_eyebrow" />
             </span>

@@ -6,6 +6,7 @@ import Link from "next/link";
 
 import { type DictKey } from "@/lib/i18n";
 
+import { BrandMark } from "./brand-mark";
 import { AccessButton } from "./contact-modal";
 import { LangToggle, ThemeToggle } from "./controls";
 import { T } from "./lang-provider";
@@ -66,11 +67,8 @@ export function Nav() {
     <header className="nav">
       <div className="wrap nav-inner">
         <Link className="brand" href="/" onClick={() => setOpen(false)}>
-          <div className="brand-mark">D.</div>
-          <div>
-            <div className="brand-name">Dvoice</div>
-            <div className="brand-tag">Speech analytics</div>
-          </div>
+          <BrandMark idSuffix="nav" />
+          <div className="brand-name">metrixme</div>
         </Link>
         <nav className="nav-links">
           {links.map((l) => (

@@ -142,7 +142,7 @@ function ContactModal({ onClose }: { onClose: () => void }) {
         ) : (
           <>
             <div className="eyebrow" style={{ background: "var(--blueSoft)", color: "var(--blue)" }}>
-              <span className="dot" style={{ background: "var(--blue)" }} />
+              <span className="dot" />
               <span>{t("cta_partner")}</span>
             </div>
             <h3 id="modal-title" className="modal-title">

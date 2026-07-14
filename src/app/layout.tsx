@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Manrope, JetBrains_Mono } from "next/font/google";
+import { Manrope, JetBrains_Mono, Sora } from "next/font/google";
 
 import { JsonLd, organizationSchema, websiteSchema } from "@/components/seo/json-ld";
 import { siteConfig } from "@/config/site";
@@ -9,6 +9,15 @@ import "./globals.css";
 
 const manrope = Manrope({
   variable: "--font-sans",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
+});
+
+// Brand display face — matches the metrixme wordmark. Used for the logo and
+// large headings via --font-display; body/UI text stays on Manrope.
+const sora = Sora({
+  variable: "--font-display",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
   display: "swap",
@@ -30,7 +39,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   ...buildMetadata(),
   title: {
-    default: "Sales — AI nutq tahlili / Speech analytics",
+    default: "metrixme — AI nutq tahlili / Speech analytics",
     template: `%s | ${siteConfig.name}`,
   },
   applicationName: siteConfig.name,
@@ -50,9 +59,9 @@ export const viewport: Viewport = {
 // of the wrong theme. Mirrors the inline script in the original landing.html.
 const noFlashScript = `
 try {
-  var t = localStorage.getItem('sales-landing-theme') || 'dark';
+  var t = localStorage.getItem('metrixme-landing-theme') || 'dark';
   document.documentElement.setAttribute('data-theme', t);
-  var l = localStorage.getItem('sales-landing-lang') || 'uz';
+  var l = localStorage.getItem('metrixme-landing-lang') || 'uz';
   document.documentElement.setAttribute('lang', l);
 } catch (e) {}
 `;
@@ -66,7 +75,7 @@ export default function RootLayout({
     <html
       lang={siteConfig.lang}
       data-theme="dark"
-      className={`${manrope.variable} ${jetbrainsMono.variable}`}
+      className={`${manrope.variable} ${sora.variable} ${jetbrainsMono.variable}`}
       suppressHydrationWarning
     >
       <head>

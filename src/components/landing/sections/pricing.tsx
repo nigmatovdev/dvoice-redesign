@@ -52,7 +52,7 @@ export function Pricing() {
         <Reveal className="section-head" >
           <div style={{ textAlign: "center" }}>
             <span className="eyebrow">
-              <span className="dot" style={{ background: "var(--green)" }} />
+              <span className="dot" />
               <span>
                 <T k="pr_eyebrow" />
               </span>

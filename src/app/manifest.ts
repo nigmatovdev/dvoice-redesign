@@ -16,9 +16,10 @@ export default function manifest(): MetadataRoute.Manifest {
     background_color: siteConfig.themeColor,
     theme_color: siteConfig.themeColor,
     icons: [
-      // Provide these in /public (placeholders for now):
-      // { src: "/icon-192.png", sizes: "192x192", type: "image/png" },
-      // { src: "/icon-512.png", sizes: "512x512", type: "image/png" },
+      // metrixme app tile (rounded square + ribbon). The padded tile doubles as
+      // a maskable icon on Android.
+      { src: "/icon-512.png", sizes: "512x512", type: "image/png", purpose: "any" },
+      { src: "/icon-512.png", sizes: "512x512", type: "image/png", purpose: "maskable" },
     ],
   };
 }

@@ -4,7 +4,7 @@ import { createContext, useCallback, useContext, useEffect, useState } from "rea
 
 import { type DictKey, type Lang, LANGS, translate } from "@/lib/i18n";
 
-const STORAGE_KEY = "sales-landing-lang";
+const STORAGE_KEY = "metrixme-landing-lang";
 
 interface LangContextValue {
   lang: Lang;

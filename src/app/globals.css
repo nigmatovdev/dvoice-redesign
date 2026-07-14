@@ -1,9 +1,10 @@
 @import "tailwindcss";
 
 /* ============================================================
-   Sales — Speech analytics · design system
-   Ported from the original landing.css. Manrope + JetBrains Mono
-   are loaded via next/font and exposed as --font-sans / --font-mono.
+   metrixme — Speech analytics · design system
+   Ported from the original landing.css. Sora + Manrope + JetBrains Mono
+   are loaded via next/font and exposed as --font-display / --font-sans /
+   --font-mono.
    Dark default, warm-cream light. Theme switches via [data-theme].
    ============================================================ */
 
@@ -24,6 +25,8 @@
   --chipText:  #C9C7C0;
   --brand:     #F5F4EE;
   --brandInk:  #0B0B0E;
+  /* Exact logo ribbon gradient (on-dark variant): paper → blue. */
+  --brand-grad: linear-gradient(105deg, #FAFAF7 0%, #93C5FD 100%);
 
   --blue:   oklch(0.72 0.14 250);
   --green:  oklch(0.74 0.14 155);
@@ -60,6 +63,8 @@
   --chipText:  #3A3A40;
   --brand:     #0F0F12;
   --brandInk:  #FAFAF7;
+  /* Exact logo ribbon gradient (light-bg variant): black → navy → blue. */
+  --brand-grad: linear-gradient(105deg, #0A0A0A 0%, #101C3D 45%, #1E3A8A 100%);
 
   --blue:   oklch(0.62 0.14 250);
   --green:  oklch(0.62 0.14 155);
@@ -122,8 +127,21 @@ button { font-family: inherit; cursor: pointer; }
   color: var(--chipText); background: var(--chip);
   padding: 5px 10px; border-radius: 6px;
 }
-.eyebrow .dot { width: 6px; height: 6px; border-radius: 999px; }
+/* Eyebrow marker = the metrixme ribbon, in the brand gradient. Repeated on
+   every section eyebrow so the logo mark recurs through the whole page (masked
+   silhouette, white fill so it works under alpha & luminance mask modes). */
+.eyebrow .dot {
+  width: 16px; height: 10px; border-radius: 0; flex-shrink: 0;
+  background: var(--brand-grad);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 20 96 60'%3E%3Cpath d='M5 71 C16 32 37 24 52 42 C62 55 78 52 91 30 C82 62 60 76 46 58 C36 46 17 52 5 71 Z' fill='%23fff'/%3E%3C/svg%3E") center/contain no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 20 96 60'%3E%3Cpath d='M5 71 C16 32 37 24 52 42 C62 55 78 52 91 30 C82 62 60 76 46 58 C36 46 17 52 5 71 Z' fill='%23fff'/%3E%3C/svg%3E") center/contain no-repeat;
+}
 
+/* Brand display face (Sora) — logo wordmark + large headings. Falls back to
+   the body sans so headings still render before the display font loads. */
+.h-display, .h2, .brand-name {
+  font-family: var(--font-display), var(--font-sans), system-ui, sans-serif;
+}
 .h-display {
   font-size: clamp(34px, 5.2vw, 60px); font-weight: 800;
   letter-spacing: -1.4px; line-height: 1.04; margin: 0;
@@ -169,14 +187,26 @@ button { font-family: inherit; cursor: pointer; }
 }
 /* 3-column grid keeps the menu centered with brand left, actions right. */
 .nav-inner { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 20px; height: 66px; }
-.brand { display: flex; align-items: center; gap: 11px; justify-self: start; }
-.brand-mark {
-  width: 34px; height: 34px; border-radius: 9px; flex-shrink: 0;
-  background: var(--brand); color: var(--brandInk);
-  display: grid; place-items: center; font-weight: 800; font-size: 14px;
-  letter-spacing: -0.5px;
+.brand { display: flex; align-items: center; gap: 10px; justify-self: start; }
+/* metrixme ribbon mark. The <BrandMark> renders both theme variants; we show
+   the one matching the active theme. Height-driven, width auto (ribbon is wide). */
+.brand-mark { display: flex; align-items: center; flex-shrink: 0; }
+.brand-mark .bm { height: 30px; width: auto; display: block; }
+.brand-mark .bm-dark { display: none; }
+[data-theme="dark"] .brand-mark .bm-light { display: none; }
+[data-theme="dark"] .brand-mark .bm-dark { display: block; }
+.brand-name { font-size: 16px; font-weight: 600; letter-spacing: -0.3px; line-height: 1; }
+
+/* Route loading fallback (see app/loading.tsx). Full-screen ribbon wipe; shows
+   the theme-matched variant. */
+.route-loader {
+  position: fixed; inset: 0; z-index: 100;
+  display: grid; place-items: center; background: var(--bg);
 }
-.brand-name { font-size: 15px; font-weight: 800; letter-spacing: -0.2px; line-height: 1; }
+.route-loader .rl { width: 88px; height: 88px; }
+.route-loader .rl-dark { display: none; }
+[data-theme="dark"] .route-loader .rl-light { display: none; }
+[data-theme="dark"] .route-loader .rl-dark { display: block; }
 .brand-tag { font-size: 10.5px; color: var(--ink3); margin-top: 2px; letter-spacing: .2px; }
 .nav-links { display: flex; gap: 4px; justify-self: center; }
 .nav-links a {
@@ -502,23 +532,23 @@ button { font-family: inherit; cursor: pointer; }
 .scrolly-item.done { opacity: 1; }
 .scrolly-check {
   flex-shrink: 0; width: 28px; height: 28px; border-radius: 8px;
-  border: 1.5px solid var(--rule); color: #fff;
+  border: 1.5px solid var(--rule); color: var(--brandInk);
   display: grid; place-items: center;
   transition: background .35s ease, border-color .35s ease, transform .35s ease;
 }
 .scrolly-check svg { width: 16px; height: 16px; }
 .scrolly-check svg path { stroke-dasharray: 26; stroke-dashoffset: 26; transition: stroke-dashoffset .45s ease .05s; }
-.scrolly-item.done .scrolly-check { background: var(--green); border-color: var(--green); transform: scale(1.06); }
+.scrolly-item.done .scrolly-check { background: var(--brand-grad); border-color: transparent; transform: scale(1.06); }
 .scrolly-item.done .scrolly-check svg path { stroke-dashoffset: 0; }
 .scrolly-text { display: flex; flex-direction: column; min-width: 0; flex: 1; }
 .scrolly-text .ti { font-size: 15px; font-weight: 700; letter-spacing: -0.2px; }
 .scrolly-text .de { font-size: 12.5px; color: var(--ink3); margin-top: 2px; }
 .scrolly-idx { font-size: 11px; font-weight: 700; color: var(--ink4); flex-shrink: 0; }
-.scrolly-item.done .scrolly-idx { color: var(--green); }
+.scrolly-item.done .scrolly-idx { color: var(--blue); }
 
 .scrolly-progress { margin-top: 22px; height: 3px; border-radius: 2px; background: var(--rule); overflow: hidden; }
 .scrolly-progress span {
-  display: block; height: 100%; background: var(--blue); border-radius: 2px;
+  display: block; height: 100%; background: var(--brand-grad); border-radius: 2px;
   transform-origin: left; transition: transform .12s linear;
 }
 
@@ -598,6 +628,24 @@ button { font-family: inherit; cursor: pointer; }
   .df-kpis { grid-template-columns: repeat(2, 1fr); }
   .sd-val { font-size: 20px; }
 }
+/* Mobile: scroll-jacking is bad UX on touch. Un-pin the section and render it
+   as a normal stacked block — copy + checklist, then all four dashboards in
+   flow. The JS effect skips the scroll listener + auto-advance at this width. */
+@media (max-width: 760px) {
+  .scrolly { height: auto; }
+  .scrolly-sticky { position: static; height: auto; display: block; padding: 56px 0; }
+  .scrolly-grid { display: block; }
+  .scrolly-stage { order: 0; display: grid; gap: 16px; margin-top: 24px; }
+  .scrolly-visual { position: relative; inset: auto; opacity: 1; transform: none; pointer-events: auto; }
+  .scrolly-text .de { display: block; }
+  .scrolly-item { opacity: 1; transform: none; }
+  .scrolly-progress { display: none; }
+  /* Heatmap fits a narrow column */
+  .hm-grid { gap: 3px; }
+  .hm-cell { height: 26px; font-size: 9px; }
+  .hm-colh { font-size: 7px; letter-spacing: 0; }
+  .hm-rowh { font-size: 9.5px; }
+}
 @media (prefers-reduced-motion: reduce) {
   .scrolly-visual, .scrolly-item, .scrolly-check, .scrolly-check svg path { transition: none; }
 }
@@ -628,8 +676,17 @@ button { font-family: inherit; cursor: pointer; }
   width: 38px; height: 38px; border-radius: 9px; flex-shrink: 0; display: grid; place-items: center;
   font-weight: 800; font-size: 14px; letter-spacing: -0.5px;
 }
+.integ-text { min-width: 0; }
 .integ .nm { font-size: 14px; font-weight: 700; letter-spacing: -0.2px; }
 .integ .ds { font-size: 11px; color: var(--ink3); margin-top: 1px; }
+.integ-badge {
+  margin-left: auto; flex-shrink: 0;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 8.5px; font-weight: 700; letter-spacing: .4px; text-transform: uppercase;
+  padding: 3px 8px; border-radius: 999px; white-space: nowrap;
+}
+.integ-badge.live { background: var(--blueSoft); color: var(--blue); }
+.integ-badge.soon { background: var(--surface); color: var(--ink3); border: 1px solid var(--rule); }
 
 /* ---- Pricing ----------------------------------------------- */
 .pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; align-items: stretch; }

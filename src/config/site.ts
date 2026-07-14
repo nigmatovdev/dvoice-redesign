@@ -6,9 +6,9 @@
  */
 
 export const siteConfig = {
-  name: "Sales",
+  name: "metrixme",
   // Short name used in the PWA manifest.
-  shortName: "Sales",
+  shortName: "metrixme",
   description:
     "AI-powered speech analytics for contact centers — score every sales call, find the coaching zone, lift conversion.",
   // Production URL. Used to build absolute URLs for canonical tags, OG images,
@@ -23,13 +23,13 @@ export const siteConfig = {
   themeColor: "#0B0B0E",
   // Organization / author info for structured data.
   author: {
-    name: "Sales — Speech analytics",
+    name: "metrixme — Speech analytics",
     url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
   },
   // Social handles (used in Twitter card metadata). Leave empty if unused.
   twitter: {
-    handle: "@sales_uz",
-    site: "@sales_uz",
+    handle: "@metrixme",
+    site: "@metrixme",
   },
   // Default keywords. Prefer per-page keywords where it matters.
   keywords: [

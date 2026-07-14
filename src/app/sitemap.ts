@@ -16,8 +16,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly",
       priority: 1,
     },
-    // Add more static pages here as the app grows, e.g.:
-    // { url: absoluteUrl("/about"), changeFrequency: "monthly", priority: 0.7 },
+    { url: absoluteUrl("/about"), changeFrequency: "monthly", priority: 0.7 },
+    { url: absoluteUrl("/privacy"), changeFrequency: "yearly", priority: 0.3 },
+    { url: absoluteUrl("/terms"), changeFrequency: "yearly", priority: 0.3 },
   ];
 
   // Example for dynamic routes (uncomment + adapt when you have data):

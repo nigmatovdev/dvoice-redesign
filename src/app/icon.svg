@@ -1,13 +1,12 @@
-<svg width="32" height="32" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="metrixme">
   <defs>
-    <linearGradient id="bg" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
-      <stop offset="0" stop-color="#3b82f6"/>
-      <stop offset="1" stop-color="#06b6d4"/>
+    <linearGradient id="rb" x1="5" y1="71" x2="91" y2="30" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#FAFAF7"/>
+      <stop offset="1" stop-color="#93C5FD"/>
     </linearGradient>
   </defs>
-  <rect width="32" height="32" rx="8" fill="url(#bg)"/>
-  <g fill="white">
-    <path d="M16 5 L18.56 14.44 L28 17 L18.56 19.56 L16 29 L13.44 19.56 L4 17 L13.44 14.44 Z"/>
-    <path d="M24 7 L25.28 9.72 L28 11 L25.28 12.28 L24 15 L22.72 12.28 L20 11 L22.72 9.72 Z" opacity="0.85"/>
+  <rect width="120" height="120" rx="27" fill="#0B0B0E"/>
+  <g transform="translate(14.4,14.4) scale(0.95)">
+    <path d="M5 71 C16 32 37 24 52 42 C62 55 78 52 91 30 C82 62 60 76 46 58 C36 46 17 52 5 71 Z" fill="url(#rb)"/>
   </g>
 </svg>

@@ -14,7 +14,7 @@ export function Problem() {
       <div className="wrap problem-grid">
         <Reveal className="problem-copy">
           <span className="eyebrow">
-            <span className="dot" style={{ background: "var(--red)" }} />
+            <span className="dot" />
             <span>
               <T k="prob_eyebrow" />
             </span>

@@ -1,9 +1,9 @@
-// Proxy for the landing signup form. Forwards to the dvoice backend server-side
+// Proxy for the landing signup form. Forwards to the metrixme backend server-side
 // so the browser never makes a cross-origin POST (no CORS dance) AND the upstream
 // endpoint + secret key stay server-only — never shipped to the client.
 //
 // Required env (set in .env.local locally, project env in prod — NOT NEXT_PUBLIC_):
-//   SIGNUP_UPSTREAM_URL  full backend endpoint, e.g. https://dvoice.uz/api/signup
+//   SIGNUP_UPSTREAM_URL  full backend endpoint, e.g. https://metrixme.com/api/signup
 //   SIGNUP_API_KEY       shared secret; backend accepts the request only with it
 const UPSTREAM = process.env.SIGNUP_UPSTREAM_URL;
 const API_KEY = process.env.SIGNUP_API_KEY;

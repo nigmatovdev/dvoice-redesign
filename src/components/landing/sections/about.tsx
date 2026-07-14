@@ -99,7 +99,7 @@ export function About() {
         <div className="wrap">
           <Reveal className="section-head">
             <span className="eyebrow">
-              <span className="dot" style={{ background: "var(--blue)" }} />
+              <span className="dot" />
               <span>
                 <T k="about_eyebrow" />
               </span>
@@ -119,7 +119,7 @@ export function About() {
         <div className="wrap">
           <Reveal className="section-head">
             <span className="eyebrow">
-              <span className="dot" style={{ background: "var(--green)" }} />
+              <span className="dot" />
               <span>
                 <T k="about_team_eyebrow" />
               </span>

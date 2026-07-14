@@ -12,7 +12,7 @@ How to self-host this Next.js app on a Linux VM (Ubuntu 22.04/24.04 assumed) beh
 ## 0. Prerequisites
 
 - A VM with a public IP and SSH access (a non-root sudo user).
-- A domain (e.g. `dvoice.uz`) with an **A record** pointing to the VM's IP.
+- A domain (e.g. `metrixme.com`) with an **A record** pointing to the VM's IP.
 - Inbound ports **80** and **443** open (and **22** for SSH).
 
 ---
@@ -62,8 +62,8 @@ Deploy as a dedicated user (here: the current sudo user, in `/var/www`):
 sudo mkdir -p /var/www
 sudo chown "$USER":"$USER" /var/www
 cd /var/www
-git clone <YOUR_REPO_URL> dvoice
-cd dvoice
+git clone <YOUR_REPO_URL> metrixme
+cd metrixme
 ```
 
 If the repo is private, set up a deploy key or use a PAT in the clone URL.
@@ -75,7 +75,7 @@ If the repo is private, set up a deploy key or use a PAT in the clone URL.
 The app reads server-only secrets at runtime. Create `.env.local` in the project root (gitignored, lives only on the server):
 
 ```bash
-cd /var/www/dvoice
+cd /var/www/metrixme
 cat > .env.local <<'EOF'
 SIGNUP_UPSTREAM_URL=https://[YOURDOMAIN]/api/signup
 SIGNUP_API_KEY=PASTE_THE_REAL_SECRET_HERE
@@ -94,7 +94,7 @@ chmod 600 .env.local
 ## 5. Build
 
 ```bash
-cd /var/www/dvoice
+cd /var/www/metrixme
 npm ci          # clean install from package-lock.json
 npm run build   # production build (.next/)
 ```
@@ -113,15 +113,15 @@ Now keep it running with **either** 5a (systemd) **or** 5b (PM2).
 Create the unit:
 
 ```bash
-sudo tee /etc/systemd/system/dvoice.service > /dev/null <<EOF
+sudo tee /etc/systemd/system/metrixme.service > /dev/null <<EOF
 [Unit]
-Description=dvoice landing (Next.js)
+Description=metrixme landing (Next.js)
 After=network.target
 
 [Service]
 Type=simple
 User=$USER
-WorkingDirectory=/var/www/dvoice
+WorkingDirectory=/var/www/metrixme
 Environment=NODE_ENV=production
 Environment=PORT=3000
 ExecStart=/usr/bin/npm run start
@@ -137,26 +137,26 @@ Enable + start:
 
 ```bash
 sudo systemctl daemon-reload
-sudo systemctl enable --now dvoice
-sudo systemctl status dvoice      # should be active (running)
+sudo systemctl enable --now metrixme
+sudo systemctl status metrixme      # should be active (running)
 ```
 
 Logs:
 
 ```bash
-journalctl -u dvoice -f
+journalctl -u metrixme -f
 ```
 
 > Notes:
 > - `ExecStart` uses `/usr/bin/npm` (from NodeSource). If you used **nvm**, npm isn't there — point `ExecStart` at the absolute path: run `which npm` and `which node`, then use e.g. `ExecStart=/home/youruser/.nvm/versions/node/v24.x.y/bin/npm run start`.
-> - To inject env via systemd instead of `.env.local`, add more `Environment=` lines (or `EnvironmentFile=/var/www/dvoice/.env.local`).
+> - To inject env via systemd instead of `.env.local`, add more `Environment=` lines (or `EnvironmentFile=/var/www/metrixme/.env.local`).
 
 ### 5b. Option B — PM2
 
 ```bash
 sudo npm install -g pm2
-cd /var/www/dvoice
-pm2 start npm --name dvoice -- run start
+cd /var/www/metrixme
+pm2 start npm --name metrixme -- run start
 pm2 save
 pm2 startup        # run the command it prints (sets up boot persistence)
 ```
@@ -165,8 +165,8 @@ Manage:
 
 ```bash
 pm2 status
-pm2 logs dvoice
-pm2 restart dvoice
+pm2 logs metrixme
+pm2 restart metrixme
 ```
 
 ---
@@ -176,10 +176,10 @@ pm2 restart dvoice
 Create a site config:
 
 ```bash
-sudo tee /etc/nginx/sites-available/dvoice > /dev/null <<'EOF'
+sudo tee /etc/nginx/sites-available/metrixme > /dev/null <<'EOF'
 server {
     listen 80;
-    server_name dvoice.uz www.dvoice.uz;   # <-- your domain(s)
+    server_name metrixme.com www.metrixme.com;   # <-- your domain(s)
 
     location / {
         proxy_pass http://127.0.0.1:3000;
@@ -199,13 +199,13 @@ EOF
 Enable it, drop the default, test, reload:
 
 ```bash
-sudo ln -s /etc/nginx/sites-available/dvoice /etc/nginx/sites-enabled/
+sudo ln -s /etc/nginx/sites-available/metrixme /etc/nginx/sites-enabled/
 sudo rm -f /etc/nginx/sites-enabled/default
 sudo nginx -t
 sudo systemctl reload nginx
 ```
 
-Visit `http://dvoice.uz` — you should see the site over plain HTTP.
+Visit `http://metrixme.com` — you should see the site over plain HTTP.
 
 ---
 
@@ -213,7 +213,7 @@ Visit `http://dvoice.uz` — you should see the site over plain HTTP.
 
 ```bash
 sudo apt install -y certbot python3-certbot-nginx
-sudo certbot --nginx -d dvoice.uz -d www.dvoice.uz
+sudo certbot --nginx -d metrixme.com -d www.metrixme.com
 ```
 
 Follow the prompts (email, agree, redirect HTTP→HTTPS). Certbot rewrites the Nginx config and installs the cert.
@@ -224,7 +224,7 @@ Auto-renewal is installed as a systemd timer; verify with:
 sudo certbot renew --dry-run
 ```
 
-Site is now live on `https://dvoice.uz`.
+Site is now live on `https://metrixme.com`.
 
 ---
 
@@ -233,11 +233,11 @@ Site is now live on `https://dvoice.uz`.
 Pull, rebuild, restart:
 
 ```bash
-cd /var/www/dvoice
+cd /var/www/metrixme
 git pull
 npm ci
 npm run build
-sudo systemctl restart dvoice    # or: pm2 restart dvoice
+sudo systemctl restart metrixme    # or: pm2 restart metrixme
 ```
 
 Optional `deploy.sh` to script it:
@@ -245,11 +245,11 @@ Optional `deploy.sh` to script it:
 ```bash
 #!/usr/bin/env bash
 set -euo pipefail
-cd /var/www/dvoice
+cd /var/www/metrixme
 git pull
 npm ci
 npm run build
-sudo systemctl restart dvoice
+sudo systemctl restart metrixme
 echo "Deployed."
 ```
 
@@ -265,11 +265,11 @@ chmod +x deploy.sh && ./deploy.sh
 
 | Symptom | Check |
 | --- | --- |
-| 502 Bad Gateway | App not running — `systemctl status dvoice` / `pm2 status`; confirm it's on port 3000. |
+| 502 Bad Gateway | App not running — `systemctl status metrixme` / `pm2 status`; confirm it's on port 3000. |
 | Form returns "server not configured" (500) | `.env.local` missing/unreadable — confirm `SIGNUP_UPSTREAM_URL` + `SIGNUP_API_KEY` set, then restart. |
 | Form returns 401 from backend | `SIGNUP_API_KEY` here ≠ key in main app. Regenerate once, paste same value both sides. |
 | Changes not showing | Forgot `npm run build` and/or restart. |
 | Port 3000 already in use | `sudo lsof -i :3000` — kill the stray process or change `PORT`. |
 | Cert renewal fails | Port 80 must stay open and reach Nginx; `sudo certbot renew --dry-run`. |
 
-Logs: `journalctl -u dvoice -f` (systemd) or `pm2 logs dvoice`. Nginx: `sudo tail -f /var/log/nginx/error.log`.
+Logs: `journalctl -u metrixme -f` (systemd) or `pm2 logs metrixme`. Nginx: `sudo tail -f /var/log/nginx/error.log`.

@@ -8,7 +8,7 @@ export function Hero() {
       <div className="wrap hero-inner">
         <div className="hero-copy">
           <span className="eyebrow">
-            <span className="dot" style={{ background: "var(--blue)" }} />
+            <span className="dot" />
             <span>
               <T k="hero_eyebrow" />
             </span>

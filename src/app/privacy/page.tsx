@@ -7,7 +7,7 @@ import { buildMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildMetadata({
   title: "Maxfiylik siyosati",
   description:
-    "Sales (dvoice.uz) platformasi shaxsiy ma'lumotlarni qanday yig'ishi, ishlatishi va himoya qilishini tushuntiruvchi maxfiylik siyosati.",
+    "metrixme (metrixme.com) platformasi shaxsiy ma'lumotlarni qanday yig'ishi, ishlatishi va himoya qilishini tushuntiruvchi maxfiylik siyosati.",
   path: "/privacy",
 });
 

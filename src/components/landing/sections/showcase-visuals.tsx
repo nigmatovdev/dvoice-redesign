@@ -105,7 +105,7 @@ const SD_CARDS: {
 export function SalesDynamicsShot() {
   const { lang } = useLang();
   return (
-    <Frame addr="app.sales.uz/dynamics">
+    <Frame addr="app.metrixme.com/dynamics">
       <Head
         title={pick(lang, "Sotuv dinamikasi", "Sales dynamics", "Динамика продаж")}
         sub={pick(lang, "To‘rt ko‘rsatkich · alohida tahlil", "Four metrics · analysed separately", "Четыре показателя · раздельный анализ")}
@@ -170,7 +170,7 @@ export function DealFlowShot() {
   ];
   const legendColors = ["var(--green)", "var(--red)", "var(--amber)"];
   return (
-    <Frame addr="app.sales.uz/pipeline">
+    <Frame addr="app.metrixme.com/pipeline">
       <Head
         title={pick(lang, "Sotuv dinamikasi", "Sales dynamics", "Динамика продаж")}
         sub={pick(lang, "Bitimlar oqimi va tushum", "Deal flow and revenue", "Поток сделок и выручка")}
@@ -244,7 +244,7 @@ const ML_H = 148;
 export function CriteriaShot() {
   const { lang } = useLang();
   return (
-    <Frame addr="app.sales.uz/profile">
+    <Frame addr="app.metrixme.com/profile">
       <Head
         title={pick(lang, "Sotuv qadamlari bo‘yicha menejer profili", "Manager profile by sales step", "Профиль менеджера по этапам продаж")}
         sub={pick(lang, "Har bir menejer voronka bo‘yicha qayerda kuchsiz", "Where each manager is weak across the funnel", "Где каждый менеджер слаб в воронке")}
@@ -310,7 +310,7 @@ function cell(v: number): CSSProperties {
 export function HeatmapShot() {
   const { lang } = useLang();
   return (
-    <Frame addr="app.sales.uz/heatmap">
+    <Frame addr="app.metrixme.com/heatmap">
       <Head
         title={pick(lang, "Menejer × ko‘nikma", "Manager × skill", "Менеджер × навык")}
         sub={pick(lang, "Sotuv qadamlari bo‘yicha ball (0–100)", "Score by sales step (0–100)", "Балл по этапам продаж (0–100)")}

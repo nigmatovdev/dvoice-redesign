@@ -16,7 +16,7 @@ export function Ceo() {
       <div className="wrap">
         <Reveal className="section-head">
           <span className="eyebrow">
-            <span className="dot" style={{ background: "var(--blue)" }} />
+            <span className="dot" />
             <span>
               <T k="ceo_eyebrow" />
             </span>

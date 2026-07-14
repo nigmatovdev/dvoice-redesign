@@ -1,5 +1,5 @@
 /* ============================================================
-   Sales — i18n dictionary. Languages: uz (default) · en · ru.
+   metrixme — i18n dictionary. Languages: uz (default) · en · ru.
    Ported from the original landing.js I18N table.
    ============================================================ */
 
@@ -25,9 +25,9 @@ export const dict = {
     ru: "Превратите каждый звонок в результат.",
   },
   hero_sub: {
-    uz: "Sales barcha qo‘ng‘iroqlarni tinglaydi, ularni 0–100 ball bilan baholaydi va bitimlar qayerda yo‘qolayotganini hamda qaysi menejerga coaching kerakligini avtomatik ko‘rsatadi.",
-    en: "Sales listens to 100% of your calls, scores each one 0–100, and shows exactly where deals leak and which managers need coaching — automatically.",
-    ru: "Sales слушает все звонки, оценивает каждый по шкале 0–100 и автоматически показывает, где теряются сделки и какому менеджеру нужен коучинг.",
+    uz: "metrixme barcha qo‘ng‘iroqlarni tinglaydi, ularni 0–100 ball bilan baholaydi va bitimlar qayerda yo‘qolayotganini hamda qaysi menejerga coaching kerakligini avtomatik ko‘rsatadi.",
+    en: "metrixme listens to 100% of your calls, scores each one 0–100, and shows exactly where deals leak and which managers need coaching — automatically.",
+    ru: "metrixme слушает все звонки, оценивает каждый по шкале 0–100 и автоматически показывает, где теряются сделки и какому менеджеру нужен коучинг.",
   },
   hero_cta1: { uz: "Bepul boshlash", en: "Start free", ru: "Начать бесплатно" },
   hero_note1: { uz: "amoCRM integratsiyasi", en: "amoCRM integration", ru: "Интеграция с amoCRM" },
@@ -38,7 +38,7 @@ export const dict = {
   tick3_l: { uz: "konversiya o‘sishi", en: "conversion lift", ru: "рост конверсии" },
 
   // ---- preview ----
-  pv_addr: { uz: "app.sales.uz/dashboard", en: "app.sales.uz/dashboard", ru: "app.sales.uz/dashboard" },
+  pv_addr: { uz: "app.metrixme.com/dashboard", en: "app.metrixme.com/dashboard", ru: "app.metrixme.com/dashboard" },
   pv_title: { uz: "Kunlik operatsion panel", en: "Daily operations panel", ru: "Ежедневная операционная панель" },
   pv_sub: { uz: "1 742 qo‘ng‘iroq · Hafta", en: "1,742 calls · This week", ru: "1 742 звонка · Неделя" },
   pv_k1: { uz: "CALL SCORE", en: "CALL SCORE", ru: "CALL SCORE" },
@@ -102,13 +102,13 @@ export const dict = {
     ru: "Снимите операционную усталость",
   },
   rop_lede: {
-    uz: "Qo‘lda tinglash soatlab vaqt oladi va baribir hammasiga yetmaydi. Sales buni avtomatlashtiradi.",
-    en: "Manual review eats hours and still misses calls. Sales automates it.",
-    ru: "Ручное прослушивание отнимает часы и всё равно охватывает не всё. Sales автоматизирует это.",
+    uz: "Qo‘lda tinglash soatlab vaqt oladi va baribir hammasiga yetmaydi. metrixme buni avtomatlashtiradi.",
+    en: "Manual review eats hours and still misses calls. metrixme automates it.",
+    ru: "Ручное прослушивание отнимает часы и всё равно охватывает не всё. metrixme автоматизирует это.",
   },
   rop_before: { uz: "Hozir", en: "Today", ru: "Сейчас" },
   rop_before_tag: { uz: "QO‘LDA", en: "MANUAL", ru: "ВРУЧНУЮ" },
-  rop_after: { uz: "Sales bilan", en: "With Sales", ru: "С Sales" },
+  rop_after: { uz: "metrixme bilan", en: "With metrixme", ru: "С metrixme" },
   rop_after_tag: { uz: "AVTOMATIK", en: "AUTOMATED", ru: "АВТОМАТИЧЕСКИ" },
   rop_c1_t: { uz: "Soatlab qo‘lda tinglash", en: "Hours of manual review", ru: "Часы ручного прослушивания" },
   rop_c2_t: { uz: "Muhim qo‘ng‘iroqlar yo‘qoladi", en: "Critical calls slip by", ru: "Важные звонки теряются" },
@@ -162,9 +162,9 @@ export const dict = {
     ru: "Не слушайте звонки — читайте результат.",
   },
   feat_lede: {
-    uz: "Sales — qo‘ng‘iroq markazingiz uchun nutq tahlili platformasi. Transkripsiya, ballash, coaching va pipeline — bitta tizimda.",
-    en: "Sales is the speech-analytics layer for your contact center. Transcription, scoring, coaching and pipeline — in one system.",
-    ru: "Sales — платформа речевой аналитики для вашего контакт-центра. Транскрипция, оценка, коучинг и воронка — в одной системе.",
+    uz: "metrixme — qo‘ng‘iroq markazingiz uchun nutq tahlili platformasi. Transkripsiya, ballash, coaching va pipeline — bitta tizimda.",
+    en: "metrixme is the speech-analytics layer for your contact center. Transcription, scoring, coaching and pipeline — in one system.",
+    ru: "metrixme — платформа речевой аналитики для вашего контакт-центра. Транскрипция, оценка, коучинг и воронка — в одной системе.",
   },
   f1_t: { uz: "Avtomatik call scoring", en: "Automatic call scoring", ru: "Автоматическая оценка звонков" },
   f1_d: {
@@ -243,7 +243,7 @@ export const dict = {
   sc_l2: { uz: "Pipeline funnel va bosqich konversiyasi", en: "Pipeline funnel and stage conversion", ru: "Воронка продаж и конверсия по этапам" },
   sc_l3: { uz: "Menejer × ko‘nikma heatmap va reyting", en: "Manager × skill heatmap and ranking", ru: "Тепловая карта менеджер × навык и рейтинг" },
   sc_l4: { uz: "Qorong‘i va yorug‘ rejim · o‘zbek tilida", en: "Dark & light mode · in Uzbek", ru: "Тёмная и светлая темы" },
-  sc_shot_alt: { uz: "Sales operatsion dashboard", en: "Sales operations dashboard", ru: "Операционный дашборд Sales" },
+  sc_shot_alt: { uz: "metrixme operatsion dashboard", en: "metrixme operations dashboard", ru: "Операционный дашборд metrixme" },
   sc_hint: { uz: "Ko‘rish uchun pastga aylantiring", en: "Scroll to explore", ru: "Листайте, чтобы посмотреть" },
   sc_i1_t: { uz: "Savdo Dinamikasi", en: "Sales Dynamics", ru: "Динамика продаж" },
   sc_i1_d: {
@@ -290,14 +290,21 @@ export const dict = {
   in_eyebrow: { uz: "INTEGRATSIYALAR", en: "INTEGRATIONS", ru: "ИНТЕГРАЦИИ" },
   in_h2: { uz: "Sizning stack’ingiz bilan ishlaydi.", en: "Works with your stack.", ru: "Работает с вашим стеком." },
   in_lede: {
-    uz: "amoCRM’dan boshlab telefoniya va xabar almashish kanallarigacha — Sales mavjud jarayoningizga ulanadi.",
-    en: "From amoCRM to telephony and messaging — Sales plugs into the workflow you already run.",
-    ru: "От amoCRM до телефонии и мессенджеров — Sales встраивается в ваш текущий процесс.",
+    uz: "amoCRM va qo‘lda audio yuklash — hoziroq. Bitrix24 va telefoniya integratsiyasi tez orada. metrixme mavjud jarayoningizga ulanadi.",
+    en: "amoCRM and manual audio upload — available now. Bitrix24 and telephony coming soon. metrixme fits the workflow you already run.",
+    ru: "amoCRM и ручная загрузка аудио — уже сейчас. Bitrix24 и телефония — скоро. metrixme встраивается в ваш текущий процесс.",
   },
   in1_d: { uz: "CRM · jonli sinxron", en: "CRM · live sync", ru: "CRM · живая синхронизация" },
-  in2_d: { uz: "Telefoniya", en: "Telephony", ru: "Телефония" },
-  in3_d: { uz: "Xabar kanallari", en: "Messaging", ru: "Мессенджеры" },
-  in4_d: { uz: "Ochiq API", en: "Open API", ru: "Открытый API" },
+  in2_d: { uz: "Audio yuklash", en: "Audio upload", ru: "Загрузка аудио" },
+  in3_d: { uz: "CRM", en: "CRM", ru: "CRM" },
+  in4_d: { uz: "Sipuni · OnlinePBX", en: "Sipuni · OnlinePBX", ru: "Sipuni · OnlinePBX" },
+  // Integration card names + status badges.
+  in1_n: { uz: "amoCRM", en: "amoCRM", ru: "amoCRM" },
+  in2_n: { uz: "Qo‘lda yuklash", en: "Manual upload", ru: "Ручная загрузка" },
+  in3_n: { uz: "Bitrix24", en: "Bitrix24", ru: "Bitrix24" },
+  in4_n: { uz: "Telefoniya", en: "Telephony", ru: "Телефония" },
+  in_live: { uz: "Ulangan", en: "Connected", ru: "Подключено" },
+  in_soon: { uz: "Tez orada", en: "Coming soon", ru: "Скоро" },
 
   // ---- pricing ----
   pr_eyebrow: { uz: "NARXLAR", en: "PRICING", ru: "ЦЕНЫ" },
@@ -343,7 +350,7 @@ export const dict = {
     ru: "Раньше слушали 10 звонков в день. Теперь анализируется 100% — зона коучинга прямо перед глазами.",
   },
   q1_n: { uz: "Suhrob Abduaxatov", en: "Suhrob Abduaxatov", ru: "Сухроб Абдуахатов" },
-  q1_r: { uz: "Head of Sales · Sales.uz", en: "Head of Sales · Sales.uz", ru: "Руководитель продаж · Sales.uz" },
+  q1_r: { uz: "Head of Sales · metrixme.com", en: "Head of Sales · metrixme.com", ru: "Руководитель продаж · metrixme.com" },
   q2: {
     uz: "Heatmap’dan keyin har bir menejer bilan nimaning ustida ishlashni aniq bilamiz. Konversiya ikki oyda sezilarli o‘sdi.",
     en: "After the heatmap we know exactly what to work on with each manager. Conversion grew noticeably in two months.",
@@ -364,9 +371,9 @@ export const dict = {
   faq_h2: { uz: "Tez-tez beriladigan savollar.", en: "Frequently asked questions.", ru: "Часто задаваемые вопросы." },
   faq1_q: { uz: "Qo‘ng‘iroqlar qaysi tilda tahlil qilinadi?", en: "Which languages are calls analysed in?", ru: "На каких языках анализируются звонки?" },
   faq1_a: {
-    uz: "Sales o‘zbek va rus tillaridagi qo‘ng‘iroqlarni transkripsiya qiladi va tahlil qiladi, shu jumladan aralash nutqni ham.",
-    en: "Sales transcribes and analyses calls in Uzbek and Russian, including mixed speech.",
-    ru: "Sales транскрибирует и анализирует звонки на узбекском и русском, включая смешанную речь.",
+    uz: "metrixme o‘zbek va rus tillaridagi qo‘ng‘iroqlarni transkripsiya qiladi va tahlil qiladi, shu jumladan aralash nutqni ham.",
+    en: "metrixme transcribes and analyses calls in Uzbek and Russian, including mixed speech.",
+    ru: "metrixme транскрибирует и анализирует звонки на узбекском и русском, включая смешанную речь.",
   },
   faq2_q: { uz: "Call score qanday hisoblanadi?", en: "How is the call score calculated?", ru: "Как рассчитывается балл звонка?" },
   faq2_a: {
@@ -376,9 +383,9 @@ export const dict = {
   },
   faq3_q: { uz: "amoCRM’dan boshqa CRM’lar qo‘llab-quvvatlanadimi?", en: "Do you support CRMs other than amoCRM?", ru: "Поддерживаются ли CRM кроме amoCRM?" },
   faq3_a: {
-    uz: "amoCRM to‘liq qo‘llab-quvvatlanadi. Boshqa tizimlar uchun ochiq API va webhook’lar mavjud — Biznes tarifida moslashtiramiz.",
-    en: "amoCRM is fully supported. For other systems we provide an open API and webhooks — and tailor integrations on the Business plan.",
-    ru: "amoCRM поддерживается полностью. Для других систем есть открытый API и вебхуки — настроим на тарифе «Бизнес».",
+    uz: "Hozircha amoCRM to‘liq qo‘llab-quvvatlanadi va qo‘lda audio yuklash mavjud. Bitrix24 va telefoniya integratsiyasi ustida ishlayapmiz, API esa rejalashtirilgan.",
+    en: "Today amoCRM is fully supported, plus manual audio upload. Bitrix24 and telephony integrations are in progress, and an API is planned.",
+    ru: "Сегодня полностью поддерживается amoCRM и ручная загрузка аудио. Интеграции с Bitrix24 и телефонией в разработке, API — в планах.",
   },
   faq4_q: { uz: "Ma’lumotlarim xavfsizmi?", en: "Is my data secure?", ru: "Мои данные в безопасности?" },
   faq4_a: {
@@ -403,9 +410,9 @@ export const dict = {
   exp_eyebrow: { uz: "EKSPERTLAR", en: "EXPERTS", ru: "ЭКСПЕРТЫ" },
   exp_h2: { uz: "Ekspert fikrlari", en: "Expert opinions", ru: "Мнения экспертов" },
   exp_lede: {
-    uz: "Sotuv va qo‘ng‘iroq markazi ekspertlari Sales haqida nima deydi.",
-    en: "What sales and contact-center experts say about Sales.",
-    ru: "Что эксперты по продажам и контакт-центрам говорят о Sales.",
+    uz: "Sotuv va qo‘ng‘iroq markazi ekspertlari metrixme haqida nima deydi.",
+    en: "What sales and contact-center experts say about metrixme.",
+    ru: "Что эксперты по продажам и контакт-центрам говорят о metrixme.",
   },
   exp1_n: { uz: "Bobur Aliyev", en: "Bobur Aliyev", ru: "Бобур Алиев" },
   exp1_r: { uz: "Sotuv bo‘yicha ekspert", en: "Sales expert", ru: "Эксперт по продажам" },
@@ -419,9 +426,9 @@ export const dict = {
   // ---- final cta ----
   cta_eyebrow: { uz: "ERTA KIRISH", en: "EARLY ACCESS", ru: "РАННИЙ ДОСТУП" },
   cta_h2: {
-    uz: "Birinchi 20 ta qo‘ng‘irog‘ingizni bepul tahlil qiling va natijani 2 daqiqa ichida oling.",
-    en: "Analyse your first 20 calls free and get the result within 2 minutes.",
-    ru: "Проанализируйте первые 20 звонков бесплатно и получите результат за 2 минуты.",
+    uz: "Birinchi qo‘ng‘irog‘ingizni bepul tahlil qiling va natijani 2 daqiqa ichida oling.",
+    en: "Analyse your first call free and get the result within 2 minutes.",
+    ru: "Проанализируйте первый звонок бесплатно и получите результат за 2 минуты.",
   },
   cta_lede: {
     uz: "Ma’lumotlaringizni qoldiring — jamoamiz 24 soat ichida siz bilan bog‘lanib, hisobni ishga tushiramiz.",
@@ -452,9 +459,9 @@ export const dict = {
   ft_terms: { uz: "Shartlar", en: "Terms", ru: "Условия" },
   ft_security: { uz: "Xavfsizlik", en: "Security", ru: "Безопасность" },
   ft_cr: {
-    uz: "© 2026 Sales — Speech analytics. Toshkent, O‘zbekiston.",
-    en: "© 2026 Sales — Speech analytics. Tashkent, Uzbekistan.",
-    ru: "© 2026 Sales — Speech analytics. Ташкент, Узбекистан.",
+    uz: "© 2026 metrixme. Toshkent, O‘zbekiston.",
+    en: "© 2026 metrixme. Tashkent, Uzbekistan.",
+    ru: "© 2026 metrixme. Ташкент, Узбекистан.",
   },
 
   // ---- access / partner CTAs + contact modal ----
@@ -497,9 +504,9 @@ export const dict = {
   about_eyebrow: { uz: "BIZ HAQIMIZDA", en: "ABOUT US", ru: "О НАС" },
   about_title: { uz: "Biz haqimizda", en: "About us", ru: "О нас" },
   about_desc: {
-    uz: "Sales — O‘zbekistondagi sotuv jamoalari uchun AI nutq tahlili platformasini yaratayotgan jamoa. Bizning maqsadimiz — har bir qo‘ng‘iroqni o‘sish imkoniyatiga aylantirish va menejerlarga aniq, ma’lumotga asoslangan coaching berish.",
-    en: "Sales is the team building an AI speech-analytics platform for sales teams across Uzbekistan. Our mission is to turn every call into a growth opportunity and give managers clear, data-driven coaching.",
-    ru: "Sales — команда, создающая платформу AI-аналитики речи для отделов продаж в Узбекистане. Наша цель — превратить каждый звонок в возможность роста и дать менеджерам понятный коучинг на основе данных.",
+    uz: "metrixme — O‘zbekistondagi sotuv jamoalari uchun AI nutq tahlili platformasini yaratayotgan jamoa. Bizning maqsadimiz — har bir qo‘ng‘iroqni o‘sish imkoniyatiga aylantirish va menejerlarga aniq, ma’lumotga asoslangan coaching berish.",
+    en: "metrixme is the team building an AI speech-analytics platform for sales teams across Uzbekistan. Our mission is to turn every call into a growth opportunity and give managers clear, data-driven coaching.",
+    ru: "metrixme — команда, создающая платформу AI-аналитики речи для отделов продаж в Узбекистане. Наша цель — превратить каждый звонок в возможность роста и дать менеджерам понятный коучинг на основе данных.",
   },
   about_team_eyebrow: { uz: "JAMOA", en: "TEAM", ru: "КОМАНДА" },
   about_team_title: { uz: "Jamoamiz a’zolari", en: "Meet the team", ru: "Наша команда" },

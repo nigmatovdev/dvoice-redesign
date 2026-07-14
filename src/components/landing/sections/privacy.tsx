@@ -18,13 +18,14 @@ interface Policy {
 }
 
 const TELEGRAM = "https://t.me/arislanbek9";
+const EMAIL = "info@metrixme.com";
 
 const CONTENT: Record<Lang, Policy> = {
   uz: {
     title: "Maxfiylik siyosati",
     updated: "Oxirgi yangilanish: 2026-yil 24-iyun",
     intro:
-      "Ushbu Maxfiylik siyosati Sales (dvoice.uz) platformasi shaxsiy ma'lumotlarni qanday yig'ishi, ishlatishi va himoya qilishini tushuntiradi. Platformadan foydalanib yoki saytdagi formani to'ldirib, siz ushbu siyosatga rozilik bildirasiz.",
+      "Ushbu Maxfiylik siyosati metrixme (metrixme.com) platformasi shaxsiy ma'lumotlarni qanday yig'ishi, ishlatishi va himoya qilishini tushuntiradi. Platformadan foydalanib yoki saytdagi formani to'ldirib, siz ushbu siyosatga rozilik bildirasiz.",
     blocks: [
       {
         h: "1. Biz yig'adigan ma'lumotlar",
@@ -96,7 +97,7 @@ const CONTENT: Record<Lang, Policy> = {
     title: "Privacy Policy",
     updated: "Last updated: June 24, 2026",
     intro:
-      "This Privacy Policy explains how the Sales platform (dvoice.uz) collects, uses, and protects personal data. By using the platform or submitting the form on our site, you agree to this policy.",
+      "This Privacy Policy explains how the metrixme platform (metrixme.com) collects, uses, and protects personal data. By using the platform or submitting the form on our site, you agree to this policy.",
     blocks: [
       {
         h: "1. Information we collect",
@@ -167,7 +168,7 @@ const CONTENT: Record<Lang, Policy> = {
     title: "Политика конфиденциальности",
     updated: "Последнее обновление: 24 июня 2026 г.",
     intro:
-      "Настоящая Политика конфиденциальности объясняет, как платформа Sales (dvoice.uz) собирает, использует и защищает персональные данные. Используя платформу или отправляя форму на сайте, вы соглашаетесь с этой политикой.",
+      "Настоящая Политика конфиденциальности объясняет, как платформа metrixme (metrixme.com) собирает, использует и защищает персональные данные. Используя платформу или отправляя форму на сайте, вы соглашаетесь с этой политикой.",
     blocks: [
       {
         h: "1. Какие данные мы собираем",
@@ -249,7 +250,7 @@ export function Privacy() {
       <div className="wrap legal">
         <header className="legal-head">
           <span className="eyebrow" style={{ background: "var(--blueSoft)", color: "var(--blue)" }}>
-            <span className="dot" style={{ background: "var(--blue)" }} />
+            <span className="dot" />
             <span>{eyebrow}</span>
           </span>
           <h1 className="legal-title">{c.title}</h1>
@@ -278,6 +279,10 @@ export function Privacy() {
           <section className="legal-block">
             <h2>{contactTitle}</h2>
             <p>{c.contactNote}</p>
+            <p>
+              Email:{" "}
+              <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+            </p>
             <p>
               Telegram:{" "}
               <a href={TELEGRAM} target="_blank" rel="noopener noreferrer">

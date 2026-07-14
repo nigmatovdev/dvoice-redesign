@@ -66,7 +66,7 @@ export function ValueProp() {
       <div className="wrap">
         <Reveal className="section-head">
           <span className="eyebrow">
-            <span className="dot" style={{ background: "var(--green)" }} />
+            <span className="dot" />
             <span>
               <T k="vp_eyebrow" />
             </span>

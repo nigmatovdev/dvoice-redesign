@@ -6,7 +6,7 @@ import { LANGS } from "@/lib/i18n";
 
 import { useLang } from "./lang-provider";
 
-const THEME_KEY = "sales-landing-theme";
+const THEME_KEY = "metrixme-landing-theme";
 type Theme = "light" | "dark";
 
 const GlobeIcon = (
@@ -57,13 +57,23 @@ export function ThemeToggle() {
   const [theme, setTheme] = useState<Theme>("dark");
 
   useEffect(() => {
-    const current = document.documentElement.getAttribute("data-theme");
-    if (current === "light" || current === "dark") setTheme(current);
+    const el = document.documentElement;
+    const sync = () => {
+      const current = el.getAttribute("data-theme");
+      if (current === "light" || current === "dark") setTheme(current);
+    };
+    sync(); // adopt the pre-paint theme on mount
+    // Every ThemeToggle instance (nav + footer) mirrors the same
+    // <html data-theme>. Observe it so toggling one keeps the others in sync
+    // instead of each holding its own stale copy.
+    const observer = new MutationObserver(sync);
+    observer.observe(el, { attributes: true, attributeFilter: ["data-theme"] });
+    return () => observer.disconnect();
   }, []);
 
   const toggle = () => {
     const next: Theme = theme === "dark" ? "light" : "dark";
-    setTheme(next);
+    setTheme(next); // instant feedback for this button; observer syncs the rest
     document.documentElement.setAttribute("data-theme", next);
     try {
       localStorage.setItem(THEME_KEY, next);

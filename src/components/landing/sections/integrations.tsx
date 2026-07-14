@@ -3,11 +3,13 @@ import { type DictKey } from "@/lib/i18n";
 import { T } from "../lang-provider";
 import { Reveal } from "../reveal";
 
-const integrations: { logo: string; bg: string; fg: string; name: string; desc: DictKey }[] = [
-  { logo: "a", bg: "var(--blueSoft)", fg: "var(--blue)", name: "amoCRM", desc: "in1_d" },
-  { logo: "☎", bg: "var(--greenSoft)", fg: "var(--green)", name: "SIP / VATS", desc: "in2_d" },
-  { logo: "✆", bg: "var(--violetSoft)", fg: "var(--violet)", name: "Telegram", desc: "in3_d" },
-  { logo: "{ }", bg: "var(--amberSoft)", fg: "var(--amber)", name: "REST API", desc: "in4_d" },
+// Only amoCRM + manual upload are live today; the rest are honestly badged
+// "soon". Logos all share the brand blue for a cohesive, on-brand grid.
+const integrations: { logo: string; name: DictKey; desc: DictKey; status: "live" | "soon" }[] = [
+  { logo: "a", name: "in1_n", desc: "in1_d", status: "live" },
+  { logo: "↑", name: "in2_n", desc: "in2_d", status: "live" },
+  { logo: "B", name: "in3_n", desc: "in3_d", status: "soon" },
+  { logo: "☎", name: "in4_n", desc: "in4_d", status: "soon" },
 ];
 
 export function Integrations() {
@@ -16,7 +18,7 @@ export function Integrations() {
       <div className="wrap">
         <Reveal className="section-head" >
           <span className="eyebrow">
-            <span className="dot" style={{ background: "var(--blue)" }} />
+            <span className="dot" />
             <span>
               <T k="in_eyebrow" />
             </span>
@@ -31,15 +33,20 @@ export function Integrations() {
         <div className="integ-grid">
           {integrations.map((it) => (
             <Reveal key={it.name} className="integ">
-              <div className="logo" style={{ background: it.bg, color: it.fg }}>
+              <div className="logo" style={{ background: "var(--blueSoft)", color: "var(--blue)" }}>
                 {it.logo}
               </div>
-              <div>
-                <div className="nm">{it.name}</div>
+              <div className="integ-text">
+                <div className="nm">
+                  <T k={it.name} />
+                </div>
                 <div className="ds">
                   <T k={it.desc} />
                 </div>
               </div>
+              <span className={`integ-badge ${it.status}`}>
+                <T k={it.status === "live" ? "in_live" : "in_soon"} />
+              </span>
             </Reveal>
           ))}
         </div>

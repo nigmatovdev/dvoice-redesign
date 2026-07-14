@@ -1,6 +1,6 @@
 import { T } from "../lang-provider";
 
-const logos = ["Sales.uz", "EduTech", "CallPro", "Maktab+", "VoronkaX"];
+const logos = ["metrixme.com", "EduTech", "CallPro", "Maktab+", "VoronkaX"];
 
 export function Trust() {
   return (
