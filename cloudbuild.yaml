@@ -1,0 +1,21 @@
+# Cloud Build config for the Cloud Run image.
+#
+# Exists so the build can pass --build-arg NEXT_PUBLIC_SITE_URL. That value is a
+# NEXT_PUBLIC_* var, which Next inlines at build time — it drives canonical tags,
+# OG image URLs, sitemap, robots host, and JSON-LD. `gcloud builds submit --tag`
+# offers no way to pass build args, hence this explicit docker build step.
+#
+# Substitutions are supplied by CI:
+#   _IMAGE     full Artifact Registry image ref (with tag)
+#   _SITE_URL  production site origin, e.g. https://metrixme.com
+steps:
+  - name: gcr.io/cloud-builders/docker
+    args:
+      - build
+      - --build-arg
+      - NEXT_PUBLIC_SITE_URL=${_SITE_URL}
+      - --tag
+      - ${_IMAGE}
+      - .
+images:
+  - ${_IMAGE}

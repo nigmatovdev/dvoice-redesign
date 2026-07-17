@@ -43,7 +43,12 @@ jobs:
           # --async: the submitting identity isn't granted project Viewer/Owner,
           # so it can't stream logs from the default Cloud Build logs bucket.
           # Submit without waiting, then poll build status via the Cloud Build API instead.
-          BUILD_ID=$(gcloud builds submit --project="${{ env.PROJECT_ID }}" --tag "$IMAGE" \
+          # Build via cloudbuild.yaml so NEXT_PUBLIC_SITE_URL reaches `next build`
+          # as a --build-arg. NEXT_PUBLIC_* vars are inlined at build time, so the
+          # Cloud Run runtime env var below is not enough for canonical/OG/sitemap.
+          BUILD_ID=$(gcloud builds submit --project="${{ env.PROJECT_ID }}" \
+            --config=cloudbuild.yaml \
+            --substitutions=_IMAGE="$IMAGE",_SITE_URL="${{ secrets.NEXT_PUBLIC_SITE_URL }}" \
             --region="${{ env.REGION }}" --async --format="value(id)" .)
           echo "Build submitted: $BUILD_ID"
 

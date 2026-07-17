@@ -49,7 +49,10 @@ export function buildMetadata({
   const ogImageUrl = image.startsWith("http") ? image : absoluteUrl(image);
 
   return {
-    title,
+    // Only emit `title` when a page provides one. Returning `title: undefined`
+    // would override the root layout's `title.default`, leaving the page with no
+    // <title> at all. Omitting the key lets the layout default/template apply.
+    ...(title !== undefined && { title }),
     description,
     keywords,
     alternates: {
