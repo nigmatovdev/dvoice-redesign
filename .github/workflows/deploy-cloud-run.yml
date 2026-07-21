@@ -2,15 +2,15 @@ name: Deploy to Cloud Run
 
 on:
   push:
-    branches: [c-run]
+    branches: [main]
 
 env:
   PROJECT_ID: project-ca265e68-9d90-4187-a94
   REGION: asia-southeast1
-  SERVICE: dvoice-landing
-  REPOSITORY: dvoice-landing
-  WORKLOAD_IDENTITY_PROVIDER: projects/991177706039/locations/global/workloadIdentityPools/github-actions/providers/dvoice-landing-repo
-  SERVICE_ACCOUNT: dvoice-landing-deployer@project-ca265e68-9d90-4187-a94.iam.gserviceaccount.com
+  SERVICE: metrixme-landing
+  REPOSITORY: metrixme-landing
+  WORKLOAD_IDENTITY_PROVIDER: projects/991177706039/locations/global/workloadIdentityPools/github-actions/providers/metrixme-landing-repo
+  SERVICE_ACCOUNT: metrixme-landing-deployer@project-ca265e68-9d90-4187-a94.iam.gserviceaccount.com
 
 permissions:
   contents: read
