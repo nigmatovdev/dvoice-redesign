@@ -1,4 +1,5 @@
 import { AccessButton } from "../contact-modal";
+import { CountUp } from "../count-up";
 import { T } from "../lang-provider";
 import { Preview } from "../preview";
 
@@ -37,20 +38,24 @@ export function Hero() {
           </div>
           <div className="hero-ticks">
             <div className="tick">
-              <div className="n mono">1 742</div>
+              <div className="n mono">
+                <CountUp target={1742} grouping=" " />
+              </div>
               <div className="l">
                 <T k="tick1_l" />
               </div>
             </div>
             <div className="tick">
-              <div className="n mono">62.4</div>
+              <div className="n mono">
+                <CountUp target={62.4} decimals={1} />
+              </div>
               <div className="l">
                 <T k="tick2_l" />
               </div>
             </div>
             <div className="tick">
               <div className="n mono" style={{ color: "var(--green)" }}>
-                +18%
+                <CountUp target={18} prefix="+" suffix="%" />
               </div>
               <div className="l">
                 <T k="tick3_l" />

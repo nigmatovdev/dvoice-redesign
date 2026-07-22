@@ -15,6 +15,7 @@ import { T } from "./lang-provider";
 const links: { href: string; k: DictKey }[] = [
   { href: "/#showcase", k: "nav_showcase" },
   { href: "/#integrations", k: "ft_integr" },
+  { href: "/#about", k: "nav_about" },
   { href: "/#faq", k: "nav_faq" },
 ];
 

@@ -17,7 +17,7 @@ interface Policy {
   contactNote: string; // text shown before the Telegram link
 }
 
-const TELEGRAM = "https://t.me/arislanbek9";
+const TELEGRAM = "https://t.me/metrixme";
 const EMAIL = "info@metrixme.com";
 
 const CONTENT: Record<Lang, Policy> = {
@@ -286,7 +286,7 @@ export function Privacy() {
             <p>
               Telegram:{" "}
               <a href={TELEGRAM} target="_blank" rel="noopener noreferrer">
-                @arislanbek9
+                @metrixme
               </a>
             </p>
           </section>

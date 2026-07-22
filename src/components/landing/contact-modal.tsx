@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import {
   createContext,
   useCallback,
@@ -156,10 +157,6 @@ function ContactModal({ onClose }: { onClose: () => void }) {
                 <input name="company" type="text" required autoComplete="organization" placeholder={t("modal_company_ph")} />
               </label>
               <label className="field">
-                <span>{t("modal_position")}</span>
-                <input name="position" type="text" required autoComplete="organization-title" placeholder={t("modal_position_ph")} />
-              </label>
-              <label className="field">
                 <span>{t("modal_name")}</span>
                 <input name="fullName" type="text" required autoComplete="name" placeholder={t("modal_name_ph")} />
               </label>
@@ -179,6 +176,17 @@ function ContactModal({ onClose }: { onClose: () => void }) {
               <button type="submit" className="btn btn-primary btn-lg" disabled={sending}>
                 {sending ? t("modal_sending") : t("modal_submit")}
               </button>
+              <p className="modal-legal">
+                {t("modal_legal_pre")}{" "}
+                <Link href="/terms" target="_blank" rel="noopener noreferrer">
+                  {t("modal_legal_terms")}
+                </Link>{" "}
+                {t("modal_legal_mid")}{" "}
+                <Link href="/privacy" target="_blank" rel="noopener noreferrer">
+                  {t("modal_legal_privacy")}
+                </Link>
+                {t("modal_legal_post")}
+              </p>
             </form>
           </>
         )}

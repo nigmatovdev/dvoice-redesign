@@ -59,6 +59,10 @@ export const viewport: Viewport = {
 // of the wrong theme. Mirrors the inline script in the original landing.html.
 const noFlashScript = `
 try {
+  // Mark that JS is running BEFORE first paint. Scroll-reveal sections start
+  // hidden (opacity:0) only under '.js'; without JS they stay visible, so the
+  // whole page is readable with JavaScript disabled (crawlers, no-JS reviewers).
+  document.documentElement.classList.add('js');
   var t = localStorage.getItem('metrixme-landing-theme') || 'dark';
   document.documentElement.setAttribute('data-theme', t);
   var l = localStorage.getItem('metrixme-landing-lang');

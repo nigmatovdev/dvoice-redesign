@@ -1,11 +1,11 @@
 /* ============================================================
-   metrixme — i18n dictionary. Languages: uz (default) · en · ru.
+   metrixme — i18n dictionary. Languages: en (default) · uz · ru.
    Ported from the original landing.js I18N table.
    ============================================================ */
 
 export type Lang = "uz" | "en" | "ru";
 
-export const LANGS: Lang[] = ["uz", "en", "ru"];
+export const LANGS: Lang[] = ["en", "uz", "ru"];
 
 export const dict = {
   // ---- nav ----
@@ -19,9 +19,9 @@ export const dict = {
 
   // ---- hero ----
   hero_eyebrow: {
-    uz: "AI NUTQ TAHLILI · amoCRM",
-    en: "AI SPEECH ANALYTICS · amoCRM",
-    ru: "AI-АНАЛИЗ РЕЧИ · amoCRM",
+    uz: "AI NUTQ TAHLILI",
+    en: "AI SPEECH ANALYTICS",
+    ru: "AI-АНАЛИЗ РЕЧИ",
   },
   hero_title: {
     uz: "Har bir qo‘ng‘iroqni natijaga aylantiring.",
@@ -701,9 +701,9 @@ export const dict = {
     ru: "Мои данные в безопасности?",
   },
   faq4_a: {
-    uz: "Barcha yozuvlar shifrlangan holda saqlanadi va faqat sizning jamoangizga ko‘rinadi. Ma’lumotlaringiz hech qachon uchinchi tomonga sotilmaydi.",
-    en: "All recordings are stored encrypted and visible only to your team. Your data is never sold to third parties.",
-    ru: "Все записи хранятся в зашифрованном виде и видны только вашей команде. Ваши данные никогда не продаются третьим лицам.",
+    uz: "Ha — yozuvlar shifrlanadi, ularga faqat jamoangiz kira oladi, ma’lumotlar hech qachon ulashilmaydi yoki sotilmaydi. Ularni istalgan vaqtda o‘chirishingiz mumkin.",
+    en: "Yes — recordings are encrypted, access stays within your team, and data is never shared or sold. You can delete it anytime.",
+    ru: "Да — записи шифруются, доступ есть только у вашей команды, данные никогда не передаются и не продаются. Удалить их можно в любой момент.",
   },
   faq5_q: {
     uz: "Ulanish qancha vaqt oladi?",
@@ -724,6 +724,16 @@ export const dict = {
     uz: "14 kun davomida barcha PRO imkoniyatlaridan karta talab qilinmasdan foydalanasiz. Yoqmasa — hech narsa to‘lamaysiz.",
     en: "You get full PRO features for 14 days with no card required. If it’s not for you — you pay nothing.",
     ru: "14 дней все возможности PRO без карты. Не понравится — ничего не платите.",
+  },
+  faq_stage_q: {
+    uz: "metrixme qaysi bosqichda?",
+    en: "What stage is metrixme at?",
+    ru: "На какой стадии metrixme?",
+  },
+  faq_stage_a: {
+    uz: "metrixme ishga tushirilgan va faol ishlamoqda — allaqachon birinchi mijozlarimiz foydalanmoqda, yangilari esa hozir ulanmoqda.",
+    en: "metrixme is live in production — already used by our first customers, with more onboarding now.",
+    ru: "metrixme запущен в продакшене — уже используется нашими первыми клиентами, и сейчас подключаются новые.",
   },
 
   // ---- expert opinions (video carousel) ----
@@ -870,15 +880,40 @@ export const dict = {
     en: "Something went wrong. Please try again.",
     ru: "Ошибка отправки. Попробуйте ещё раз.",
   },
+  modal_legal_pre: {
+    uz: "Yuborish orqali siz",
+    en: "By submitting, you agree to our",
+    ru: "Отправляя форму, вы соглашаетесь с",
+  },
+  modal_legal_terms: {
+    uz: "Shartlar",
+    en: "Terms",
+    ru: "Условиями",
+  },
+  modal_legal_mid: {
+    uz: "va",
+    en: "and",
+    ru: "и",
+  },
+  modal_legal_privacy: {
+    uz: "Maxfiylik siyosati",
+    en: "Privacy Policy",
+    ru: "Политикой конфиденциальности",
+  },
+  modal_legal_post: {
+    uz: "ga rozilik bildirasiz.",
+    en: ".",
+    ru: ".",
+  },
 
   // ---- about us page ----
   nav_about: { uz: "Biz", en: "About", ru: "О нас" },
   about_eyebrow: { uz: "BIZ HAQIMIZDA", en: "ABOUT US", ru: "О НАС" },
   about_title: { uz: "Biz haqimizda", en: "About us", ru: "О нас" },
   about_desc: {
-    uz: "metrixme — O‘zbekistondagi sotuv jamoalari uchun AI nutq tahlili platformasini yaratayotgan jamoa. Bizning maqsadimiz — har bir qo‘ng‘iroqni o‘sish imkoniyatiga aylantirish va menejerlarga aniq, ma’lumotga asoslangan coaching berish.",
-    en: "metrixme is the team building an AI speech-analytics platform for sales teams across Uzbekistan. Our mission is to turn every call into a growth opportunity and give managers clear, data-driven coaching.",
-    ru: "metrixme — команда, создающая платформу AI-аналитики речи для отделов продаж в Узбекистане. Наша цель — превратить каждый звонок в возможность роста и дать менеджерам понятный коучинг на основе данных.",
+    uz: "metrixme har bir sotuv suhbatini qadrli qilishni maqsad qilgan. Kompaniya sotuv jamoalariga har bir qo‘ng‘iroqqa xolis nazar beruvchi va menejerlarga ma’lumotga asoslangan coaching qilishda yordam beruvchi sun’iy intellektli nutq tahlilini yaratadi — kundalik suhbatlarni o‘lchanadigan o‘sishga aylantiradi.",
+    en: "metrixme is on a mission to make every sales conversation count. The company builds AI speech analytics that give sales teams an objective view of every call and help managers coach with data — turning everyday conversations into measurable growth.",
+    ru: "Миссия metrixme — сделать значимым каждый разговор в продажах. Компания создаёт речевую аналитику на основе искусственного интеллекта, которая даёт отделам продаж объективный взгляд на каждый звонок и помогает руководителям обучать команду на основе данных, превращая повседневные разговоры в измеримый рост.",
   },
   about_team_eyebrow: { uz: "JAMOA", en: "TEAM", ru: "КОМАНДА" },
   about_team_title: {
@@ -890,6 +925,43 @@ export const dict = {
     uz: "Mahsulot, muhandislik va sotuvni birlashtirgan kichik, ammo kuchli jamoa.",
     en: "A small but mighty team spanning product, engineering and sales.",
     ru: "Небольшая, но сильная команда: продукт, инженерия и продажи.",
+  },
+  about_stage: {
+    uz: "Ishga tushirilgan va faol ishlamoqda — birinchi mijozlar allaqachon foydalanmoqda.",
+    en: "Live in production — already used by first customers.",
+    ru: "Запущен в продакшене — уже используется первыми клиентами.",
+  },
+  tm1_role: { uz: "CEO", en: "CEO", ru: "CEO" },
+  tm2_role: { uz: "CTO", en: "CTO", ru: "CTO" },
+  tm3_role: {
+    uz: "Product Manager",
+    en: "Product Manager",
+    ru: "Product Manager",
+  },
+  tm4_role: {
+    uz: "Product Engineer",
+    en: "Product Engineer",
+    ru: "Product Engineer",
+  },
+  tm1_bio: {
+    uz: "Xalq banki sun’iy intellekt laboratoriyasining sobiq rahbari.",
+    en: "Former Head of the AI Lab at Xalq Banki.",
+    ru: "Бывший руководитель AI-лаборатории в Xalq Banki.",
+  },
+  tm2_bio: {
+    uz: "Xalq bankida sobiq dasturiy ta’minot muhandisi.",
+    en: "Former Software Engineer at Xalq Banki.",
+    ru: "Бывший инженер-программист в Xalq Banki.",
+  },
+  tm3_bio: {
+    uz: "Progress Solution kompaniyasida sobiq loyiha menejeri.",
+    en: "Former Project Manager at Progress Solution.",
+    ru: "Бывший проектный менеджер в Progress Solution.",
+  },
+  tm4_bio: {
+    uz: "Citynet kompaniyasida sobiq dasturiy ta’minot muhandisi.",
+    en: "Former Software Engineer at Citynet.",
+    ru: "Бывший инженер-программист в Citynet.",
   },
 } as const;
 

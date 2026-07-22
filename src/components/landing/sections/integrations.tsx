@@ -4,7 +4,8 @@ import { T } from "../lang-provider";
 import { Reveal } from "../reveal";
 
 // Only amoCRM + manual upload are live today; the rest are honestly badged
-// "soon". Logos all share the brand blue for a cohesive, on-brand grid.
+// "soon". Live tiles get a glassy brand-blue face + a green connected dot;
+// soon tiles are outlined and desaturated (see .integ.live/.soon in globals.css).
 const integrations: { logo: string; name: DictKey; desc: DictKey; status: "live" | "soon" }[] = [
   { logo: "a", name: "in1_n", desc: "in1_d", status: "live" },
   { logo: "↑", name: "in2_n", desc: "in2_d", status: "live" },
@@ -14,9 +15,9 @@ const integrations: { logo: string; name: DictKey; desc: DictKey; status: "live"
 
 export function Integrations() {
   return (
-    <section className="section showcase" id="integrations" style={{ paddingTop: 80, paddingBottom: 80 }}>
+    <section className="section showcase" id="integrations">
       <div className="wrap">
-        <Reveal className="section-head" >
+        <Reveal className="section-head">
           <span className="eyebrow">
             <span className="dot" />
             <span>
@@ -32,10 +33,8 @@ export function Integrations() {
         </Reveal>
         <div className="integ-grid">
           {integrations.map((it) => (
-            <Reveal key={it.name} className="integ">
-              <div className="logo" style={{ background: "var(--blueSoft)", color: "var(--blue)" }}>
-                {it.logo}
-              </div>
+            <Reveal key={it.name} className={`integ ${it.status}`}>
+              <div className="logo">{it.logo}</div>
               <div className="integ-text">
                 <div className="nm">
                   <T k={it.name} />

@@ -20,7 +20,6 @@ export function Cta() {
           </p>
           <div className="cta-actions">
             <AccessButton k="cta_get_access" className="btn btn-primary btn-lg" />
-            <AccessButton k="cta_partner" className="btn btn-ghost btn-lg" />
           </div>
         </Reveal>
       </div>

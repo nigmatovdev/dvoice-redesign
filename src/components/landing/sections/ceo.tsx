@@ -12,7 +12,7 @@ const stages: { title: DictKey; fill: string; leak: string }[] = [
 
 export function Ceo() {
   return (
-    <section className="section" id="ceo" style={{ paddingTop: 0 }}>
+    <section className="section" id="ceo">
       <div className="wrap">
         <Reveal className="section-head">
           <span className="eyebrow">
@@ -28,27 +28,29 @@ export function Ceo() {
             <T k="ceo_lede" />
           </p>
         </Reveal>
-        <div className="funnel">
-          {stages.map((s) => (
-            <Reveal key={s.title} className="funnel-row">
-              <div className="funnel-stage">
-                <div className="sn">
-                  <T k={s.title} />
+        <div className="funnel-card">
+          <div className="funnel">
+            {stages.map((s) => (
+              <Reveal key={s.title} className="funnel-row">
+                <div className="funnel-stage">
+                  <div className="sn">
+                    <T k={s.title} />
+                  </div>
                 </div>
-              </div>
-              <div className="funnel-track">
-                <div className="funnel-fill" style={{ "--fill": s.fill } as React.CSSProperties}>
-                  {s.fill}
+                <div className="funnel-track">
+                  <div className="funnel-fill" style={{ "--fill": s.fill } as React.CSSProperties}>
+                    {s.fill}
+                  </div>
                 </div>
-              </div>
-              <div className="funnel-leak">
-                <div className="lv">{s.leak}</div>
-                <div className="ll">
-                  <T k="ceo_leak_l" />
+                <div className="funnel-leak">
+                  <div className="lv">{s.leak}</div>
+                  <div className="ll">
+                    <T k="ceo_leak_l" />
+                  </div>
                 </div>
-              </div>
-            </Reveal>
-          ))}
+              </Reveal>
+            ))}
+          </div>
         </div>
       </div>
     </section>

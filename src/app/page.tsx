@@ -13,5 +13,5 @@ export const metadata: Metadata = buildMetadata({
 // Server Component: the landing markup is server-rendered for SEO; small client
 // islands (theme, language, scroll reveal, signup) hydrate on top.
 export default function HomePage() {
-  return <LandingPage />;
+  return <LandingPage initialLang="en" />;
 }

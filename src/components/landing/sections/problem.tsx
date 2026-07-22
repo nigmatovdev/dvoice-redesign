@@ -32,6 +32,11 @@ export function Problem() {
 
         <Reveal className="calllist" aria-hidden="true">
           <div className="calllist-head">
+            <span className="dots">
+              <i />
+              <i />
+              <i />
+            </span>
             <span className="t">
               <T k="prob_card_title" />
             </span>

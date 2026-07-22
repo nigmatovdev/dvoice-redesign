@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 
 import { LANGS } from "@/lib/i18n";
 
@@ -16,7 +16,7 @@ const GlobeIcon = (
   </svg>
 );
 
-/** Single button that cycles the language UZ → EN → RU. Shows the current code. */
+/** Single button that cycles the language EN → UZ → RU. Shows the current code. */
 export function LangToggle() {
   const { lang, setLang } = useLang();
   const next = LANGS[(LANGS.indexOf(lang) + 1) % LANGS.length];
@@ -31,6 +31,32 @@ export function LangToggle() {
       {GlobeIcon}
       <span>{lang.toUpperCase()}</span>
     </button>
+  );
+}
+
+/**
+ * Footer language selector: EN · UZ · RU, always in that order. Live-switches
+ * via useLang() (no page reload, no dead /uz or /ru routes) and marks the
+ * active language.
+ */
+export function FooterLangs() {
+  const { lang, setLang } = useLang();
+  return (
+    <span className="footer-langs">
+      {LANGS.map((code, i) => (
+        <Fragment key={code}>
+          {i > 0 && <span aria-hidden="true">·</span>}
+          <button
+            type="button"
+            className={code === lang ? "active" : undefined}
+            aria-current={code === lang ? "true" : undefined}
+            onClick={() => setLang(code)}
+          >
+            {code.toUpperCase()}
+          </button>
+        </Fragment>
+      ))}
+    </span>
   );
 }
 

@@ -8,7 +8,7 @@ const after: DictKey[] = ["rop_a1_t", "rop_a2_t", "rop_a3_t"];
 
 export function Ops() {
   return (
-    <section className="section" id="ops" style={{ paddingTop: 0 }}>
+    <section className="section" id="ops">
       <div className="wrap">
         <Reveal className="section-head">
           <span className="eyebrow">
@@ -26,6 +26,9 @@ export function Ops() {
         </Reveal>
         <Reveal className="compare">
           <div className="compare-col before">
+            <svg className="compare-watermark" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" aria-hidden="true">
+              <path d="M6 6l12 12M18 6L6 18" />
+            </svg>
             <div className="compare-label">
               <span className="cl">
                 <T k="rop_before" />
@@ -57,6 +60,9 @@ export function Ops() {
           </div>
 
           <div className="compare-col after">
+            <svg className="compare-watermark" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+              <path d="M5 12.5l4.5 4.5L19 7" />
+            </svg>
             <div className="compare-label">
               <span className="cl">
                 <T k="rop_after" />

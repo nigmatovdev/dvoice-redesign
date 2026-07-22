@@ -7,8 +7,8 @@ const faqs: { q: DictKey; a: DictKey }[] = [
   { q: "faq1_q", a: "faq1_a" },
   { q: "faq2_q", a: "faq2_a" },
   { q: "faq3_q", a: "faq3_a" },
-  { q: "faq4_q", a: "faq4_a" },
   { q: "faq5_q", a: "faq5_a" },
+  { q: "faq_stage_q", a: "faq_stage_a" },
 ];
 
 export function Faq() {
@@ -28,18 +28,16 @@ export function Faq() {
             </h2>
           </div>
         </Reveal>
-        <div className="faq-grid">
-          {faqs.map((f) => (
-            <Reveal key={f.q} as="details" className="faq">
-              <summary>
-                <span>
-                  <T k={f.q} />
-                </span>
-                <span className="plus" />
-              </summary>
-              <div className="a">
+        <div className="faq-list">
+          {faqs.map((f, i) => (
+            <Reveal key={f.q} className="faq-item">
+              <span className="faq-idx mono">{String(i + 1).padStart(2, "0")}</span>
+              <h3 className="faq-q">
+                <T k={f.q} />
+              </h3>
+              <p className="faq-a">
                 <T k={f.a} />
-              </div>
+              </p>
             </Reveal>
           ))}
         </div>
