@@ -934,9 +934,9 @@ export const dict = {
   tm1_role: { uz: "CEO", en: "CEO", ru: "CEO" },
   tm2_role: { uz: "CTO", en: "CTO", ru: "CTO" },
   tm3_role: {
-    uz: "Product Manager",
-    en: "Product Manager",
-    ru: "Product Manager",
+    uz: "Chief Product Officer",
+    en: "Chief Product Officer",
+    ru: "Chief Product Officer",
   },
   tm4_role: {
     uz: "Product Engineer",
