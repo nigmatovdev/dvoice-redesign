@@ -445,9 +445,9 @@ export const dict = {
   // ---- results ----
   rs_eyebrow: { uz: "NATIJALAR", en: "RESULTS", ru: "РЕЗУЛЬТАТЫ" },
   rs_h2: {
-    uz: "Tinglashga ketgan vaqt — o‘sishga.",
-    en: "Time spent listening, returned as growth.",
-    ru: "Время, потраченное на прослушивание, — в рост.",
+    uz: "Tinglash soatlarini o‘sishga aylantiring.",
+    en: "Turn listening hours into growth.",
+    ru: "Превратите часы прослушивания в рост.",
   },
   r1_n: { uz: "100%", en: "100%", ru: "100%" },
   r1_l: {

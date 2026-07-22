@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   ...buildMetadata(),
   title: {
-    default: "metrixme — AI nutq tahlili / Speech analytics",
+    default: siteConfig.titleDefault,
     template: `%s | ${siteConfig.name}`,
   },
   applicationName: siteConfig.name,

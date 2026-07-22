@@ -49,7 +49,11 @@ export function buildMetadata({
   const ogImageUrl = image.startsWith("http") ? image : absoluteUrl(image);
 
   return {
-    title,
+    // Only set `title` when a page actually provides one. Emitting
+    // `title: undefined` here would count as the page "defining" a title and
+    // clobber the root layout's `title.default`, leaving the served HTML with
+    // no <title> at all.
+    ...(title ? { title } : {}),
     description,
     keywords,
     alternates: {
@@ -73,16 +77,16 @@ export function buildMetadata({
       siteName: siteConfig.name,
       locale: siteConfig.locale,
       url: canonical,
-      title: title ?? siteConfig.name,
+      title: title ?? siteConfig.titleDefault,
       description,
-      images: [{ url: ogImageUrl, width: 1200, height: 630, alt: title ?? siteConfig.name }],
+      images: [{ url: ogImageUrl, width: 1200, height: 630, alt: title ?? siteConfig.titleDefault }],
       ...(type === "article" && { publishedTime, modifiedTime }),
     },
     twitter: {
       card: "summary_large_image",
       site: siteConfig.twitter.site,
       creator: siteConfig.twitter.handle,
-      title: title ?? siteConfig.name,
+      title: title ?? siteConfig.titleDefault,
       description,
       images: [ogImageUrl],
     },

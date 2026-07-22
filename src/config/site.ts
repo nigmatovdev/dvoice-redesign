@@ -11,9 +11,11 @@ export const siteConfig = {
   shortName: "metrixme",
   description:
     "AI-powered speech analytics for contact centers — score every sales call, find the coaching zone, lift conversion.",
+  // Descriptive default <title> and OG title (never just the bare brand name).
+  titleDefault: "metrixme — AI speech analytics for contact centers",
   // Production URL. Used to build absolute URLs for canonical tags, OG images,
   // sitemaps, etc. Pulled from env so it differs per environment.
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://metrixme.com",
   // Default Open Graph / Twitter share image (relative to /public or a route).
   ogImage: "/opengraph-image",
   // Default UI locale. The landing renders Uzbek by default with an EN toggle.
@@ -24,7 +26,7 @@ export const siteConfig = {
   // Organization / author info for structured data.
   author: {
     name: "metrixme — Speech analytics",
-    url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+    url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://metrixme.com",
   },
   // Social handles (used in Twitter card metadata). Leave empty if unused.
   twitter: {
