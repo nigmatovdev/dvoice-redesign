@@ -10,7 +10,7 @@ export const siteConfig = {
   // Short name used in the PWA manifest.
   shortName: "metrixme",
   description:
-    "AI-powered speech analytics for contact centers — score every sales call, find the coaching zone, lift conversion.",
+    "AI speech analytics for contact centers. metrixme scores every call 0–100, shows where deals leak, and gives managers data-driven coaching to lift conversion.",
   // Descriptive default <title> and OG title (never just the bare brand name).
   titleDefault: "metrixme — AI speech analytics for contact centers",
   // Production URL. Used to build absolute URLs for canonical tags, OG images,
