@@ -3,7 +3,8 @@ import { type DictKey } from "@/lib/i18n";
 import { T } from "../lang-provider";
 import { Reveal } from "../reveal";
 
-const faqs: { q: DictKey; a: DictKey }[] = [
+// Exported so the homepage can build matching FAQPage JSON-LD (see page.tsx).
+export const faqs: { q: DictKey; a: DictKey }[] = [
   { q: "faq1_q", a: "faq1_a" },
   { q: "faq2_q", a: "faq2_a" },
   { q: "faq3_q", a: "faq3_a" },

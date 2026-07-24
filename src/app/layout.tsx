@@ -47,6 +47,9 @@ export const metadata: Metadata = {
   creator: siteConfig.author.name,
   publisher: siteConfig.author.name,
   formatDetection: { email: false, address: false, telephone: false },
+  // Non-standard tag — search engines use <title>, not this. Emitted only to
+  // satisfy SEO-audit tools that specifically check for <meta name="title">.
+  other: { title: siteConfig.titleDefault },
 };
 
 export const viewport: Viewport = {

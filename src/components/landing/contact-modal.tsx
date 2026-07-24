@@ -89,14 +89,36 @@ function ContactModal({ onClose }: { onClose: () => void }) {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError(null);
-    setSending(true);
     const fd = new FormData(e.currentTarget);
+    const company = ((fd.get("company") as string) || "").trim();
+    const fullName = ((fd.get("fullName") as string) || "").trim();
+    const phone = ((fd.get("phone") as string) || "").trim();
+    const email = ((fd.get("email") as string) || "").trim();
+
+    // Validation (runs before we show the sending state).
+    if (!company || !fullName) {
+      setError(t("modal_err_required"));
+      return;
+    }
+    // Phone: allow +, digits, spaces, (), - and require 9–15 actual digits.
+    const phoneDigits = phone.replace(/\D/g, "");
+    if (!/^\+?[\d\s()-]{7,}$/.test(phone) || phoneDigits.length < 9 || phoneDigits.length > 15) {
+      setError(t("modal_err_phone"));
+      return;
+    }
+    // Email: basic well-formedness check.
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      setError(t("modal_err_email"));
+      return;
+    }
+
+    setSending(true);
     // Backend schema: business_name · person_name · phone · email.
     const payload = {
-      business_name: fd.get("company"),
-      person_name: fd.get("fullName"),
-      phone: fd.get("phone"),
-      email: fd.get("email"),
+      business_name: company,
+      person_name: fullName,
+      phone,
+      email,
     };
     try {
       const res = await fetch("/api/signup", {

@@ -845,11 +845,11 @@ export const dict = {
   },
   modal_name: { uz: "To‘liq ism", en: "Full name", ru: "Полное имя" },
   modal_name_ph: { uz: "Ism Familiya", en: "Jane Doe", ru: "Иван Иванов" },
-  modal_email: { uz: "Gmail manzili", en: "Gmail address", ru: "Адрес Gmail" },
+  modal_email: { uz: "Email manzili", en: "Email address", ru: "Адрес эл. почты" },
   modal_email_ph: {
-    uz: "siz@gmail.com",
-    en: "you@gmail.com",
-    ru: "you@gmail.com",
+    uz: "siz@kompaniya.com",
+    en: "you@company.com",
+    ru: "you@company.com",
   },
   modal_phone: {
     uz: "Telefon raqami",
@@ -870,10 +870,20 @@ export const dict = {
     ru: "Заявка принята. Скоро свяжемся с вами.",
   },
   modal_close: { uz: "Yopish", en: "Close", ru: "Закрыть" },
+  modal_err_required: {
+    uz: "Iltimos, barcha maydonlarni to‘ldiring.",
+    en: "Please fill in all fields.",
+    ru: "Пожалуйста, заполните все поля.",
+  },
+  modal_err_phone: {
+    uz: "To‘g‘ri telefon raqamini kiriting.",
+    en: "Please enter a valid phone number.",
+    ru: "Введите корректный номер телефона.",
+  },
   modal_err_email: {
-    uz: "To‘g‘ri Gmail manzilini kiriting.",
-    en: "Please enter a valid Gmail address.",
-    ru: "Введите корректный адрес Gmail.",
+    uz: "To‘g‘ri email manzilini kiriting.",
+    en: "Please enter a valid email address.",
+    ru: "Введите корректный адрес эл. почты.",
   },
   modal_err_submit: {
     uz: "Yuborishda xatolik. Iltimos, qayta urinib ko‘ring.",

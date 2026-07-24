@@ -6,13 +6,13 @@
  */
 
 export const siteConfig = {
-  name: "metrixme",
+  name: "Metrixme",
   // Short name used in the PWA manifest.
   shortName: "metrixme",
   description:
     "AI speech analytics for contact centers. metrixme scores every call 0–100, shows where deals leak, and gives managers data-driven coaching to lift conversion.",
   // Descriptive default <title> and OG title (never just the bare brand name).
-  titleDefault: "metrixme — AI speech analytics for contact centers",
+  titleDefault: "Metrixme — AI speech analytics for contact centers",
   // Production URL. Used to build absolute URLs for canonical tags, OG images,
   // sitemaps, etc. Pulled from env so it differs per environment.
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://metrixme.com",
